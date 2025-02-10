@@ -9,7 +9,7 @@ import Projects from "../Projects";
 
 const Portfolio = () => {
   return (
-    <div className="relative">
+    <div className="relative ">
       <div className="absolute top-0 left-0 w-full h-screen overflow-hidden">
         <CircleAnimatedBackground />
       </div>
@@ -50,25 +50,6 @@ const Portfolio = () => {
 
       <div id="projects">
         <Projects />
-      </div>
-
-      <div className="items-center text-center w-full justify-center">
-        <div className="flex flex-col md:flex-row gap-6 md:gap-24 justify-between items-center w-full px-8 md:px-32 relative">
-          {/* Teks di kiri */}
-          <h1 className="text-4xl font-medium text-dark-gray text-center">
-            Let's Work Together
-          </h1>
-
-          <motion.button
-            className="w-16 h-16 flex items-center justify-center rounded-sm bg-black text-white mt-4 md:mt-0"
-            whileHover={{ scale: 1.05, backgroundColor: "#00000" }}
-            whileTap={{ scale: 0.95 }}
-            transition={{ type: "spring", stiffness: 300 }}
-            style={{ width: "180px" }}
-          >
-            <a href="mailto:wildanrizki9560@gmail.com">Write an Email</a>
-          </motion.button>
-        </div>
       </div>
 
       {/* Footer */}
