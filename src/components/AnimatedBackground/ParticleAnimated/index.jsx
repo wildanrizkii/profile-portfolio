@@ -15,7 +15,7 @@ const ParticleAnimated = () => {
         initial={{ x: "-20%", y: "20%" }}
         animate={{
           x: ["-20%", "10%", "-20%"],
-          y: ["20%", "30%", "20%"],
+          y: ["4%", "16%", "4%"],
           rotate: [0, 10, -10, 0], // Efek goyangan
         }}
         transition={{
