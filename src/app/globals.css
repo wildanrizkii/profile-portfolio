@@ -18,6 +18,7 @@ body {
   color: var(--foreground);
   background: var(--background);
   font-family: var(--font-plus-jakarta-sans), sans-serif;
+  cursor: none;
 }
 
 html {
@@ -42,4 +43,34 @@ html {
 html:hover ::-webkit-scrollbar-thumb,
 html:active ::-webkit-scrollbar-thumb {
   background: rgba(100, 100, 100, 0.4);
+}
+
+.custom-cursor {
+  mix-blend-mode: difference;
+  /* Efek warna terbalik */
+  background-color: white;
+  will-change: transform, scale;
+}
+
+* {
+  cursor: none !important;
+}
+
+/* Tetap tampilkan cursor text untuk input dan text area */
+input,
+textarea,
+[contenteditable="true"] {
+  cursor: text !important;
+}
+
+/* Style khusus untuk custom cursor */
+.custom-cursor {
+  pointer-events: none;
+  backface-visibility: hidden;
+  will-change: transform;
+}
+
+/* Tambahkan class ini ke elemen yang bisa diklik jika deteksi otomatis tidak bekerja */
+.clickable {
+  cursor: none !important;
 }
