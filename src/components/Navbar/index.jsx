@@ -80,7 +80,7 @@ const Navbar = () => {
 
   const DesktopSocialLinks = () => (
     <div className="hidden md:flex sm:flex flex-1 items-end justify-end p-4">
-      <div className=" min-w-[360px] max-h-[600px] aspect-square">
+      <div className="min-w-[360px] max-h-[600px] aspect-square">
         <div className="grid grid-cols-2 gap-2 h-full">
           {socialLinks.map((link, index) => (
             <motion.a
@@ -88,7 +88,17 @@ const Navbar = () => {
               href={link.href}
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
-              transition={{ delay: 0.3 + index * 0.1 }}
+              whileHover={{
+                scale: 1.3,
+                y: 0,
+                boxShadow: "0px 10px 20px rgba(0,0,0,0.2)",
+              }}
+              transition={{
+                type: "spring",
+                stiffness: 100,
+                damping: 10,
+                delay: 0.01,
+              }}
               className={`${link.bgColor} aspect-square flex flex-col items-center justify-center text-black border-2 border-black`}
             >
               <span className="text-2xl mb-1">{link.icon}</span>
@@ -110,10 +120,27 @@ const Navbar = () => {
             href={link.href}
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
-            transition={{ delay: 0.3 + index * 0.1 }}
+            whileHover={{
+              scale: 1.2,
+              y: -5,
+              rotate: 5,
+              boxShadow: "0px 8px 15px rgba(0,0,0,0.3)",
+            }}
+            transition={{
+              type: "spring",
+              stiffness: 200,
+              damping: 10,
+              delay: 0.01,
+            }}
             className="w-12 h-12 bg-black border-solid rounded-full flex items-center justify-center text-white"
           >
-            <span className="text-xl">{link.icon}</span>
+            <motion.span
+              whileHover={{ rotate: -10 }}
+              transition={{ type: "spring", stiffness: 300, damping: 15 }}
+              className="text-xl"
+            >
+              {link.icon}
+            </motion.span>
           </motion.a>
         ))}
       </div>
@@ -176,7 +203,7 @@ const Navbar = () => {
         <div className="flex items-center justify-center h-full px-4">
           <div className="grid sm:flex md:flex items-center justify-center gap-32 w-full max-w-7xl">
             {/* Left side - Navigation Links */}
-            <div className="text-left space-y-8">
+            <div className="text-left space-y-14">
               <AnimatedBackground />
               {navLinks.map((link, index) => (
                 <motion.div
