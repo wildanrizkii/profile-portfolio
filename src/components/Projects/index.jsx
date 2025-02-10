@@ -1,0 +1,184 @@
+import React, { useState } from "react";
+import { motion } from "framer-motion";
+import { ArrowRight } from "lucide-react";
+import ParticleAnimated from "../AnimatedBackground/ParticleAnimated";
+
+const Projects = () => {
+  const [isHovered, setIsHovered] = useState(false);
+  const [isHovered1, setIsHovered1] = useState(false);
+  const [isHovered2, setIsHovered2] = useState(false);
+  const [isHovered3, setIsHovered3] = useState(false);
+
+  const [position, setPosition] = useState({ x: 0, y: 0 });
+
+  const handleMouseMove = (e) => {
+    const imageWidth = 192; // Sesuaikan ukuran gambar (misalnya w-48)
+    const imageHeight = 192;
+
+    setPosition({
+      x: e.clientX - imageWidth,
+      y: e.clientY - imageHeight + 50,
+    });
+  };
+  return (
+    <div className="relative grid gap-32 justify-center bg-transparent px-4 md:px-12 py-28">
+      <div className="max-w-5xl mx-auto text-left grid gap-3">
+        <h1 className="text-6xl font-medium text-dark-gray">Projects</h1>
+      </div>
+
+      <ParticleAnimated />
+
+      {/* Project 1 */}
+      <div className="flex gap-10 items-center text-center w-full">
+        <div
+          className="flex flex-col md:flex-row gap-6 md:gap-24 justify-between items-center w-full px-8 md:px-32 relative"
+          onMouseEnter={() => setIsHovered(true)}
+          onMouseLeave={() => setIsHovered(false)}
+          onMouseMove={handleMouseMove}
+          onClick={() =>
+            window.open("https://trialbasemakercmw.online", "_blank")
+          }
+        >
+          {/* Teks di kiri */}
+          <h1 className="text-4xl w-96 lg:w-auto font-medium text-dark-gray text-center md:text-left">
+            Sistem Informasi Sparepart
+          </h1>
+
+          {/* Tombol panah di bawah pada layar kecil */}
+          <motion.button
+            className="w-16 h-16 flex items-center justify-center rounded-full bg-black text-white mt-4 md:mt-0"
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.9 }}
+          >
+            <motion.span
+              initial={{ x: 0 }}
+              whileHover={{ x: 5 }}
+              transition={{ type: "spring", stiffness: 200, damping: 10 }}
+            >
+              <ArrowRight size={24} />
+            </motion.span>
+          </motion.button>
+
+          <motion.div
+            className="absolute bottom-[-24px] left-0 right-0 h-[2px] bg-gray-200" // Jarak 8px dari elemen di atas
+            initial={{ backgroundColor: "#e5e7eb" }} // Warna awal abu-abu
+            animate={{ backgroundColor: isHovered ? "#000000" : "#e5e7eb" }} // Animasi warna saat hover
+            transition={{ duration: 0.3 }} // Durasi animasi
+          />
+        </div>
+      </div>
+      {isHovered && (
+        <motion.img
+          src="/images/CMW.png"
+          alt="preview"
+          className="w-96 h-auto rounded-md shadow-2xl pointer-events-none fixed top-0 left-0 z-[-1]"
+          animate={{ x: position.x, y: position.y, opacity: 1 }}
+          initial={{ opacity: 0 }}
+          exit={{ opacity: 0 }}
+          transition={{ type: "spring", stiffness: 200, damping: 20 }}
+        />
+      )}
+
+      {/* Project 2 */}
+      <div className="items-center text-center w-full">
+        <div
+          className="flex flex-col md:flex-row gap-6 md:gap-24 justify-between items-center w-full px-8 md:px-32 relative"
+          onMouseEnter={() => setIsHovered1(true)}
+          onMouseLeave={() => setIsHovered1(false)}
+          onMouseMove={handleMouseMove}
+        >
+          {/* Teks di kiri */}
+          <h1 className="text-4xl w-96 lg:w-auto font-medium text-dark-gray text-center md:text-left">
+            Aplikasi Pencatatan Arus Kas
+          </h1>
+
+          {/* Tombol panah di bawah pada layar kecil */}
+          <motion.button
+            className="w-16 h-16 flex items-center justify-center rounded-full bg-black text-white mt-4 md:mt-0"
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.9 }}
+          >
+            <motion.span
+              initial={{ x: 0 }}
+              whileHover={{ x: 5 }}
+              transition={{ type: "spring", stiffness: 200, damping: 10 }}
+            >
+              <ArrowRight size={24} />
+            </motion.span>
+          </motion.button>
+
+          <motion.div
+            className="absolute bottom-[-24px] left-0 right-0 h-[2px] bg-gray-200" // Jarak 8px dari elemen di atas
+            initial={{ backgroundColor: "#e5e7eb" }} // Warna awal abu-abu
+            animate={{ backgroundColor: isHovered1 ? "#000000" : "#e5e7eb" }} // Animasi warna saat hover
+            transition={{ duration: 0.3 }} // Durasi animasi
+          />
+        </div>
+      </div>
+
+      {/* Gambar dengan animasi mengikuti cursor */}
+      {isHovered1 && (
+        <motion.img
+          src="/images/Cashify.png"
+          alt="preview"
+          className="w-96 h-auto rounded-md shadow-2xl pointer-events-none fixed top-0 left-0 z-[-1]"
+          animate={{ x: position.x, y: position.y, opacity: 1 }}
+          initial={{ opacity: 0 }}
+          exit={{ opacity: 0 }}
+          transition={{ type: "spring", stiffness: 200, damping: 20 }}
+        />
+      )}
+      {/* Project 3 */}
+      <div className="items-center text-center w-full">
+        <div
+          className="flex flex-col md:flex-row gap-6 md:gap-24 justify-between items-center w-full px-8 md:px-32 relative"
+          onMouseEnter={() => setIsHovered2(true)}
+          onMouseLeave={() => setIsHovered2(false)}
+          onMouseMove={handleMouseMove}
+        >
+          {/* Teks di kiri */}
+          <h1 className="text-4xl w-96 lg:w-auto font-medium text-dark-gray text-center md:text-left">
+            Sistem Informasi Apotek Adora
+          </h1>
+
+          {/* Tombol panah di bawah pada layar kecil */}
+          <motion.button
+            className="w-16 h-16 flex items-center justify-center rounded-full bg-black text-white mt-4 md:mt-0"
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.9 }}
+          >
+            <motion.span
+              initial={{ x: 0 }}
+              whileHover={{ x: 5 }}
+              transition={{ type: "spring", stiffness: 200, damping: 10 }}
+            >
+              <ArrowRight size={24} />
+            </motion.span>
+          </motion.button>
+
+          <motion.div
+            className="absolute bottom-[-24px] left-0 right-0 h-[2px] bg-gray-200" // Jarak 8px dari elemen di atas
+            initial={{ backgroundColor: "#e5e7eb" }} // Warna awal abu-abu
+            animate={{ backgroundColor: isHovered2 ? "#000000" : "#e5e7eb" }} // Animasi warna saat hover
+            transition={{ duration: 0.3 }} // Durasi animasi
+          />
+        </div>
+      </div>
+
+      {/* Gambar dengan animasi mengikuti cursor */}
+      {isHovered2 && (
+        <motion.img
+          src="/images/Apotek.jpg"
+          alt="preview"
+          className="w-96 h-auto rounded-md shadow-2xl pointer-events-none fixed top-0 left-0 z-[-1]"
+          animate={{ x: position.x, y: position.y, opacity: 1 }}
+          initial={{ opacity: 0 }}
+          exit={{ opacity: 0 }}
+          transition={{ type: "spring", stiffness: 200, damping: 20 }}
+        />
+      )}
+    </div>
+  );
+};
+
+export default Projects;
