@@ -9,6 +9,9 @@ import { ArrowRight } from "lucide-react";
 const Portfolio = () => {
   const [position, setPosition] = useState({ x: 0, y: 0 });
   const [isHovered, setIsHovered] = useState(false);
+  const [isHovered1, setIsHovered1] = useState(false);
+  const [isHovered2, setIsHovered2] = useState(false);
+  const [isHovered3, setIsHovered3] = useState(false);
 
   const handleMouseMove = (e) => {
     const imageWidth = 192; // Sesuaikan ukuran gambar (misalnya w-48)
@@ -92,15 +95,33 @@ const Portfolio = () => {
                 <ArrowRight size={24} />
               </motion.span>
             </motion.button>
+
+            <motion.div
+              className="absolute bottom-[-24px] left-0 right-0 h-[2px] bg-gray-200" // Jarak 8px dari elemen di atas
+              initial={{ backgroundColor: "#e5e7eb" }} // Warna awal abu-abu
+              animate={{ backgroundColor: isHovered ? "#000000" : "#e5e7eb" }} // Animasi warna saat hover
+              transition={{ duration: 0.3 }} // Durasi animasi
+            />
           </div>
         </div>
+        {isHovered && (
+          <motion.img
+            src="/images/CMW.png"
+            alt="preview"
+            className="w-96 h-auto rounded-md shadow-2xl pointer-events-none fixed top-0 left-0 z-[-1]"
+            animate={{ x: position.x, y: position.y, opacity: 1 }}
+            initial={{ opacity: 0 }}
+            exit={{ opacity: 0 }}
+            transition={{ type: "spring", stiffness: 200, damping: 20 }}
+          />
+        )}
 
         {/* Project 2 */}
         <div className="items-center text-center w-full">
           <div
             className="flex flex-col md:flex-row gap-6 md:gap-24 justify-between items-center w-full px-8 md:px-32 relative"
-            onMouseEnter={() => setIsHovered(true)}
-            onMouseLeave={() => setIsHovered(false)}
+            onMouseEnter={() => setIsHovered1(true)}
+            onMouseLeave={() => setIsHovered1(false)}
             onMouseMove={handleMouseMove}
           >
             {/* Teks di kiri */}
@@ -122,11 +143,18 @@ const Portfolio = () => {
                 <ArrowRight size={24} />
               </motion.span>
             </motion.button>
+
+            <motion.div
+              className="absolute bottom-[-24px] left-0 right-0 h-[2px] bg-gray-200" // Jarak 8px dari elemen di atas
+              initial={{ backgroundColor: "#e5e7eb" }} // Warna awal abu-abu
+              animate={{ backgroundColor: isHovered1 ? "#000000" : "#e5e7eb" }} // Animasi warna saat hover
+              transition={{ duration: 0.3 }} // Durasi animasi
+            />
           </div>
         </div>
 
         {/* Gambar dengan animasi mengikuti cursor */}
-        {isHovered && (
+        {isHovered1 && (
           <motion.img
             src="/images/CMW.png"
             alt="preview"
@@ -141,8 +169,8 @@ const Portfolio = () => {
         <div className="items-center text-center w-full">
           <div
             className="flex flex-col md:flex-row gap-6 md:gap-24 justify-between items-center w-full px-8 md:px-32 relative"
-            onMouseEnter={() => setIsHovered(true)}
-            onMouseLeave={() => setIsHovered(false)}
+            onMouseEnter={() => setIsHovered2(true)}
+            onMouseLeave={() => setIsHovered2(false)}
             onMouseMove={handleMouseMove}
           >
             {/* Teks di kiri */}
@@ -164,11 +192,18 @@ const Portfolio = () => {
                 <ArrowRight size={24} />
               </motion.span>
             </motion.button>
+
+            <motion.div
+              className="absolute bottom-[-24px] left-0 right-0 h-[2px] bg-gray-200" // Jarak 8px dari elemen di atas
+              initial={{ backgroundColor: "#e5e7eb" }} // Warna awal abu-abu
+              animate={{ backgroundColor: isHovered2 ? "#000000" : "#e5e7eb" }} // Animasi warna saat hover
+              transition={{ duration: 0.3 }} // Durasi animasi
+            />
           </div>
         </div>
 
         {/* Gambar dengan animasi mengikuti cursor */}
-        {isHovered && (
+        {isHovered2 && (
           <motion.img
             src="/images/CMW.png"
             alt="preview"
@@ -181,9 +216,33 @@ const Portfolio = () => {
         )}
       </div>
 
+      <div className="items-center text-center w-full">
+        <div className="flex flex-col md:flex-row gap-6 md:gap-24 justify-between items-center w-full px-8 md:px-32 relative">
+          {/* Teks di kiri */}
+          <h1 className="text-4xl font-medium text-dark-gray text-left">
+            Let's Work Together
+          </h1>
+
+          <motion.button
+            className="w-16 h-16 flex items-center justify-center rounded-sm bg-black text-white mt-4 md:mt-0"
+            whileHover={{ scale: 1.05, backgroundColor: "#00000" }}
+            whileTap={{ scale: 0.95 }}
+            transition={{ type: "spring", stiffness: 300 }}
+            style={{ width: "180px" }}
+          >
+            <a href="mailto:wildanrizki9560@gmail.com">Write an Email</a>
+          </motion.button>
+        </div>
+      </div>
+
       {/* Footer */}
-      <footer className="py-8 text-center bg-transparent mt-12">
-        <p className="text-gray-700">Designed and developed by me</p>
+      <footer className="py-8 bg-transparent mt-12">
+        <div className="text-gray-700 flex justify-center items-center gap-1">
+          <div>Designed and developed by me | inspired by</div>
+          <a href="https://mohitkumar.dev/" className="underline">
+            Mohit Kumar
+          </a>
+        </div>
       </footer>
     </div>
   );
