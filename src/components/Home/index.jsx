@@ -42,6 +42,15 @@ const Portfolio = () => {
             creating web applications with clean user interfaces and optimized
             user experiences.
           </h1>
+          <motion.button
+            className="mt-8 px-4 py-4 bg-black rounded-sm text-white focus:outline-none text-xl text-center"
+            whileHover={{ scale: 1.05, backgroundColor: "#00000" }}
+            whileTap={{ scale: 0.95 }}
+            transition={{ type: "spring", stiffness: 300 }}
+            style={{ width: "180px" }} // Pastikan tombol tidak melebar
+          >
+            About me
+          </motion.button>
         </div>
         <div className="pt-4">
           <AnimatedScrollMouse />

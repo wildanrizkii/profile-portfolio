@@ -1,6 +1,6 @@
 "use client";
 import React, { useState, useEffect } from "react";
-import { Menu, X } from "lucide-react";
+import { Github, Mail, Linkedin, Instagram } from "lucide-react";
 import { motion } from "framer-motion";
 import AnimatedBackground from "../AnimatedBackground";
 
@@ -48,8 +48,77 @@ const Navbar = () => {
   const navLinks = [
     { href: "#home", label: "Home" },
     { href: "#projects", label: "Project" },
-    { href: "#about", label: "About Me" },
+    { href: "#about", label: "About me" },
   ];
+
+  const socialLinks = [
+    {
+      title: "GitHub",
+      href: "https://github.com/wildanrizkii",
+      icon: <Github />,
+      bgColor: "bg-transparent",
+    },
+    {
+      title: "Email",
+      href: "mailto:wildanrizki9560@gmail.com",
+      icon: <Mail />,
+      bgColor: "bg-transparent",
+    },
+    {
+      title: "LinkedIn",
+      href: "https://www.linkedin.com/in/wildanrizkii/",
+      icon: <Linkedin />,
+      bgColor: "bg-transparent",
+    },
+    {
+      title: "Instagram",
+      href: "https://www.instagram.com/wildanrizkii/",
+      icon: <Instagram />,
+      bgColor: "bg-transparent",
+    },
+  ];
+
+  const DesktopSocialLinks = () => (
+    <div className="hidden md:flex sm:flex flex-1 items-end justify-end p-4">
+      <div className=" min-w-[360px] max-h-[600px] aspect-square">
+        <div className="grid grid-cols-2 gap-2 h-full">
+          {socialLinks.map((link, index) => (
+            <motion.a
+              key={link.title}
+              href={link.href}
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ delay: 0.3 + index * 0.1 }}
+              className={`${link.bgColor} aspect-square flex flex-col items-center justify-center text-black border-2 border-black`}
+            >
+              <span className="text-2xl mb-1">{link.icon}</span>
+              <span className="text-lg">{link.title}</span>
+            </motion.a>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+
+  // Mobile Social Links Row
+  const MobileSocialLinks = () => (
+    <div className="sm:hidden md:hidden pb-28">
+      <div className="flex justify-center gap-6">
+        {socialLinks.map((link, index) => (
+          <motion.a
+            key={link.title}
+            href={link.href}
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ delay: 0.3 + index * 0.1 }}
+            className="w-12 h-12 bg-black border-solid rounded-full flex items-center justify-center text-white"
+          >
+            <span className="text-xl">{link.icon}</span>
+          </motion.a>
+        ))}
+      </div>
+    </div>
+  );
 
   return (
     <>
@@ -104,30 +173,38 @@ const Navbar = () => {
         transition={{ duration: 0.5, ease: "easeInOut" }}
         className="fixed inset-0 z-40 bg-[#f9f2ed]"
       >
-        <div className="flex items-center justify-start h-full px-44">
-          <AnimatedBackground />
-          <div className="text-left space-y-16">
-            {navLinks.map((link, index) => (
-              <motion.div
-                key={link.href}
-                initial={{ y: -20, opacity: 0 }}
-                animate={{ y: isOpen ? 0 : -20, opacity: isOpen ? 1 : 0 }}
-                transition={{
-                  duration: 0.3,
-                  ease: "easeOut",
-                  delay: index * 0.1, // Memberikan efek stagger
-                }}
-              >
-                <a
-                  key={index}
-                  href={link.href}
-                  className="block text-4xl text-nowrap font-medium text-dark-gray transition-transform duration-300 hover:scale-110 hover:text-primary"
-                  onClick={() => setIsOpen(false)}
+        <div className="flex items-center justify-center h-full px-4">
+          <div className="grid sm:flex md:flex items-center justify-center gap-32 w-full max-w-7xl">
+            {/* Left side - Navigation Links */}
+            <div className="text-left space-y-8">
+              <AnimatedBackground />
+              {navLinks.map((link, index) => (
+                <motion.div
+                  key={link.href}
+                  initial={{ y: -20, opacity: 0 }}
+                  animate={{ y: isOpen ? 0 : -20, opacity: isOpen ? 1 : 0 }}
+                  transition={{
+                    duration: 0.3,
+                    ease: "easeOut",
+                    delay: index * 0.1,
+                  }}
                 >
-                  {link.label}
-                </a>
-              </motion.div>
-            ))}
+                  <a
+                    href={link.href}
+                    className="block text-4xl text-nowrap font-medium text-dark-gray transition-transform duration-300 hover:scale-110 hover:text-primary"
+                    onClick={() => setIsOpen(false)}
+                  >
+                    {link.label}
+                  </a>
+                </motion.div>
+              ))}
+            </div>
+
+            {/* Right side - Social Links */}
+            <div className="flex-shrink-0">
+              <DesktopSocialLinks />
+              <MobileSocialLinks />
+            </div>
           </div>
         </div>
       </motion.div>
