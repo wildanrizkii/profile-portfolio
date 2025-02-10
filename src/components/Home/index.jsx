@@ -9,8 +9,8 @@ import Projects from "../Projects";
 
 const Portfolio = () => {
   return (
-    <div className="relative ">
-      <div className="absolute top-0 left-0 w-full h-screen overflow-hidden">
+    <div className="relative overflow-hidden">
+      <div className="absolute top-0 left-0 w-screen h-screen overflow-hidden">
         <CircleAnimatedBackground />
       </div>
       <Navbar />
@@ -20,7 +20,7 @@ const Portfolio = () => {
         id="home"
         className="relative grid gap-16 bg-transparent px-4 md:px-12 py-56"
       >
-        <div className="max-w-5xl mx-auto text-left grid gap-3">
+        <div className="w-full max-w-5xl mx-auto text-left grid gap-3 overflow-hidden">
           <h1 className="text-6xl font-medium text-dark-gray">
             Hi, I'm Wildan
           </h1>

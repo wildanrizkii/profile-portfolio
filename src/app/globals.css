@@ -25,6 +25,13 @@ html {
   @apply overflow-auto transition-all duration-300 scroll-smooth;
 }
 
+html,
+body {
+  overflow-x: hidden;
+  width: 100%;
+}
+
+
 /* Custom scrollbar untuk browser berbasis Webkit (Chrome, Safari) */
 ::-webkit-scrollbar {
   width: 8px;

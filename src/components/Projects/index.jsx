@@ -21,7 +21,7 @@ const Projects = () => {
     });
   };
   return (
-    <div className="relative grid gap-32 justify-center bg-transparent px-4 md:px-12 py-28">
+    <div className="relative grid gap-64 justify-center bg-transparent px-4 md:px-12 py-28">
       <div className="max-w-5xl mx-auto text-left grid gap-3">
         <h1 className="text-6xl font-medium text-dark-gray">Projects</h1>
       </div>
@@ -29,7 +29,7 @@ const Projects = () => {
       <ParticleAnimated />
 
       {/* Project 1 */}
-      <div className="flex gap-10 items-center text-center w-full">
+      <div className="flex gap-10 items-center text-center w-full pt-20">
         <div
           className="flex flex-col md:flex-row gap-6 md:gap-24 justify-between items-center w-full px-8 md:px-32 relative"
           onMouseEnter={() => setIsHovered(true)}
@@ -178,7 +178,7 @@ const Projects = () => {
         />
       )}
 
-      <div className="items-center text-center w-full justify-center pt-20">
+      <div className="items-center text-center w-full justify-center pt-8">
         <div className="flex flex-col md:flex-row gap-6 md:gap-24 justify-between items-center w-full px-8 md:px-32 relative">
           {/* Teks di kiri */}
           <h1 className="text-4xl font-medium text-dark-gray text-center">
