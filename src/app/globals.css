@@ -1,0 +1,45 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #f9f2ed;
+  --foreground: #181818;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #f9f2ed;
+    --foreground: #181818;
+  }
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: var(--font-plus-jakarta-sans), sans-serif;
+}
+
+html {
+  @apply overflow-auto transition-all duration-300 scroll-smooth;
+}
+
+/* Custom scrollbar untuk browser berbasis Webkit (Chrome, Safari) */
+::-webkit-scrollbar {
+  width: 8px;
+  /* Ukuran scrollbar */
+  transition: background-color 1s ease-in-out;
+}
+
+::-webkit-scrollbar-thumb {
+  background: transparent;
+  /* Transparan saat idle */
+  border-radius: 10px;
+  transition: background 1s ease-in-out;
+}
+
+/* Saat user mulai scroll atau hover, scrollbar jadi terlihat */
+html:hover ::-webkit-scrollbar-thumb,
+html:active ::-webkit-scrollbar-thumb {
+  background: rgba(100, 100, 100, 0.4);
+}
