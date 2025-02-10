@@ -55,7 +55,7 @@ const Portfolio = () => {
             About me
           </motion.button>
         </div>
-        <div className="pt-4">
+        <div className="grid">
           <AnimatedScrollMouse />
         </div>
       </div>
@@ -77,7 +77,7 @@ const Portfolio = () => {
             }
           >
             {/* Teks di kiri */}
-            <h1 className="text-4xl text-nowrap font-medium text-dark-gray text-left">
+            <h1 className="text-4xl w-96 lg:w-auto font-medium text-dark-gray text-center md:text-left">
               Sistem Informasi Sparepart
             </h1>
 
@@ -125,7 +125,7 @@ const Portfolio = () => {
             onMouseMove={handleMouseMove}
           >
             {/* Teks di kiri */}
-            <h1 className="text-4xl font-medium text-dark-gray text-left">
+            <h1 className="text-4xl w-96 lg:w-auto font-medium text-dark-gray text-center md:text-left">
               Aplikasi Pencatatan Arus Kas
             </h1>
 
@@ -156,7 +156,7 @@ const Portfolio = () => {
         {/* Gambar dengan animasi mengikuti cursor */}
         {isHovered1 && (
           <motion.img
-            src="/images/CMW.png"
+            src="/images/Cashify.png"
             alt="preview"
             className="w-96 h-auto rounded-md shadow-2xl pointer-events-none fixed top-0 left-0 z-[-1]"
             animate={{ x: position.x, y: position.y, opacity: 1 }}
@@ -174,8 +174,8 @@ const Portfolio = () => {
             onMouseMove={handleMouseMove}
           >
             {/* Teks di kiri */}
-            <h1 className="text-4xl font-medium text-dark-gray text-left">
-              Sistem Informasi Apotek
+            <h1 className="text-4xl w-96 lg:w-auto font-medium text-dark-gray text-center md:text-left">
+              Sistem Informasi Apotek Adora
             </h1>
 
             {/* Tombol panah di bawah pada layar kecil */}
@@ -205,7 +205,7 @@ const Portfolio = () => {
         {/* Gambar dengan animasi mengikuti cursor */}
         {isHovered2 && (
           <motion.img
-            src="/images/CMW.png"
+            src="/images/Apotek.jpg"
             alt="preview"
             className="w-96 h-auto rounded-md shadow-2xl pointer-events-none fixed top-0 left-0 z-[-1]"
             animate={{ x: position.x, y: position.y, opacity: 1 }}
@@ -216,10 +216,10 @@ const Portfolio = () => {
         )}
       </div>
 
-      <div className="items-center text-center w-full">
+      <div className="items-center text-center w-full justify-center">
         <div className="flex flex-col md:flex-row gap-6 md:gap-24 justify-between items-center w-full px-8 md:px-32 relative">
           {/* Teks di kiri */}
-          <h1 className="text-4xl font-medium text-dark-gray text-left">
+          <h1 className="text-4xl font-medium text-dark-gray text-center">
             Let's Work Together
           </h1>
 
