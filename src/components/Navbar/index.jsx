@@ -46,9 +46,9 @@ const Navbar = () => {
   // }, [isOpen]);
 
   const navLinks = [
-    { href: "#about", label: "Tentang Saya" },
-    { href: "#projects", label: "Proyek" },
-    { href: "#contact", label: "Kontak" },
+    { href: "#home", label: "Home" },
+    { href: "#projects", label: "Project" },
+    { href: "#about", label: "About Me" },
   ];
 
   return (
@@ -104,9 +104,9 @@ const Navbar = () => {
         transition={{ duration: 0.5, ease: "easeInOut" }}
         className="fixed inset-0 z-40 bg-[#f9f2ed]"
       >
-        <div className="flex items-center justify-center h-full">
+        <div className="flex items-center justify-start h-full px-44">
           <AnimatedBackground />
-          <div className="text-center space-y-8">
+          <div className="text-left space-y-16">
             {navLinks.map((link, index) => (
               <motion.div
                 key={link.href}
@@ -119,8 +119,9 @@ const Navbar = () => {
                 }}
               >
                 <a
+                  key={index}
                   href={link.href}
-                  className="block text-4xl font-medium text-dark-gray hover:text-primary transition-colors"
+                  className="block text-4xl text-nowrap font-medium text-dark-gray transition-transform duration-300 hover:scale-110 hover:text-primary"
                   onClick={() => setIsOpen(false)}
                 >
                   {link.label}
@@ -130,7 +131,6 @@ const Navbar = () => {
           </div>
         </div>
       </motion.div>
-      ;
     </>
   );
 };
