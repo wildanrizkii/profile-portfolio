@@ -7,6 +7,7 @@ import AnimatedBackground from "../AnimatedBackground";
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+
   const toggleMenu = () => {
     setIsOpen((prev) => !prev);
   };
@@ -79,8 +80,8 @@ const Navbar = () => {
   ];
 
   const DesktopSocialLinks = () => (
-    <div className="hidden md:flex sm:flex flex-1 items-end justify-end p-4">
-      <div className="min-w-[360px] max-h-[600px] aspect-square">
+    <div className="hidden md:flex items-end justify-end p-4">
+      <div className="min-w-[280px] max-h-[600px] aspect-square">
         <div className="grid grid-cols-2 gap-2 h-full">
           {socialLinks.map((link, index) => (
             <motion.a
@@ -112,8 +113,8 @@ const Navbar = () => {
 
   // Mobile Social Links Row
   const MobileSocialLinks = () => (
-    <div className="sm:hidden md:hidden pb-28">
-      <div className="flex justify-center gap-6">
+    <div className="block md:hidden pb-28">
+      <div className="flex sm:grid sm:pt-40 justify-center gap-10">
         {socialLinks.map((link, index) => (
           <motion.a
             key={link.title}

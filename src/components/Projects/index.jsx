@@ -26,7 +26,7 @@ const Projects = () => {
         <h1 className="text-6xl font-medium text-dark-gray">Projects</h1>
       </div>
 
-      <ParticleAnimated />
+      {/* <ParticleAnimated /> */}
 
       {/* Project 1 */}
       <div className="flex gap-10 items-center text-center w-full pt-20">
