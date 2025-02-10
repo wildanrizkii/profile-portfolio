@@ -237,7 +237,7 @@ const Portfolio = () => {
 
       {/* Footer */}
       <footer className="py-8 bg-transparent mt-12">
-        <div className="text-gray-700 flex justify-center items-center gap-1">
+        <div className="text-gray-700 flex flex-col md:flex-row justify-center items-center gap-1 text-center">
           <div>Designed and developed by me | inspired by</div>
           <a href="https://mohitkumar.dev/" className="underline">
             Mohit Kumar
