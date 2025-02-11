@@ -144,7 +144,7 @@ const Navbar = () => {
   // Mobile Social Links Row
   const MobileSocialLinks = () => (
     <div className="block md:hidden pb-28">
-      <div className="flex sm:grid sm:pt-40 justify-center gap-10">
+      <div className="flex sm:grid sm:pl-16 sm:pb-8 sm:pt-36 justify-center gap-10">
         {socialLinks.map((link, index) => (
           <motion.a
             key={link.title}
