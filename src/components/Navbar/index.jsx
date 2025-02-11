@@ -110,8 +110,8 @@ const Navbar = () => {
   ];
 
   const DesktopSocialLinks = () => (
-    <div className="hidden md:flex items-end justify-end p-4">
-      <div className="min-w-[280px] max-h-[600px] aspect-square">
+    <div className="hidden md:flex items-end justify-end pl-16">
+      <div className="min-w-[360px] max-h-[400px] aspect-square">
         <div className="grid grid-cols-2 gap-2 h-full">
           {socialLinks.map((link, index) => (
             <motion.a
@@ -120,13 +120,13 @@ const Navbar = () => {
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
               whileHover={{
-                scale: 1.3,
+                scale: 1.2,
                 y: 0,
                 boxShadow: "0px 10px 20px rgba(0,0,0,0.2)",
               }}
               transition={{
                 type: "spring",
-                stiffness: 100,
+                stiffness: 200,
                 damping: 10,
                 delay: 0.01,
               }}
@@ -228,7 +228,7 @@ const Navbar = () => {
         initial={{ y: "-100%", opacity: 0 }}
         animate={{ y: isOpen ? "0%" : "-100%", opacity: isOpen ? 1 : 0 }}
         exit={{ y: "-100%", opacity: 0 }}
-        transition={{ duration: 0.5, ease: "easeInOut" }}
+        transition={{ duration: 0.6, ease: "easeInOut" }}
         className="fixed inset-0 z-40 bg-[#f9f2ed]"
       >
         <div className="flex items-center justify-center h-full px-4">
