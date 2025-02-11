@@ -8,18 +8,11 @@ import PageTransition from "../PageTransition";
 import { AnimatePresence, motion } from "framer-motion";
 import { usePathname } from "next/navigation";
 import Projects from "../Projects/Home";
+import AnimatedBackground from "../AnimatedBackground";
 
 const fadeInUp = {
   hidden: { opacity: 0, y: 60 },
   visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
-};
-
-const fadeIn = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: { duration: 1, ease: "easeOut", delay: 3.6 },
-  },
 };
 
 const staggerChildren = {
@@ -50,7 +43,7 @@ const navbarFadeDown = {
   },
 };
 
-const Portfolio = () => {
+const Constraction = () => {
   const router = useRouter();
   const pathname = usePathname();
   const [isTransitioning, setIsTransitioning] = useState(false);
@@ -85,7 +78,7 @@ const Portfolio = () => {
             animate="visible"
             variants={backgroundFadeIn}
           >
-            <CircleAnimatedBackground />
+            <AnimatedBackground />
           </motion.section>
 
           <motion.nav
@@ -99,7 +92,7 @@ const Portfolio = () => {
 
           {/* Hero Section */}
           <motion.section
-            className="relative grid gap-16 px-4 md:px-12 py-56"
+            className=" justify-center text-center items-center grid gap-16 px-4 md:px-12 py-56"
             initial="hidden"
             animate="visible"
             viewport={{ once: false, amount: 0.1 }} // Tambahkan ini
@@ -113,21 +106,19 @@ const Portfolio = () => {
                 className="text-6xl font-medium text-dark-gray"
                 variants={fadeInUp}
               >
-                Hi, I'm Wildan
+                I'm sorry!
               </motion.h1>
               <motion.h1
                 className="text-7xl font-semibold text-dark-gray"
                 variants={fadeInUp}
               >
-                I'm turning my mind into magic
+                This Page Is Under Construction
               </motion.h1>
               <motion.h1
                 className="text-2xl font-medium text-dark-gray pt-4"
                 variants={fadeInUp}
               >
-                I am a Web Designer and Full Stack Web Developer specializing in
-                creating web applications with clean user interfaces and
-                optimized user experiences.
+                We're working hard to bring you something amazing!
               </motion.h1>
               <motion.div variants={fadeInUp}>
                 <motion.button
@@ -135,55 +126,17 @@ const Portfolio = () => {
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                   transition={{ type: "spring", stiffness: 300 }}
-                  onClick={() => router.push("/about")}
+                  onClick={() => router.push("/")}
                 >
-                  About me
+                  Back to Home
                 </motion.button>
               </motion.div>
             </motion.div>
-
-            {/* Scroll Mouse */}
-            <motion.div
-              className="w-full flex justify-center"
-              variants={fadeIn}
-            >
-              <AnimatedScrollMouse />
-            </motion.div>
           </motion.section>
-
-          {/* Projects Section */}
-          <motion.div
-            className="w-full max-w-6xl mx-auto overflow-hidden"
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            variants={fadeInUp}
-          >
-            <Projects />
-          </motion.div>
-
-          {/* Footer */}
-          <motion.footer
-            className="w-full py-8 bg-transparent mt-12"
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            variants={fadeInUp}
-          >
-            <div className="text-gray-700 flex flex-col md:flex-row justify-center items-center gap-1 text-center">
-              <span>Designed and developed by me | inspired by</span>
-              <a
-                href="https://mohitkumar.dev/"
-                className="underline hover:text-gray-900"
-              >
-                Mohit Kumar
-              </a>
-            </div>
-          </motion.footer>
         </div>
       </motion.div>
     </>
   );
 };
 
-export default Portfolio;
+export default Constraction;

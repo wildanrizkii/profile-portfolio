@@ -7,7 +7,7 @@ import AnimatedScrollMouse from "../AnimatedScrollMouse";
 import PageTransition from "../PageTransition";
 import { AnimatePresence, delay, motion } from "framer-motion";
 import { usePathname } from "next/navigation";
-import Projects from "../Projects";
+import Projects from "../Projects/Home";
 import AnimatedBackground from "../AnimatedBackground";
 
 const fadeInUp = {
