@@ -61,6 +61,10 @@ const Portfolio = () => {
     return () => clearTimeout(timer);
   }, [pathname]);
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <>
       <AnimatePresence mode="wait">
@@ -152,7 +156,7 @@ const Portfolio = () => {
             className="w-full max-w-6xl mx-auto overflow-hidden"
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, margin: "-100px" }}
+            viewport={{ once: true }}
             variants={fadeInUp}
           >
             <Projects />
