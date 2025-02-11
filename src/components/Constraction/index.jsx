@@ -99,19 +99,19 @@ const Constraction = () => {
               variants={staggerChildren}
             >
               <motion.h1
-                className="text-6xl font-medium text-dark-gray"
+                className="text-4xl md:text-5xl font-medium text-dark-gray"
                 variants={fadeInUp}
               >
                 I'm sorry!
               </motion.h1>
               <motion.h1
-                className="text-7xl font-semibold text-dark-gray"
+                className="text-5xl md:text-7xl font-semibold text-dark-gray"
                 variants={fadeInUp}
               >
                 This Page Is Under Construction
               </motion.h1>
               <motion.h1
-                className="text-2xl font-medium text-dark-gray pt-4"
+                className="text-xl md:text-2xl font-medium text-dark-gray pt-4"
                 variants={fadeInUp}
               >
                 We're working hard to bring you something amazing!
