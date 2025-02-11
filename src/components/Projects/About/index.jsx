@@ -38,13 +38,13 @@ const Projects = () => {
             }
           >
             {/* Teks di kiri */}
-            <h1 className="text-4xl w-96 lg:w-auto font-medium text-dark-gray text-left">
+            <h1 className="text-3xl md:text-4xl w-96 lg:w-auto font-medium text-dark-gray text-left">
               Sistem Informasi Sparepart
             </h1>
 
             {/* Tombol panah di bawah pada layar kecil */}
             <motion.button
-              className="w-16 h-16 flex items-center justify-center rounded-full bg-black text-white mt-4 md:mt-0"
+              className="w-14 h-14 md:w-16 md:h-16 flex items-center justify-center rounded-full bg-black text-white mt-4 md:mt-0"
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
             >
@@ -86,13 +86,13 @@ const Projects = () => {
             onMouseMove={handleMouseMove}
           >
             {/* Teks di kiri */}
-            <h1 className="text-4xl w-96 lg:w-auto font-medium text-dark-gray text-left md:text-left">
+            <h1 className="text-3xl md:text-4xl w-80 md:w-auto lg:w-98 font-medium text-dark-gray text-left">
               Aplikasi Pencatatan Arus Kas
             </h1>
 
             {/* Tombol panah di bawah pada layar kecil */}
             <motion.button
-              className="w-16 h-16 flex items-center justify-center rounded-full bg-black text-white mt-4 md:mt-0"
+              className="w-14 h-14 md:w-16 md:h-16 flex items-center justify-center rounded-full bg-black text-white md:mt-0"
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
             >
@@ -135,13 +135,13 @@ const Projects = () => {
             onMouseMove={handleMouseMove}
           >
             {/* Teks di kiri */}
-            <h1 className="text-4xl w-96 lg:w-auto font-medium text-dark-gray text-left md:text-left">
+            <h1 className="text-3xl md:text-4xl w-80 md:w-auto lg:w-98 font-medium text-dark-gray text-left md:text-left">
               Sistem Informasi Apotek Adora
             </h1>
 
             {/* Tombol panah di bawah pada layar kecil */}
             <motion.button
-              className="w-16 h-16 flex items-center justify-center rounded-full bg-black text-white mt-4 md:mt-0"
+              className="w-14 h-14 md:w-16 md:h-16 flex items-center justify-center rounded-full bg-black text-white mt-0"
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
             >
@@ -179,12 +179,12 @@ const Projects = () => {
         <div className="items-center text-center w-full justify-center pt-8">
           <div className="flex flex-col md:flex-row gap-6 md:gap-24 justify-between items-start w-full px-8 md:px-32 relative">
             {/* Teks di kiri */}
-            <h1 className="text-4xl font-medium text-dark-gray text-center">
+            <h1 className="text-3xl md:text-4xl font-medium text-dark-gray text-center">
               Let's Work Together
             </h1>
 
             <motion.button
-              className="w-16 h-16 flex items-center justify-center rounded-sm bg-black text-white mt-4 md:mt-0"
+              className="w-12 h-14 md:w-16 md:h-16 flex items-center justify-center rounded-sm bg-black text-white mt-4 md:mt-0"
               whileHover={{ scale: 1.05, backgroundColor: "#00000" }}
               whileTap={{ scale: 0.95 }}
               transition={{ type: "spring", stiffness: 300 }}

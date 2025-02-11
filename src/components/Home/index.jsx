@@ -102,7 +102,7 @@ const Portfolio = () => {
             variants={staggerChildren}
           >
             <motion.div
-              className="w-full max-w-5xl mx-auto grid gap-3"
+              className="w-full max-w-5xl mx-auto grid gap-10 md:gap-3"
               variants={staggerChildren}
             >
               <motion.h1
@@ -115,13 +115,7 @@ const Portfolio = () => {
                 className="text-7xl font-semibold text-dark-gray"
                 variants={fadeInUp}
               >
-                I'm turning my mind
-              </motion.h1>
-              <motion.h1
-                className="text-7xl font-semibold text-dark-gray"
-                variants={fadeInUp}
-              >
-                into magic
+                I'm turning my mind into magic
               </motion.h1>
               <motion.h1
                 className="text-2xl font-medium text-dark-gray pt-4"
@@ -133,7 +127,7 @@ const Portfolio = () => {
               </motion.h1>
               <motion.div variants={fadeInUp}>
                 <motion.button
-                  className="mt-8 px-4 py-4 bg-black rounded-sm text-white focus:outline-none text-xl w-[180px]"
+                  className="mt-2 md:mt-8 px-4 py-4 bg-black rounded-sm text-white focus:outline-none text-xl w-[180px]"
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                   transition={{ type: "spring", stiffness: 300 }}
