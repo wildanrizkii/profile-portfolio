@@ -2,12 +2,9 @@
 import React, { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import Navbar from "@/components/Navbar/";
-import CircleAnimatedBackground from "@/components/AnimatedBackground/CircleAnimatedBackground";
-import AnimatedScrollMouse from "../AnimatedScrollMouse";
 import PageTransition from "../PageTransition";
 import { AnimatePresence, motion } from "framer-motion";
 import { usePathname } from "next/navigation";
-import Projects from "../Projects/Home";
 import AnimatedBackground from "../AnimatedBackground";
 
 const fadeInUp = {
