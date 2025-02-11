@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 
 const Projects = () => {
   const [isHovered, setIsHovered] = useState(false);
@@ -10,6 +10,7 @@ const Projects = () => {
 
   const [position, setPosition] = useState({ x: 0, y: 0 });
 
+  const router = useRouter();
   const pathname = usePathname();
   const [isMounted, setIsMounted] = useState(false);
 
@@ -170,6 +171,9 @@ const Projects = () => {
                     onMouseEnter={() => setIsHovered1(true)}
                     onMouseLeave={() => setIsHovered1(false)}
                     onMouseMove={handleMouseMove}
+                    onClick={() => {
+                      router.push("/projects");
+                    }}
                   >
                     {/* Teks di kiri */}
                     <h1 className="text-3xl md:text-4xl w-80 md:w-auto lg:w-98 font-medium text-dark-gray text-left">
@@ -231,7 +235,6 @@ const Projects = () => {
               className="w-full max-w-5xl mx-auto grid gap-10 md:gap-3"
               variants={staggerChildren}
             >
-              {/* Project 2 */}
               <motion.div variants={fadeInUp}>
                 {/* Project 3 */}
                 <div className="items-center text-center w-full">
@@ -240,6 +243,9 @@ const Projects = () => {
                     onMouseEnter={() => setIsHovered2(true)}
                     onMouseLeave={() => setIsHovered2(false)}
                     onMouseMove={handleMouseMove}
+                    onClick={() => {
+                      router.push("/projects");
+                    }}
                   >
                     {/* Teks di kiri */}
                     <h1 className="text-3xl md:text-4xl w-80 md:w-auto lg:w-98 font-medium text-dark-gray text-left md:text-left">

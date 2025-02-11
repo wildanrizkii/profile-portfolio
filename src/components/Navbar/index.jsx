@@ -247,8 +247,7 @@ const Navbar = () => {
                     delay: index * 0.1,
                   }}
                 >
-                  <motion.a
-                    href={link.href}
+                  <motion.div
                     className="block text-4xl text-nowrap font-medium text-dark-gray transition-transform duration-300 hover:scale-110 hover:text-primary"
                     onClick={() => {
                       setIsOpen(false);
@@ -256,7 +255,7 @@ const Navbar = () => {
                     }}
                   >
                     {link.label}
-                  </motion.a>
+                  </motion.div>
                 </motion.div>
               ))}
             </div>
