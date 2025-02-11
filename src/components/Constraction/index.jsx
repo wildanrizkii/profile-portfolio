@@ -89,10 +89,9 @@ const Constraction = () => {
 
           {/* Hero Section */}
           <motion.section
-            className=" justify-center text-center items-center grid gap-16 px-4 md:px-12 py-56"
+            className="justify-center text-center items-center grid gap-16 px-4 md:px-12 py-56"
             initial="hidden"
             animate="visible"
-            viewport={{ once: false, amount: 0.1 }} // Tambahkan ini
             variants={staggerChildren}
           >
             <motion.div
@@ -117,7 +116,11 @@ const Constraction = () => {
               >
                 We're working hard to bring you something amazing!
               </motion.h1>
-              <motion.div variants={fadeInUp}>
+              <motion.div
+                variants={fadeInUp}
+                className="relative z-10"
+                whileTap={{ scale: 0.95 }}
+              >
                 <motion.button
                   className="mt-2 md:mt-8 px-4 py-4 bg-black rounded-sm text-white focus:outline-none text-xl w-[180px]"
                   whileHover={{ scale: 1.05 }}
