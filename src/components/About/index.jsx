@@ -7,7 +7,7 @@ import AnimatedScrollMouse from "../AnimatedScrollMouse";
 import PageTransition from "../PageTransition";
 import { AnimatePresence, delay, motion } from "framer-motion";
 import { usePathname } from "next/navigation";
-import Projects from "../Projects/About";
+import Projects from "../Projects";
 import AnimatedBackground from "../AnimatedBackground";
 
 const fadeInUp = {
@@ -153,19 +153,6 @@ const About = () => {
                   <li>Full stack web development</li>
                   <li>Front end web development</li>
                 </ul>
-              </motion.div>
-
-              <motion.div variants={fadeInUp}>
-                {/* Tombol About Me */}
-                {/* <motion.button
-        className="mt-8 px-4 py-4 bg-black rounded-sm text-white focus:outline-none text-lg sm:text-xl w-[180px]"
-        whileHover={{ scale: 1.05 }}
-        whileTap={{ scale: 0.95 }}
-        transition={{ type: "spring", stiffness: 300 }}
-        onClick={() => router.push("/about")}
-      >
-        About me
-      </motion.button> */}
               </motion.div>
             </motion.div>
 
