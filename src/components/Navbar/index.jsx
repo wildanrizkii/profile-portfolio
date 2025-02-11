@@ -3,10 +3,13 @@ import React, { useState, useEffect } from "react";
 import { Github, Mail, Linkedin, Instagram } from "lucide-react";
 import { motion } from "framer-motion";
 import AnimatedBackground from "../AnimatedBackground";
+import { useRouter } from "next/navigation";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+
+  const router = useRouter();
 
   const toggleMenu = () => {
     setIsOpen((prev) => !prev);
@@ -47,9 +50,9 @@ const Navbar = () => {
   // }, [isOpen]);
 
   const navLinks = [
-    { href: "#home", label: "Home" },
-    { href: "#projects", label: "Project" },
-    { href: "#about", label: "About me" },
+    { href: "/", label: "Home" },
+    { href: "/projects", label: "Project" },
+    { href: "/about", label: "About me" },
   ];
 
   const socialLinks = [
@@ -220,7 +223,10 @@ const Navbar = () => {
                   <a
                     href={link.href}
                     className="block text-4xl text-nowrap font-medium text-dark-gray transition-transform duration-300 hover:scale-110 hover:text-primary"
-                    onClick={() => setIsOpen(false)}
+                    onClick={() => {
+                      setIsOpen(false);
+                      router.push(`${link.href}`);
+                    }}
                   >
                     {link.label}
                   </a>

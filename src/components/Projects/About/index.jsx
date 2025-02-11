@@ -20,7 +20,7 @@ const Projects = () => {
     });
   };
   return (
-    <div className="relative justify-center bg-transparent px-4 md:px-12 py-28 w-full">
+    <div className="relative justify-center bg-transparent px-4 md:px-12 w-full">
       <div className="grid ">
         <h1 className="text-6xl  font-medium text-dark-gray">Projects</h1>
       </div>

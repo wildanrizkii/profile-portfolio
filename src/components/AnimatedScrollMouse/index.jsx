@@ -8,7 +8,7 @@ export default function AnimatedScrollMouse() {
       <div className="w-10 h-16 border-2 border-black rounded-full flex justify-center items-start p-2 relative">
         {/* Scroll (Bagian dalam yang bergerak naik-turun) */}
         <motion.div
-          className="w-2 h-4 bg-black rounded-full"
+          className="w-1.5 h-4 bg-black rounded-full"
           animate={{ y: [0, 8, 0] }}
           transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
         />
