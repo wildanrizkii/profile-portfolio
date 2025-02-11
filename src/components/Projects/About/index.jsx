@@ -29,7 +29,7 @@ const Projects = () => {
         {/* Project 1 */}
         <div className="flex gap-10 items-center text-center w-full pt-20">
           <div
-            className="flex flex-col md:flex-row gap-6 md:gap-24 justify-between items-center w-full px-8 md:px-32 relative"
+            className="flex flex-col md:flex-row gap-6 md:gap-24 justify-between items-start w-full px-8 md:px-32 relative"
             onMouseEnter={() => setIsHovered(true)}
             onMouseLeave={() => setIsHovered(false)}
             onMouseMove={handleMouseMove}
@@ -38,7 +38,7 @@ const Projects = () => {
             }
           >
             {/* Teks di kiri */}
-            <h1 className="text-4xl w-96 lg:w-auto font-medium text-dark-gray text-center md:text-left">
+            <h1 className="text-4xl w-96 lg:w-auto font-medium text-dark-gray text-left">
               Sistem Informasi Sparepart
             </h1>
 
@@ -68,7 +68,7 @@ const Projects = () => {
         {isHovered && (
           <motion.img
             src="/images/CMW.png"
-            alt="preview"
+            alt="cmw"
             className="w-96 h-auto rounded-md shadow-2xl pointer-events-none fixed top-0 left-0 z-[-1]"
             animate={{ x: position.x, y: position.y, opacity: 1 }}
             initial={{ opacity: 0 }}
@@ -80,13 +80,13 @@ const Projects = () => {
         {/* Project 2 */}
         <div className="items-center text-center w-full">
           <div
-            className="flex flex-col md:flex-row gap-6 md:gap-24 justify-between items-center w-full px-8 md:px-32 relative"
+            className="flex flex-col md:flex-row gap-6 md:gap-24 justify-between items-start w-full px-8 md:px-32 relative"
             onMouseEnter={() => setIsHovered1(true)}
             onMouseLeave={() => setIsHovered1(false)}
             onMouseMove={handleMouseMove}
           >
             {/* Teks di kiri */}
-            <h1 className="text-4xl w-96 lg:w-auto font-medium text-dark-gray text-center md:text-left">
+            <h1 className="text-4xl w-96 lg:w-auto font-medium text-dark-gray text-left md:text-left">
               Aplikasi Pencatatan Arus Kas
             </h1>
 
@@ -118,7 +118,7 @@ const Projects = () => {
         {isHovered1 && (
           <motion.img
             src="/images/Cashify.png"
-            alt="preview"
+            alt="cashify"
             className="w-96 h-auto rounded-md shadow-2xl pointer-events-none fixed top-0 left-0 z-[-1]"
             animate={{ x: position.x, y: position.y, opacity: 1 }}
             initial={{ opacity: 0 }}
@@ -129,13 +129,13 @@ const Projects = () => {
         {/* Project 3 */}
         <div className="items-center text-center w-full">
           <div
-            className="flex flex-col md:flex-row gap-6 md:gap-24 justify-between items-center w-full px-8 md:px-32 relative"
+            className="flex flex-col md:flex-row gap-6 md:gap-24 justify-between items-start w-full px-8 md:px-32 relative"
             onMouseEnter={() => setIsHovered2(true)}
             onMouseLeave={() => setIsHovered2(false)}
             onMouseMove={handleMouseMove}
           >
             {/* Teks di kiri */}
-            <h1 className="text-4xl w-96 lg:w-auto font-medium text-dark-gray text-center md:text-left">
+            <h1 className="text-4xl w-96 lg:w-auto font-medium text-dark-gray text-left md:text-left">
               Sistem Informasi Apotek Adora
             </h1>
 
@@ -167,7 +167,7 @@ const Projects = () => {
         {isHovered2 && (
           <motion.img
             src="/images/Apotek.jpg"
-            alt="preview"
+            alt="apotek"
             className="w-96 h-auto rounded-md shadow-2xl pointer-events-none fixed top-0 left-0 z-[-1]"
             animate={{ x: position.x, y: position.y, opacity: 1 }}
             initial={{ opacity: 0 }}
@@ -177,7 +177,7 @@ const Projects = () => {
         )}
 
         <div className="items-center text-center w-full justify-center pt-8">
-          <div className="flex flex-col md:flex-row gap-6 md:gap-24 justify-between items-center w-full px-8 md:px-32 relative">
+          <div className="flex flex-col md:flex-row gap-6 md:gap-24 justify-between items-start w-full px-8 md:px-32 relative">
             {/* Teks di kiri */}
             <h1 className="text-4xl font-medium text-dark-gray text-center">
               Let's Work Together
