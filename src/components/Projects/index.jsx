@@ -84,7 +84,7 @@ const Projects = () => {
           <motion.section
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, amount: 0.1, margin: "150px" }}
+            viewport={{ once: true, amount: 0.1, margin: "160px" }}
             variants={staggerChildren}
           >
             <motion.div
@@ -155,7 +155,7 @@ const Projects = () => {
           <motion.section
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, amount: 0.1, margin: "160px" }}
+            viewport={{ once: true, amount: 0.1, margin: "166px" }}
             variants={staggerChildren}
           >
             <motion.div
