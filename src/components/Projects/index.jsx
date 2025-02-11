@@ -44,7 +44,7 @@ const Projects = () => {
 
             {/* Tombol panah di bawah pada layar kecil */}
             <motion.button
-              className="w-14 h-14 md:w-16 md:h-16 flex items-center justify-center rounded-full bg-black text-white mt-4 md:mt-0"
+              className="w-14 h-14 md:w-16 md:h-16 flex items-center justify-center rounded-full bg-black text-white md:mt-0"
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
             >
@@ -141,7 +141,7 @@ const Projects = () => {
 
             {/* Tombol panah di bawah pada layar kecil */}
             <motion.button
-              className="w-14 h-14 md:w-16 md:h-16 flex items-center justify-center rounded-full bg-black text-white mt-4 md:mt-0"
+              className="w-14 h-14 md:w-16 md:h-16 flex items-center justify-center rounded-full bg-black text-white md:mt-0"
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
             >

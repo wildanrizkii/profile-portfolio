@@ -8,7 +8,6 @@ import { useRouter } from "next/navigation";
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-
   const router = useRouter();
 
   const toggleMenu = () => {
@@ -33,6 +32,34 @@ const Navbar = () => {
       document.body.style.overflow = "unset";
     };
   }, [isOpen]);
+
+  const fadeInUp = {
+    hidden: { opacity: 0, y: 60 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.6, ease: "easeOut" },
+    },
+  };
+
+  const fadeIn = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: { duration: 1, ease: "easeOut", delay: 3.6 },
+    },
+  };
+
+  const staggerChildren = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2,
+        delayChildren: 1,
+      },
+    },
+  };
 
   // useEffect(() => {
   //   if (isOpen) {
@@ -208,7 +235,7 @@ const Navbar = () => {
           <div className="grid sm:flex md:flex items-center justify-center gap-32 w-full max-w-7xl">
             {/* Left side - Navigation Links */}
             <div className="text-left space-y-14">
-              <AnimatedBackground />
+              {/* <AnimatedBackground /> */}
               {navLinks.map((link, index) => (
                 <motion.div
                   key={link.href}
