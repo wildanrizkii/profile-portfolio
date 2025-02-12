@@ -99,7 +99,7 @@ const Portfolio = () => {
 
           {/* Hero Section */}
           <motion.section
-            className="relative grid gap-16 px-4 md:px-12 py-56"
+            className="relative grid gap-16 px-4 md:px-12 py-36 md:py-56"
             initial="hidden"
             animate="visible"
             viewport={{ once: false, amount: 0.1 }} // Tambahkan ini
