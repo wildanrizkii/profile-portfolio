@@ -190,13 +190,10 @@ const Navbar = () => {
         <div className="max-w-6xl mx-auto px-4">
           <div className="flex justify-between items-center">
             {/* Logo */}
-            <a
-              href="#"
-              className="text-2xl font-bold text-dark-gray hover:text-primary relative group z-50"
-            >
+            <div className="text-2xl font-bold text-dark-gray hover:text-primary relative group z-50">
               <span className="relative z-10">.wildanrizkii</span>
               <span className="absolute bottom-0 left-0 w-0 h-1 bg-primary transition-all duration-300 group-hover:w-full"></span>
-            </a>
+            </div>
 
             <button
               onClick={toggleMenu}

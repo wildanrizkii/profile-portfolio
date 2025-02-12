@@ -106,23 +106,23 @@ const Portfolio = () => {
             variants={staggerChildren}
           >
             <motion.div
-              className="w-full max-w-5xl mx-auto grid gap-10 md:gap-3"
+              className="w-full max-w-5xl mx-auto grid gap-4 md:gap-3"
               variants={staggerChildren}
             >
               <motion.h1
-                className="text-6xl font-medium text-dark-gray"
+                className="text-3xl md:text-7xl font-medium text-dark-gray"
                 variants={fadeInUp}
               >
                 Hi, I'm Wildan
               </motion.h1>
               <motion.h1
-                className="text-7xl font-semibold text-dark-gray"
+                className="text-4xl md:text-7xl font-semibold text-dark-gray"
                 variants={fadeInUp}
               >
                 I'm turning my mind into magic
               </motion.h1>
               <motion.h1
-                className="text-2xl font-medium text-dark-gray pt-4"
+                className="text-xl md:text-2xl font-medium text-dark-gray pt-4"
                 variants={fadeInUp}
               >
                 I am a Web Designer and Full Stack Web Developer specializing in
@@ -131,7 +131,7 @@ const Portfolio = () => {
               </motion.h1>
               <motion.div variants={fadeInUp}>
                 <motion.button
-                  className="mt-2 md:mt-8 px-4 py-4 bg-black rounded-sm text-white focus:outline-none text-xl w-[180px]"
+                  className="mt-2 md:mt-8 px-4 py-4 bg-black rounded-md text-white focus:outline-none text-lg md:text-xl w-[150px] md:w-[180px]"
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                   transition={{ type: "spring", stiffness: 300 }}
