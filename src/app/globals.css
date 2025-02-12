@@ -88,3 +88,13 @@ textarea,
     color: #000;
   }
 }
+
+@media (max-width: 768px) {
+  .custom-cursor {
+    display: none;
+  }
+
+  * {
+    cursor: auto !important;
+  }
+}
