@@ -106,7 +106,7 @@ const Projects = () => {
                   >
                     {/* Teks di kiri */}
                     <h1 className="text-3xl md:text-4xl w-96 lg:w-auto font-medium text-dark-gray text-left">
-                      Sistem Informasi Sparepart
+                      Spare Part Information System
                     </h1>
 
                     {/* Tombol panah di bawah pada layar kecil */}
@@ -177,7 +177,7 @@ const Projects = () => {
                   >
                     {/* Teks di kiri */}
                     <h1 className="text-3xl md:text-4xl w-80 md:w-auto lg:w-98 font-medium text-dark-gray text-left">
-                      Aplikasi Pencatatan Arus Kas
+                      Cash Flow Tracking Application
                     </h1>
 
                     {/* Tombol panah di bawah pada layar kecil */}
@@ -249,7 +249,7 @@ const Projects = () => {
                   >
                     {/* Teks di kiri */}
                     <h1 className="text-3xl md:text-4xl w-80 md:w-auto lg:w-98 font-medium text-dark-gray text-left md:text-left">
-                      Sistem Informasi Apotek Adora
+                      Adora Pharmacy Information System
                     </h1>
 
                     {/* Tombol panah di bawah pada layar kecil */}
