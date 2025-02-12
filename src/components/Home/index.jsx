@@ -7,7 +7,7 @@ import AnimatedScrollMouse from "../AnimatedScrollMouse";
 import PageTransition from "../PageTransition";
 import { AnimatePresence, motion } from "framer-motion";
 import { usePathname } from "next/navigation";
-import Projects from "../Projects/Home";
+import Projects from "../Projects/About";
 
 const fadeInUp = {
   hidden: { opacity: 0, y: 60 },
@@ -161,6 +161,34 @@ const Portfolio = () => {
           >
             <Projects />
           </motion.div>
+
+          <motion.section
+            className="w-full max-w-6xl mx-auto overflow-hidden"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.1 }}
+            variants={staggerChildren}
+          >
+            <motion.div
+              className="flex flex-col md:flex-row gap-6 md:gap-24 justify-between items-start w-full px-4 md:pl-16 md:pr-16 relative pt-20"
+              variants={fadeInUp}
+            >
+              {/* Teks di kiri */}
+              <h1 className="text-3xl md:text-4xl font-medium text-dark-gray text-center">
+                Let's Work Together
+              </h1>
+
+              <motion.button
+                className="w-12 h-14 md:w-16 md:h-16 flex items-center justify-center rounded-sm bg-black text-white mt-4 md:mt-0"
+                whileHover={{ scale: 1.05, backgroundColor: "#00000" }}
+                whileTap={{ scale: 0.95 }}
+                transition={{ type: "spring", stiffness: 300 }}
+                style={{ width: "180px" }}
+              >
+                <a href="mailto:wildanrizki9560@gmail.com">Write an Email</a>
+              </motion.button>
+            </motion.div>
+          </motion.section>
 
           {/* Footer */}
           <motion.footer
