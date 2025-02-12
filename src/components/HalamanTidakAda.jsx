@@ -105,7 +105,7 @@ const HalamanTidakAda = () => {
                 Uh-oh!
               </motion.h1>
               <motion.h1
-                className="text-9xl md:text-9xl font-semibold text-dark-gray"
+                className="text- md:text-9xl font-extrabold text-dark-gray"
                 variants={fadeInUp}
               >
                 404

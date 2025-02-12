@@ -81,3 +81,10 @@ textarea,
 .clickable {
   cursor: none !important;
 }
+
+@layer utilities {
+  ::selection {
+    background: #d1d1d1;
+    color: #000;
+  }
+}
