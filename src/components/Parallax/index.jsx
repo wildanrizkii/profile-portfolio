@@ -54,7 +54,7 @@ const Hero = ({ sectionHeight }) => {
 
 const CenterImage = ({ sectionHeight }) => {
   const { scrollY } = useScroll({
-    smooth: false,
+    smooth: true,
     axis: "y",
     layoutEffect: false,
   });
@@ -146,7 +146,7 @@ const ParallaxImages = () => {
       />
       <ParallaxImg
         src="/images/sertif-devnet.webp"
-        alt="Sertifikat Dev Ops"
+        alt="Sertifikat Cyber Ops"
         start={0}
         end={-500}
         className="ml-24 w-5/12 mt-8 sm:mt-12 md:mt-0 select-none"
@@ -165,15 +165,15 @@ const ParallaxImg = ({ className, alt, src, start, end }) => {
   const { scrollYProgress } = useScroll({
     target: ref,
     offset: [`${start}px end`, `end ${end * -1}px`],
-    smooth: false,
+    smooth: true,
     axis: "y",
     layoutEffect: false,
   });
 
-  const opacity = useTransform(scrollYProgress, [0.75, 1], [1, 0]);
+  const opacity = useTransform(scrollYProgress, [0.75, 1], [1, 0.25]);
   const scale = useTransform(scrollYProgress, [0.75, 1], [1, 0.85]);
 
-  const y = useTransform(scrollYProgress, [0, 1], [start, end]);
+  const y = useTransform(scrollYProgress, [0.15, 0.8], [start, end]);
   const transform = useMotionTemplate`translateY(${y}px) scale(${scale})`;
 
   const handleContextMenu = (e) => {

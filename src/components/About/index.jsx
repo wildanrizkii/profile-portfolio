@@ -58,7 +58,7 @@ const About = () => {
   const router = useRouter();
   const pathname = usePathname();
   const [isTransitioning, setIsTransitioning] = useState(false);
-  const [lerpValue, setLerpValue] = useState(0.1);
+  const [lerpValue, setLerpValue] = useState(0.05);
 
   useEffect(() => {
     setIsTransitioning(true);
@@ -66,20 +66,20 @@ const About = () => {
     return () => clearTimeout(timer);
   }, [pathname]);
 
-  useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY >= 300 && window.scrollY <= 2800) {
-        setLerpValue(0.05);
-      } else {
-        setLerpValue(0.2);
-      }
-    };
+  // useEffect(() => {
+  //   const handleScroll = () => {
+  //     if (window.scrollY >= 300 && window.scrollY <= 2800) {
+  //       setLerpValue(0.05);
+  //     } else {
+  //       setLerpValue(0.1);
+  //     }
+  //   };
 
-    window.addEventListener("scroll", handleScroll);
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
+  //   window.addEventListener("scroll", handleScroll);
+  //   return () => {
+  //     window.removeEventListener("scroll", handleScroll);
+  //   };
+  // }, []);
 
   return (
     <ReactLenis
