@@ -20,7 +20,7 @@ const SmoothScrollHero = () => {
   );
 };
 
-const SECTION_HEIGHT = 1500;
+const SECTION_HEIGHT = 1300;
 
 const Hero = () => {
   return (
@@ -29,10 +29,7 @@ const Hero = () => {
       className="relative w-full"
     >
       <CenterImage />
-
       <ParallaxImages />
-
-      <div className="absolute bottom-0 left-0 right-0 h-96" />
     </div>
   );
 };
@@ -58,6 +55,10 @@ const CenterImage = () => {
     [1, 0]
   );
 
+  const handleContextMenu = (e) => {
+    e.preventDefault();
+  };
+
   return (
     <motion.div
       className="sticky top-0 h-screen w-full"
@@ -65,44 +66,45 @@ const CenterImage = () => {
         clipPath,
         backgroundSize,
         opacity,
-        backgroundImage: "url(/images/about-main-me.jpg)",
+        backgroundImage: "url(/images/about-main-me.webp)",
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",
       }}
+      onContextMenu={handleContextMenu}
     />
   );
 };
 
 const ParallaxImages = () => {
   return (
-    <div className="mx-auto max-w-5xl px-4 pt-[200px]">
+    <div className="mx-auto max-w-5xl px-4 pt-[200px] md:pt-[200px] sm:pt-[250px]">
       <ParallaxImg
-        src="/images/sertif-gccf.jpg"
+        src="/images/sertif-gccf.webp"
         alt="And example of a space launch"
         start={-200}
         end={200}
-        className="w-1/3"
+        className="w-1/3 mt-8 sm:mt-12 md:mt-0 select-none"
       />
       <ParallaxImg
-        src="/images/sertif-cyberops.jpg"
+        src="/images/sertif-cyberops.webp"
         alt="An example of a space launch"
         start={200}
         end={-250}
-        className="mx-auto w-2/3"
+        className="mx-auto w-2/3 mt-8 sm:mt-12 md:mt-0 select-none"
       />
       <ParallaxImg
-        src="/images/sertif-ifws.jpg"
+        src="/images/sertif-ifws.webp"
         alt="Orbiting satellite"
         start={-200}
         end={200}
-        className="ml-auto w-1/3"
+        className="ml-auto w-1/3 mt-8 sm:mt-12 md:mt-0 select-none"
       />
       <ParallaxImg
-        src="/images/sertif-devnet.jpg"
+        src="/images/sertif-devnet.webp"
         alt="Orbiting satellite"
         start={0}
         end={-500}
-        className="ml-24 w-5/12"
+        className="ml-24 w-5/12 mt-8 sm:mt-12 md:mt-0 select-none"
       />
     </div>
   );
@@ -123,6 +125,10 @@ const ParallaxImg = ({ className, alt, src, start, end }) => {
   const y = useTransform(scrollYProgress, [0, 1], [start, end]);
   const transform = useMotionTemplate`translateY(${y}px) scale(${scale})`;
 
+  const handleContextMenu = (e) => {
+    e.preventDefault();
+  };
+
   return (
     <motion.img
       src={src}
@@ -130,6 +136,8 @@ const ParallaxImg = ({ className, alt, src, start, end }) => {
       className={className}
       ref={ref}
       style={{ transform, opacity }}
+      onContextMenu={handleContextMenu}
+      draggable="false"
     />
   );
 };
