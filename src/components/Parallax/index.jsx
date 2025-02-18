@@ -125,28 +125,28 @@ const ParallaxImages = () => {
     <div className="mx-auto max-w-5xl px-4 pt-[200px] md:pt-[210px] sm:pt-[60px]">
       <ParallaxImg
         src="/images/sertif-gccf.webp"
-        alt="And example of a space launch"
+        alt="Sertifikat Google Cloud Computing Foundation"
         start={-200}
         end={200}
         className="w-1/3 mt-8 sm:mt-12 md:mt-0 select-none"
       />
       <ParallaxImg
         src="/images/sertif-cyberops.webp"
-        alt="An example of a space launch"
+        alt="Sertifikat Cyber Ops"
         start={200}
         end={-250}
         className="mx-auto w-2/3 mt-8 sm:mt-12 md:mt-0 select-none"
       />
       <ParallaxImg
         src="/images/sertif-ifws.webp"
-        alt="Orbiting satellite"
+        alt="Sertifikat Informatics Webinar Series"
         start={-200}
         end={200}
         className="ml-auto w-1/3 mt-8 sm:mt-12 md:mt-0 select-none"
       />
       <ParallaxImg
         src="/images/sertif-devnet.webp"
-        alt="Orbiting satellite"
+        alt="Sertifikat Dev Ops"
         start={0}
         end={-500}
         className="ml-24 w-5/12 mt-8 sm:mt-12 md:mt-0 select-none"
