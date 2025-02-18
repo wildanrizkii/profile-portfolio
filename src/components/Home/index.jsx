@@ -1,5 +1,6 @@
 "use client";
 import React, { useState, useEffect } from "react";
+import { ReactLenis, useLenis } from "lenis/react";
 import { useRouter } from "next/navigation";
 import Navbar from "@/components/Navbar/";
 import CircleAnimatedBackground from "@/components/AnimatedBackground/CircleAnimatedBackground";
@@ -66,7 +67,12 @@ const Portfolio = () => {
   }, []);
 
   return (
-    <>
+    <ReactLenis
+      root
+      options={{
+        lerp: 0.2,
+      }}
+    >
       <AnimatePresence mode="wait">
         {isTransitioning && <PageTransition key="transition" />}
       </AnimatePresence>
@@ -210,7 +216,7 @@ const Portfolio = () => {
           </motion.footer>
         </div>
       </motion.div>
-    </>
+    </ReactLenis>
   );
 };
 

@@ -1,5 +1,6 @@
 "use client";
 import React, { useState, useEffect } from "react";
+import { ReactLenis, useLenis } from "lenis/react";
 import { useRouter } from "next/navigation";
 import Navbar from "@/components/Navbar/";
 import CircleAnimatedBackground from "@/components/AnimatedBackground/CircleAnimatedBackground";
@@ -10,6 +11,7 @@ import { usePathname } from "next/navigation";
 import Projects from "../Projects/About";
 import AnimatedBackground from "../AnimatedBackground";
 import TechTools from "../TechTools";
+import SmoothScrollHero from "../Parallax";
 
 const fadeInUp = {
   hidden: { opacity: 0, y: 60 },
@@ -63,8 +65,25 @@ const About = () => {
     return () => clearTimeout(timer);
   }, [pathname]);
 
+  useEffect(() => {
+    // const handleScroll = () => {
+    //   if (window.scrollY > 500) {
+    //     setLerpValue(0.05); // Bagian tertentu lebih smooth
+    //   } else {
+    //     setLerpValue(0.2);
+    //   }
+    // };
+    // window.addEventListener("scroll", handleScroll);
+    // return () => window.removeEventListener("scroll", handleScroll);
+    console.log(window.scrollY);
+  }, []);
   return (
-    <>
+    <ReactLenis
+      root
+      options={{
+        lerp: 0.2,
+      }}
+    >
       <AnimatePresence mode="wait">
         {isTransitioning && <PageTransition key="transition" />}
       </AnimatePresence>
@@ -166,6 +185,11 @@ const About = () => {
   </motion.div> */}
           </motion.section>
 
+          {/* Achivements Section */}
+          <div className="w-full max-w-5xl mx-auto overflow-hidden">
+            <SmoothScrollHero />
+          </div>
+
           {/* Projects Section */}
           <motion.div
             className="w-full max-w-6xl mx-auto overflow-hidden"
@@ -236,7 +260,7 @@ const About = () => {
           </motion.footer>
         </div>
       </motion.div>
-    </>
+    </ReactLenis>
   );
 };
 
