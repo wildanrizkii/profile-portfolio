@@ -8,7 +8,7 @@ import {
 } from "framer-motion";
 import { SiSpacex } from "react-icons/si";
 import { FiArrowRight, FiMapPin } from "react-icons/fi";
-import { useRef } from "react";
+import React, { useRef, useEffect } from "react";
 
 const SmoothScrollHero = () => {
   return (
@@ -37,22 +37,45 @@ const Hero = () => {
 const CenterImage = () => {
   const { scrollY } = useScroll({
     smooth: false,
+    axis: "y",
+    layoutEffect: false, // Gunakan useEffect daripada useLayoutEffect
   });
 
-  const clip1 = useTransform(scrollY, [0, 1500], [25, 0]);
-  const clip2 = useTransform(scrollY, [0, 1500], [75, 100]);
+  useEffect(() => {
+    // Reset scroll position ketika component mount
+    window.scrollTo(0, window.scrollY);
+
+    return () => {
+      // Cleanup ketika unmount
+      window.scrollTo(0, 0);
+    };
+  }, []);
+
+  const clip1 = useTransform(scrollY, [0, 1500], [25, 0], {
+    clamp: true, // Mencegah nilai melebihi range
+  });
+  const clip2 = useTransform(scrollY, [0, 1500], [75, 100], {
+    clamp: true,
+  });
 
   const clipPath = useMotionTemplate`polygon(${clip1}% ${clip1}%, ${clip2}% ${clip1}%, ${clip2}% ${clip2}%, ${clip1}% ${clip2}%)`;
 
   const backgroundSize = useTransform(
     scrollY,
     [0, SECTION_HEIGHT + 500],
-    ["140%", "80%"]
+    ["140%", "80%"],
+    {
+      clamp: true,
+    }
   );
+
   const opacity = useTransform(
     scrollY,
     [SECTION_HEIGHT, SECTION_HEIGHT + 500],
-    [1, 0]
+    [1, 0],
+    {
+      clamp: true,
+    }
   );
 
   const handleContextMenu = (e) => {
@@ -69,8 +92,14 @@ const CenterImage = () => {
         backgroundImage: "url(/images/about-main-me.webp)",
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",
+        willChange: "transform, opacity, clip-path", // Tambahkan properti yang akan berubah
+        backfaceVisibility: "hidden", // Membantu dengan rendering
+        WebkitBackfaceVisibility: "hidden",
+        transform: "translateZ(0)", // Force hardware acceleration
       }}
+      initial={false}
       onContextMenu={handleContextMenu}
+      loading="eager"
     />
   );
 };
@@ -113,10 +142,16 @@ const ParallaxImages = () => {
 const ParallaxImg = ({ className, alt, src, start, end }) => {
   const ref = useRef(null);
 
+  useEffect(() => {
+    window.scrollTo(0, window.scrollY);
+  }, []);
+
   const { scrollYProgress } = useScroll({
     target: ref,
     offset: [`${start}px end`, `end ${end * -1}px`],
     smooth: false,
+    axis: "y", // specify axis
+    layoutEffect: false,
   });
 
   const opacity = useTransform(scrollYProgress, [0.75, 1], [1, 0]);
@@ -131,6 +166,8 @@ const ParallaxImg = ({ className, alt, src, start, end }) => {
 
   return (
     <motion.img
+      loading="eager"
+      initial={false}
       src={src}
       alt={alt}
       className={className}

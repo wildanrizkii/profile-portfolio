@@ -65,18 +65,6 @@ const About = () => {
     return () => clearTimeout(timer);
   }, [pathname]);
 
-  useEffect(() => {
-    // const handleScroll = () => {
-    //   if (window.scrollY > 500) {
-    //     setLerpValue(0.05); // Bagian tertentu lebih smooth
-    //   } else {
-    //     setLerpValue(0.2);
-    //   }
-    // };
-    // window.addEventListener("scroll", handleScroll);
-    // return () => window.removeEventListener("scroll", handleScroll);
-    console.log(window.scrollY);
-  }, []);
   return (
     <ReactLenis
       root
