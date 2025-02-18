@@ -11,17 +11,14 @@ import { FiArrowRight, FiMapPin } from "react-icons/fi";
 import React, { useRef, useEffect, useState } from "react";
 
 const SmoothScrollHero = () => {
-  const [isMobile, setIsMobile] = useState(false);
   const [sectionHeight, setSectionHeight] = useState(1300);
 
   useEffect(() => {
     const handleResize = () => {
       if (window.innerWidth <= 768) {
         setSectionHeight(810);
-        setIsMobile(true);
       } else {
         setSectionHeight(1300);
-        setIsMobile(false);
       }
     };
 
@@ -41,13 +38,34 @@ const SmoothScrollHero = () => {
 };
 
 const Hero = ({ sectionHeight }) => {
+  const [isMobile, setIsMobile] = useState(false);
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth <= 768) {
+        setIsMobile(true);
+      } else {
+        setIsMobile(false);
+      }
+    };
+
+    handleResize();
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
   return (
     <div
-      style={{ height: `calc(${sectionHeight}px + 100vh)` }}
+      style={{
+        height: isMobile
+          ? `calc(${sectionHeight}px + 120vh)`
+          : `calc(${sectionHeight}px + 100vh)`,
+      }}
       className="relative w-full"
     >
       <CenterImage sectionHeight={sectionHeight} />
-      <ParallaxImages />
+      {isMobile ? <ImagesNormal /> : <ParallaxImages />}
     </div>
   );
 };
@@ -104,7 +122,7 @@ const CenterImage = ({ sectionHeight }) => {
       style={{
         clipPath,
         backgroundSize,
-        opacity,
+        opacity: 1,
         backgroundImage: "url(/images/about-main-me.webp)",
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",
@@ -117,6 +135,46 @@ const CenterImage = ({ sectionHeight }) => {
       onContextMenu={handleContextMenu}
       loading="eager"
     />
+  );
+};
+
+const certificates = [
+  {
+    src: "/images/sertif-gccf.webp",
+    alt: "Sertifikat Google Cloud Computing Foundation",
+  },
+  { src: "/images/sertif-cyberops.webp", alt: "Sertifikat Cyber Ops" },
+  {
+    src: "/images/sertif-ifws.webp",
+    alt: "Sertifikat Informatics Webinar Series",
+  },
+  { src: "/images/sertif-devnet.webp", alt: "Sertifikat Cyber Ops" },
+];
+
+const ImagesNormal = () => {
+  const handleContextMenu = (e) => {
+    e.preventDefault();
+  };
+  return (
+    <div className="mx-auto max-w-5xl px-4">
+      <div className="text-center text-2xl font-semibold pb-4">
+        My Certificates
+      </div>
+      <div className="grid grid-cols-1 gap-4">
+        {certificates.map((cert, index) => (
+          <div key={index} className="flex justify-center">
+            <motion.img
+              src={cert.src}
+              alt={cert.alt}
+              width={300}
+              height={200}
+              className="rounded-lg shadow-lg select-none"
+              onContextMenu={handleContextMenu}
+            />
+          </div>
+        ))}
+      </div>
+    </div>
   );
 };
 
