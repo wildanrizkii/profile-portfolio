@@ -8,33 +8,52 @@ import {
 } from "framer-motion";
 import { SiSpacex } from "react-icons/si";
 import { FiArrowRight, FiMapPin } from "react-icons/fi";
-import React, { useRef, useEffect } from "react";
+import React, { useRef, useEffect, useState } from "react";
 
 const SmoothScrollHero = () => {
+  const [isMobile, setIsMobile] = useState(false);
+  const [sectionHeight, setSectionHeight] = useState(1300);
+
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth <= 768) {
+        // Ukuran layar untuk mobile
+        setSectionHeight(800);
+        setIsMobile(true); // Set sectionHeight menjadi 1000 pada layar mobile
+      } else {
+        setSectionHeight(1300);
+        setIsMobile(false); // Set sectionHeight menjadi 1300 pada layar desktop
+      }
+    };
+
+    handleResize(); // Inisialisasi ketika komponen pertama kali dimuat
+    window.addEventListener("resize", handleResize); // Menambahkan event listener pada resize
+
+    return () => {
+      window.removeEventListener("resize", handleResize); // Membersihkan event listener saat komponen unmount
+    };
+  }, []);
+
   return (
     <div className="bg-tranparent">
-      <div>
-        <Hero />
-      </div>
+      <Hero sectionHeight={sectionHeight} />
     </div>
   );
 };
 
-const SECTION_HEIGHT = 1300;
-
-const Hero = () => {
+const Hero = ({ sectionHeight }) => {
   return (
     <div
-      style={{ height: `calc(${SECTION_HEIGHT}px + 100vh)` }}
+      style={{ height: `calc(${sectionHeight}px + 100vh)` }}
       className="relative w-full"
     >
-      <CenterImage />
+      <CenterImage sectionHeight={sectionHeight} />
       <ParallaxImages />
     </div>
   );
 };
 
-const CenterImage = () => {
+const CenterImage = ({ sectionHeight }) => {
   const { scrollY } = useScroll({
     smooth: false,
     axis: "y",
@@ -62,7 +81,7 @@ const CenterImage = () => {
 
   const backgroundSize = useTransform(
     scrollY,
-    [0, SECTION_HEIGHT + 500],
+    [0, sectionHeight + 500],
     ["140%", "80%"],
     {
       clamp: true,
@@ -71,7 +90,7 @@ const CenterImage = () => {
 
   const opacity = useTransform(
     scrollY,
-    [SECTION_HEIGHT, SECTION_HEIGHT + 500],
+    [sectionHeight, sectionHeight * 4],
     [1, 0],
     {
       clamp: true,
@@ -92,10 +111,10 @@ const CenterImage = () => {
         backgroundImage: "url(/images/about-main-me.webp)",
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",
-        willChange: "transform, opacity, clip-path", // Tambahkan properti yang akan berubah
-        backfaceVisibility: "hidden", // Membantu dengan rendering
+        willChange: "transform, opacity, clip-path",
+        backfaceVisibility: "hidden",
         WebkitBackfaceVisibility: "hidden",
-        transform: "translateZ(0)", // Force hardware acceleration
+        transform: "translateZ(0)",
       }}
       initial={false}
       onContextMenu={handleContextMenu}
@@ -106,7 +125,7 @@ const CenterImage = () => {
 
 const ParallaxImages = () => {
   return (
-    <div className="mx-auto max-w-5xl px-4 pt-[200px] md:pt-[200px] sm:pt-[250px]">
+    <div className="mx-auto max-w-5xl px-4 pt-[200px] md:pt-[210px] sm:pt-[60px]">
       <ParallaxImg
         src="/images/sertif-gccf.webp"
         alt="And example of a space launch"
@@ -150,7 +169,7 @@ const ParallaxImg = ({ className, alt, src, start, end }) => {
     target: ref,
     offset: [`${start}px end`, `end ${end * -1}px`],
     smooth: false,
-    axis: "y", // specify axis
+    axis: "y",
     layoutEffect: false,
   });
 
