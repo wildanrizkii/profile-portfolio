@@ -68,21 +68,16 @@ const About = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      console.log("Current lerp value:", lerpValue); // Menampilkan nilai lerpValue di console
-
-      // Mengubah lerpValue berdasarkan scrollY
       if (window.scrollY >= 300 && window.scrollY <= 2800) {
         setLerpValue(0.05);
       } else {
-        setLerpValue(0.2); // Nilai default jika di luar rentang tersebut
+        setLerpValue(0.2);
       }
     };
 
-    window.addEventListener("scroll", handleScroll); // Menambahkan event listener scroll
-
-    // Cleanup saat komponen unmount
+    window.addEventListener("scroll", handleScroll);
     return () => {
-      window.removeEventListener("scroll", handleScroll); // Menghapus event listener saat komponen unmount
+      window.removeEventListener("scroll", handleScroll);
     };
   }, []);
 

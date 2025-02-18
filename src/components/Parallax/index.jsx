@@ -17,20 +17,19 @@ const SmoothScrollHero = () => {
   useEffect(() => {
     const handleResize = () => {
       if (window.innerWidth <= 768) {
-        // Ukuran layar untuk mobile
-        setSectionHeight(1000);
-        setIsMobile(true); // Set sectionHeight menjadi 1000 pada layar mobile
+        setSectionHeight(810);
+        setIsMobile(true);
       } else {
         setSectionHeight(1300);
-        setIsMobile(false); // Set sectionHeight menjadi 1300 pada layar desktop
+        setIsMobile(false);
       }
     };
 
-    handleResize(); // Inisialisasi ketika komponen pertama kali dimuat
-    window.addEventListener("resize", handleResize); // Menambahkan event listener pada resize
+    handleResize();
+    window.addEventListener("resize", handleResize);
 
     return () => {
-      window.removeEventListener("resize", handleResize); // Membersihkan event listener saat komponen unmount
+      window.removeEventListener("resize", handleResize);
     };
   }, []);
 
@@ -57,21 +56,19 @@ const CenterImage = ({ sectionHeight }) => {
   const { scrollY } = useScroll({
     smooth: false,
     axis: "y",
-    layoutEffect: false, // Gunakan useEffect daripada useLayoutEffect
+    layoutEffect: false,
   });
 
   useEffect(() => {
-    // Reset scroll position ketika component mount
     window.scrollTo(0, window.scrollY);
 
     return () => {
-      // Cleanup ketika unmount
       window.scrollTo(0, 0);
     };
   }, []);
 
   const clip1 = useTransform(scrollY, [0, 1500], [25, 0], {
-    clamp: true, // Mencegah nilai melebihi range
+    clamp: true,
   });
   const clip2 = useTransform(scrollY, [0, 1500], [75, 100], {
     clamp: true,
