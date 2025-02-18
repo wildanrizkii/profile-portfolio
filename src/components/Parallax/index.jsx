@@ -18,7 +18,7 @@ const SmoothScrollHero = () => {
     const handleResize = () => {
       if (window.innerWidth <= 768) {
         // Ukuran layar untuk mobile
-        setSectionHeight(800);
+        setSectionHeight(1000);
         setIsMobile(true); // Set sectionHeight menjadi 1000 pada layar mobile
       } else {
         setSectionHeight(1300);

@@ -58,6 +58,7 @@ const About = () => {
   const router = useRouter();
   const pathname = usePathname();
   const [isTransitioning, setIsTransitioning] = useState(false);
+  const [lerpValue, setLerpValue] = useState(0.1);
 
   useEffect(() => {
     setIsTransitioning(true);
@@ -65,11 +66,31 @@ const About = () => {
     return () => clearTimeout(timer);
   }, [pathname]);
 
+  useEffect(() => {
+    const handleScroll = () => {
+      console.log("Current lerp value:", lerpValue); // Menampilkan nilai lerpValue di console
+
+      // Mengubah lerpValue berdasarkan scrollY
+      if (window.scrollY >= 300 && window.scrollY <= 2800) {
+        setLerpValue(0.05);
+      } else {
+        setLerpValue(0.2); // Nilai default jika di luar rentang tersebut
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll); // Menambahkan event listener scroll
+
+    // Cleanup saat komponen unmount
+    return () => {
+      window.removeEventListener("scroll", handleScroll); // Menghapus event listener saat komponen unmount
+    };
+  }, []);
+
   return (
     <ReactLenis
       root
       options={{
-        lerp: 0.2,
+        lerp: lerpValue,
       }}
     >
       <AnimatePresence mode="wait">
