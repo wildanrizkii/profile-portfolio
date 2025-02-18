@@ -196,7 +196,7 @@ const About = () => {
 
           {/* Projects Section */}
           <motion.div
-            className="w-full max-w-6xl mx-auto overflow-hidden"
+            className="w-full max-w-6xl mx-auto overflow-hidden py-28"
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-100px" }}

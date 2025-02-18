@@ -155,11 +155,49 @@ const ImagesNormal = () => {
   const handleContextMenu = (e) => {
     e.preventDefault();
   };
+
+  const fadeInUp = {
+    hidden: { opacity: 0, y: 60 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.6, ease: "easeOut" },
+    },
+  };
+
+  const fadeIn = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: { duration: 1, ease: "easeOut", delay: 3.6 },
+    },
+  };
+
+  const staggerChildren = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2,
+        delayChildren: 1,
+      },
+    },
+  };
+
   return (
-    <div className="mx-auto max-w-5xl px-4">
-      <div className="text-center text-2xl font-semibold pb-4">
+    <motion.section
+      className="mx-auto max-w-5xl px-4"
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, amount: 0.1 }}
+      variants={staggerChildren}
+    >
+      <motion.div
+        className="text-center text-2xl font-semibold pb-4"
+        variants={fadeInUp}
+      >
         My Certificates
-      </div>
+      </motion.div>
       <div className="grid grid-cols-1 gap-4">
         {certificates.map((cert, index) => (
           <div key={index} className="flex justify-center">
@@ -170,11 +208,12 @@ const ImagesNormal = () => {
               height={200}
               className="rounded-lg shadow-lg select-none"
               onContextMenu={handleContextMenu}
+              variants={fadeInUp}
             />
           </div>
         ))}
       </div>
-    </div>
+    </motion.section>
   );
 };
 
