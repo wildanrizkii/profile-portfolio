@@ -120,7 +120,7 @@ const About = () => {
 
           {/* Hero Section */}
           <motion.section
-            className="relative grid gap-16 pt-40 sm:pt-56 w-full max-w-6xl mx-auto overflow-hidden"
+            className="relative grid gap-16 px-4 md:px-12 pt-40 sm:pt-56 max-w-6xl mx-auto overflow-hidden"
             initial="hidden"
             animate="visible"
             viewport={{ once: false, amount: 0.1 }}

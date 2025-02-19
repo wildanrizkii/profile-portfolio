@@ -112,7 +112,7 @@ const Sparepart = () => {
               variants={fadeInUp}
             >
               <motion.div
-                className="flex gap-6 justify-center text-8xl sm:text-7xl md:text-9xl font-black text-zinc-300 transition-all"
+                className="flex gap-6 justify-center text-5xl sm:text-6xl md:text-8xl lg:text-9xl text-nowrap font-black text-zinc-800 transition-all"
                 variants={fadeInUp}
                 whileHover="hovered"
               >
@@ -148,7 +148,7 @@ const Sparepart = () => {
               </motion.div>
 
               <motion.h1
-                className="text-lg sm:text-2xl font-normal text-dark-gray pt-10 sm:pt-20"
+                className="text-lg sm:text-lg md:text-2xl font-normal text-dark-gray pt-10 sm:pt-20"
                 variants={fadeInUp}
               >
                 This Spare Part Information System is designed to empower sales
@@ -159,7 +159,7 @@ const Sparepart = () => {
               </motion.h1>
 
               <motion.h1
-                className="text-lg sm:text-2xl font-normal text-dark-gray pt-4 sm:pt-2"
+                className="text-lg sm:text-lg md:text-2xl font-normal text-dark-gray pt-4 sm:pt-2"
                 variants={fadeInUp}
               >
                 Through this web-based system, users can seamlessly access a
@@ -171,7 +171,7 @@ const Sparepart = () => {
               </motion.h1>
 
               <motion.h1
-                className="text-lg sm:text-2xl font-normal text-dark-gray pt-10 sm:pt-2"
+                className="text-lg sm:text-lg md:text-2xl font-normal text-dark-gray pt-10 sm:pt-2"
                 variants={fadeInUp}
               >
                 With its user-friendly interface and efficient search
@@ -181,7 +181,7 @@ const Sparepart = () => {
               </motion.h1>
 
               <motion.h1
-                className="text-lg sm:text-2xl font-normal text-dark-gray pt-10 sm:pt-2"
+                className="text-lg sm:text-lg md:text-2xl font-normal text-dark-gray pt-10 sm:pt-2"
                 variants={fadeInUp}
               >
                 Furthermore, the system incorporates a robust reporting feature,
