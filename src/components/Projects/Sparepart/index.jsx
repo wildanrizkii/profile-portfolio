@@ -3,15 +3,9 @@ import React, { useState, useEffect } from "react";
 import { ReactLenis, useLenis } from "lenis/react";
 import { useRouter } from "next/navigation";
 import Navbar from "@/components/Navbar/";
-import CircleAnimatedBackground from "@/components/AnimatedBackground/CircleAnimatedBackground";
-import AnimatedScrollMouse from "@/components/AnimatedScrollMouse";
 import PageTransition from "@/components/PageTransition";
 import { AnimatePresence, delay, motion } from "framer-motion";
 import { usePathname } from "next/navigation";
-import Projects from "@/components/Projects/About";
-import AnimatedBackground from "@/components/AnimatedBackground";
-import TechTools from "@/components/TechTools";
-import SmoothScrollHero from "@/components/Parallax";
 import { FiArrowRight } from "react-icons/fi";
 import { GiAutoRepair } from "react-icons/gi";
 
@@ -115,7 +109,7 @@ const Sparepart = () => {
           >
             <motion.div
               className="w-full max-w-5xl mx-auto grid gap-8 text-left"
-              variants={staggerChildren}
+              variants={fadeInUp}
             >
               <motion.div
                 className="flex gap-6 justify-center text-8xl sm:text-7xl md:text-9xl font-black text-zinc-300 transition-all"
