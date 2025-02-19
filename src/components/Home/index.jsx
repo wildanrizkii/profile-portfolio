@@ -176,7 +176,7 @@ const Portfolio = () => {
             variants={staggerChildren}
           >
             <motion.div
-              className="flex flex-col md:flex-row gap-6 md:gap-24 justify-between items-start w-full px-4 md:pl-16 md:pr-16 relative pt-20"
+              className="flex flex-col md:flex-row gap-6 md:gap-24 justify-between items-center w-full px-4 md:pl-16 md:pr-16 relative pt-20"
               variants={fadeInUp}
             >
               {/* Teks di kiri */}

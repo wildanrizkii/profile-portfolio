@@ -7,7 +7,7 @@ import { usePathname, useRouter } from "next/navigation";
 const projects = [
   {
     title: "Spare Part Information System",
-    link: "https://trialbasemakercmw.online",
+    link: "/projects/sparepart",
     img: "/images/CMW.png",
   },
   {
@@ -56,7 +56,7 @@ const Projects = () => {
               heading="Spare Part Information System"
               subheading="Learn what we do here"
               imgSrc="/images/CMW.png"
-              href="https://trialbasemakercmw.online"
+              href="/projects/sparepart"
             />
           </motion.div>
 
