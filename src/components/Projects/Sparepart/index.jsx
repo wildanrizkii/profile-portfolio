@@ -193,13 +193,13 @@ const Sparepart = () => {
               </motion.h1>
 
               <motion.div
-                className="bg-transparent rounded-md pt-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 sm:gap-12"
+                className="bg-transparent rounded-md text-left pt-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 sm:gap-12"
                 variants={staggerChildren}
               >
                 <motion.div variants={fadeInUp}>
                   <p className="text-lg sm:text-xl font-medium">Client</p>
                   <div className="mt-2 space-y-2">
-                    <h1 className="font-semibold text-3xl sm:text-4xl">
+                    <h1 className="font-semibold text-2xl md:text-3xl">
                       Yudha Wisnu
                     </h1>
                   </div>
@@ -208,7 +208,7 @@ const Sparepart = () => {
                 <motion.div variants={fadeInUp}>
                   <p className="text-lg sm:text-xl font-medium">Company</p>
                   <div className="mt-2 space-y-2">
-                    <h1 className="font-semibold text-3xl sm:text-4xl">
+                    <h1 className="font-semibold text-2xl md:text-3xl">
                       PT Cipta Mandiri Wirasakti
                     </h1>
                   </div>
@@ -217,7 +217,7 @@ const Sparepart = () => {
                 <motion.div variants={fadeInUp}>
                   <p className="text-lg sm:text-xl font-medium">Project Type</p>
                   <div className="mt-2 space-y-2">
-                    <h1 className="font-semibold text-3xl sm:text-4xl">
+                    <h1 className="font-semibold text-2xl md:text-3xl">
                       Sales Support System
                     </h1>
                   </div>
@@ -226,7 +226,7 @@ const Sparepart = () => {
                 <motion.div variants={fadeInUp}>
                   <p className="text-lg sm:text-xl font-medium">Year</p>
                   <div className="mt-2 space-y-2">
-                    <h1 className="font-semibold text-3xl sm:text-4xl">2025</h1>
+                    <h1 className="font-semibold text-2xl md:text-3xl">2025</h1>
                   </div>
                 </motion.div>
 
@@ -241,7 +241,7 @@ const Sparepart = () => {
                 >
                   <p className="text-lg sm:text-xl font-medium">Url</p>
                   <motion.div className="mt-2 space-y-2 flex gap-1 items-center">
-                    <motion.div className="font-semibold text-3xl sm:text-4xl hover:underline">
+                    <motion.div className="font-semibold text-2xl md:text-3xl hover:underline">
                       Website
                     </motion.div>
 
