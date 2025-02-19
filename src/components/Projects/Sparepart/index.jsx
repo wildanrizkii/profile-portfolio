@@ -101,18 +101,18 @@ const Sparepart = () => {
 
           {/* Hero Section */}
           <motion.section
-            className="relative grid gap-16 px-4 md:px-12 pt-40 sm:pt-56"
+            className="relative grid gap-16 px-4 md:px-12 pt-40 sm:pt-56 max-w-6xl mx-auto overflow-hidden"
             initial="hidden"
             animate="visible"
             viewport={{ once: false, amount: 0.1 }}
             variants={staggerChildren}
           >
             <motion.div
-              className="w-full max-w-5xl mx-auto grid gap-8 text-left"
+              className="w-full max-w-5xl mx-auto grid gap-2 sm:gap-8 text-left sm:text-left"
               variants={fadeInUp}
             >
               <motion.div
-                className="flex gap-6 justify-center text-5xl sm:text-6xl md:text-8xl lg:text-9xl text-nowrap font-black text-zinc-800 transition-all"
+                className="flex gap-6 justify-center text-4xl sm:text-5xl md:text-8xl lg:text-9xl text-nowrap font-black text-zinc-800 transition-all"
                 variants={fadeInUp}
                 whileHover="hovered"
               >
@@ -171,7 +171,7 @@ const Sparepart = () => {
               </motion.h1>
 
               <motion.h1
-                className="text-lg sm:text-lg md:text-2xl font-normal text-dark-gray pt-10 sm:pt-2"
+                className="text-lg sm:text-lg md:text-2xl font-normal text-dark-gray pt-4 sm:pt-2"
                 variants={fadeInUp}
               >
                 With its user-friendly interface and efficient search
@@ -181,7 +181,7 @@ const Sparepart = () => {
               </motion.h1>
 
               <motion.h1
-                className="text-lg sm:text-lg md:text-2xl font-normal text-dark-gray pt-10 sm:pt-2"
+                className="text-lg sm:text-lg md:text-2xl font-normal text-dark-gray pt-4 sm:pt-2"
                 variants={fadeInUp}
               >
                 Furthermore, the system incorporates a robust reporting feature,
