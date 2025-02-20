@@ -1,333 +1,173 @@
-import React, { useState, useEffect } from "react";
-import { motion } from "framer-motion";
-import { ArrowRight } from "lucide-react";
-import { usePathname, useRouter } from "next/navigation";
+import React, { useState, useEffect, useRef } from "react";
+import { useMotionValue, motion, useSpring, useTransform } from "framer-motion";
+import { FiArrowRight } from "react-icons/fi";
+import { usePathname } from "next/navigation";
 
 const Projects = () => {
-  const [isHovered, setIsHovered] = useState(false);
-  const [isHovered1, setIsHovered1] = useState(false);
-  const [isHovered2, setIsHovered2] = useState(false);
-
-  const [position, setPosition] = useState({ x: 0, y: 0 });
-
-  const router = useRouter();
-  const pathname = usePathname();
   const [isMounted, setIsMounted] = useState(false);
+  const pathname = usePathname();
 
   useEffect(() => {
-    setIsMounted(false); // Reset animasi
+    setIsMounted(false);
     const timer = setTimeout(() => {
       setIsMounted(true);
       window.scrollTo(0, 0);
-    }, 100); // Delay agar animasi bisa terdeteksi ulang
-
+    }, 100);
     return () => clearTimeout(timer);
   }, [pathname]);
+  return (
+    isMounted && (
+      <motion.section
+        className="bg-transparent md:p-8 md:pb-20"
+        key={pathname}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.1 }}
+        variants={staggerChildren}
+      >
+        <motion.h1
+          className="text-6xl font-medium text-dark-gray py-14 px-3 md:px-8"
+          variants={fadeInUp}
+        >
+          Projects
+        </motion.h1>
+        <div className="mx-auto max-w-5xl px-8">
+          <motion.div variants={fadeInUp}>
+            <Link
+              heading="Spare Part Information System"
+              subheading="Learn what we do here"
+              imgSrc="/images/CMW.png"
+              href="/projects/sparepart"
+            />
+          </motion.div>
+
+          <motion.div variants={fadeInUp}>
+            <Link
+              heading="Cash Flow Tracking Application"
+              subheading="We work with great people"
+              imgSrc="/images/Cashify.png"
+              href="/projects"
+            />
+          </motion.div>
+          <motion.div variants={fadeInUp}>
+            <Link
+              heading="Adora Pharmacy Information System"
+              subheading="Our work speaks for itself"
+              imgSrc="/images/Apotek.jpg"
+              href="/projects"
+            />
+          </motion.div>
+        </div>
+      </motion.section>
+    )
+  );
+};
+
+const Link = ({ heading, imgSrc, subheading, href }) => {
+  const ref = useRef(null);
+
+  const x = useMotionValue(0);
+  const y = useMotionValue(0);
+
+  const mouseXSpring = useSpring(x);
+  const mouseYSpring = useSpring(y);
+
+  const top = useTransform(mouseYSpring, [0.5, -0.5], ["40%", "60%"]);
+  const left = useTransform(mouseXSpring, [0.5, -0.5], ["60%", "70%"]);
 
   const handleMouseMove = (e) => {
-    const imageWidth = 192; // Sesuaikan ukuran gambar (misalnya w-48)
-    const imageHeight = 192;
+    const rect = ref.current.getBoundingClientRect();
 
-    setPosition({
-      x: e.clientX - imageWidth,
-      y: e.clientY - imageHeight + 50,
-    });
-  };
+    const width = rect.width;
+    const height = rect.height;
 
-  const fadeInUp = {
-    hidden: { opacity: 0, y: 60 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.6, ease: "easeOut" },
-    },
-  };
+    const mouseX = e.clientX - rect.left;
+    const mouseY = e.clientY - rect.top;
 
-  const fadeIn = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: { duration: 1, ease: "easeOut", delay: 3.6 },
-    },
-  };
+    const xPct = mouseX / width - 0.5;
+    const yPct = mouseY / height - 0.5;
 
-  const staggerChildren = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.2,
-        delayChildren: 0.2,
-      },
-    },
+    x.set(xPct);
+    y.set(yPct);
   };
 
   return (
-    isMounted && (
-      <div className="relative justify-center bg-transparent px-4 md:px-12 py-28 w-full">
-        <motion.section
-          key={pathname}
-          className="grid"
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.1 }}
-          variants={staggerChildren}
+    <motion.a
+      href={href}
+      ref={ref}
+      onMouseMove={handleMouseMove}
+      initial="initial"
+      whileHover="whileHover"
+      className="group relative flex items-center justify-between border-b-2 border-neutral-300 py-4 transition-colors duration-500 hover:border-black md:py-8"
+    >
+      <div>
+        <motion.span
+          variants={{
+            initial: { x: 0 },
+            whileHover: { x: -16 },
+          }}
+          transition={{
+            type: "spring",
+            staggerChildren: 0.075,
+            delayChildren: 0.25,
+          }}
+          className="relative z-10 block text-3xl font-semibold transition-colors duration-500 md:text-4xl"
         >
-          <motion.h1
-            className="text-6xl font-medium text-dark-gray"
-            variants={fadeInUp}
-          >
-            Projects
-          </motion.h1>
-        </motion.section>
-
-        <div className="grid gap-64">
-          <motion.section
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.1, margin: "160px" }}
-            variants={staggerChildren}
-          >
-            <motion.div
-              className="w-full max-w-5xl mx-auto grid gap-10 md:gap-3"
-              variants={staggerChildren}
-            >
-              {/* Project 1 */}
-              <motion.div variants={fadeInUp}>
-                <div className="flex gap-10 items-center text-center w-full pt-20">
-                  <div
-                    className="flex flex-col md:flex-row gap-6 md:gap-24 justify-between items-start w-full px-8 md:px-32 relative"
-                    onMouseEnter={() => setIsHovered(true)}
-                    onMouseLeave={() => setIsHovered(false)}
-                    onMouseMove={handleMouseMove}
-                    onClick={() =>
-                      window.open("https://trialbasemakercmw.online", "_blank")
-                    }
-                  >
-                    {/* Teks di kiri */}
-                    <h1 className="text-3xl md:text-4xl w-96 lg:w-auto font-medium text-dark-gray text-left">
-                      Spare Part Information System
-                    </h1>
-
-                    {/* Tombol panah di bawah pada layar kecil */}
-                    <motion.button
-                      className="min-w-14 min-h-14 md:min-w-16 md:min-h-16 flex items-center justify-center rounded-full bg-black text-white md:mt-0"
-                      whileTap={{ scale: 0.9 }}
-                    >
-                      <motion.span
-                        initial={{ x: 0 }}
-                        whileHover={{ x: 5 }}
-                        transition={{
-                          type: "spring",
-                          stiffness: 200,
-                          damping: 10,
-                        }}
-                      >
-                        <ArrowRight size={24} />
-                      </motion.span>
-                    </motion.button>
-
-                    <motion.div
-                      className="absolute bottom-[-24px] left-0 right-0 h-[2px] bg-gray-200" // Jarak 8px dari elemen di atas
-                      initial={{ backgroundColor: "#e5e7eb" }} // Warna awal abu-abu
-                      animate={{
-                        backgroundColor: isHovered ? "#000000" : "#e5e7eb",
-                      }} // Animasi warna saat hover
-                      transition={{ duration: 0.3 }} // Durasi animasi
-                    />
-                  </div>
-                </div>
-                {isHovered && (
-                  <motion.img
-                    src="/images/CMW.png"
-                    alt="cmw"
-                    className="w-96 h-auto rounded-md shadow-2xl pointer-events-none fixed top-0 left-0 z-[-1]"
-                    animate={{ x: position.x, y: position.y, opacity: 1 }}
-                    initial={{ opacity: 0 }}
-                    exit={{ opacity: 0 }}
-                    transition={{ type: "spring", stiffness: 200, damping: 20 }}
-                  />
-                )}
-              </motion.div>
-            </motion.div>
-          </motion.section>
-
-          <motion.section
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.1, margin: "166px" }}
-            variants={staggerChildren}
-          >
-            <motion.div
-              className="w-full max-w-5xl mx-auto grid gap-10 md:gap-3"
-              variants={staggerChildren}
-            >
-              {/* Project 2 */}
-              <motion.div variants={fadeInUp}>
-                <div className="items-center text-center w-full">
-                  <div
-                    className="flex flex-col md:flex-row gap-6 md:gap-24 justify-between items-start w-full px-8 md:px-32 relative"
-                    onMouseEnter={() => setIsHovered1(true)}
-                    onMouseLeave={() => setIsHovered1(false)}
-                    onMouseMove={handleMouseMove}
-                    onClick={() => {
-                      router.push("/projects");
-                    }}
-                  >
-                    {/* Teks di kiri */}
-                    <h1 className="text-3xl md:text-4xl w-80 md:w-auto lg:w-98 font-medium text-dark-gray text-left">
-                      Cash Flow Tracking Application
-                    </h1>
-
-                    {/* Tombol panah di bawah pada layar kecil */}
-                    <motion.button
-                      className="min-w-14 min-h-14 md:min-w-16 md:min-h-16 flex items-center justify-center rounded-full bg-black text-white md:mt-0"
-                      whileHover={{ scale: 1.1 }}
-                      whileTap={{ scale: 0.9 }}
-                    >
-                      <motion.span
-                        initial={{ x: 0 }}
-                        whileHover={{ x: 5 }}
-                        transition={{
-                          type: "spring",
-                          stiffness: 200,
-                          damping: 10,
-                        }}
-                      >
-                        <ArrowRight size={24} />
-                      </motion.span>
-                    </motion.button>
-
-                    <motion.div
-                      className="absolute bottom-[-24px] left-0 right-0 h-[2px] bg-gray-200" // Jarak 8px dari elemen di atas
-                      initial={{ backgroundColor: "#e5e7eb" }} // Warna awal abu-abu
-                      animate={{
-                        backgroundColor: isHovered1 ? "#000000" : "#e5e7eb",
-                      }} // Animasi warna saat hover
-                      transition={{ duration: 0.3 }} // Durasi animasi
-                    />
-                  </div>
-                </div>
-                {/* Gambar dengan animasi mengikuti cursor */}
-                {isHovered1 && (
-                  <motion.img
-                    src="/images/Cashify.png"
-                    alt="cashify"
-                    className="w-96 h-auto rounded-md shadow-2xl pointer-events-none fixed top-0 left-0 z-[-1]"
-                    animate={{ x: position.x, y: position.y, opacity: 1 }}
-                    initial={{ opacity: 0 }}
-                    exit={{ opacity: 0 }}
-                    transition={{ type: "spring", stiffness: 200, damping: 20 }}
-                  />
-                )}
-              </motion.div>
-            </motion.div>
-          </motion.section>
-
-          <motion.section
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.1, margin: "170px" }}
-            variants={staggerChildren}
-          >
-            <motion.div
-              className="w-full max-w-5xl mx-auto grid gap-10 md:gap-3"
-              variants={staggerChildren}
-            >
-              <motion.div variants={fadeInUp}>
-                {/* Project 3 */}
-                <div className="items-center text-center w-full">
-                  <div
-                    className="flex flex-col md:flex-row gap-6 md:gap-24 justify-between items-start w-full px-8 md:px-32 relative"
-                    onMouseEnter={() => setIsHovered2(true)}
-                    onMouseLeave={() => setIsHovered2(false)}
-                    onMouseMove={handleMouseMove}
-                    onClick={() => {
-                      router.push("/projects");
-                    }}
-                  >
-                    {/* Teks di kiri */}
-                    <h1 className="text-3xl md:text-4xl w-80 md:w-auto lg:w-98 font-medium text-dark-gray text-left md:text-left">
-                      Adora Pharmacy Information System
-                    </h1>
-
-                    {/* Tombol panah di bawah pada layar kecil */}
-                    <motion.button
-                      className="min-w-14 min-h-14 md:min-w-16 md:min-h-16 flex items-center justify-center rounded-full bg-black text-white md:mt-0"
-                      whileHover={{ scale: 1.1 }}
-                      whileTap={{ scale: 0.9 }}
-                    >
-                      <motion.span
-                        initial={{ x: 0 }}
-                        whileHover={{ x: 5 }}
-                        transition={{
-                          type: "spring",
-                          stiffness: 200,
-                          damping: 10,
-                        }}
-                      >
-                        <ArrowRight size={24} />
-                      </motion.span>
-                    </motion.button>
-
-                    <motion.div
-                      className="absolute bottom-[-24px] left-0 right-0 h-[2px] bg-gray-200" // Jarak 8px dari elemen di atas
-                      initial={{ backgroundColor: "#e5e7eb" }} // Warna awal abu-abu
-                      animate={{
-                        backgroundColor: isHovered2 ? "#000000" : "#e5e7eb",
-                      }} // Animasi warna saat hover
-                      transition={{ duration: 0.3 }} // Durasi animasi
-                    />
-                  </div>
-                </div>
-
-                {/* Gambar dengan animasi mengikuti cursor */}
-                {isHovered2 && (
-                  <motion.img
-                    src="/images/Apotek.jpg"
-                    alt="apotek"
-                    className="w-96 h-auto rounded-md shadow-2xl pointer-events-none fixed top-0 left-0 z-[-1]"
-                    animate={{ x: position.x, y: position.y, opacity: 1 }}
-                    initial={{ opacity: 0 }}
-                    exit={{ opacity: 0 }}
-                    transition={{ type: "spring", stiffness: 200, damping: 20 }}
-                  />
-                )}
-              </motion.div>
-            </motion.div>
-          </motion.section>
-
-          <motion.section
-            className="items-center text-center w-full justify-center pt-8"
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.1 }}
-            variants={staggerChildren}
-          >
-            <motion.div
-              className="flex flex-col md:flex-row gap-6 md:gap-24 justify-between items-start w-full px-8 md:px-32 relative"
-              variants={fadeInUp}
-            >
-              {/* Teks di kiri */}
-              <h1 className="text-3xl md:text-4xl font-medium text-dark-gray text-center">
-                Let's Work Together
-              </h1>
-
-              <motion.button
-                className="w-12 h-14 md:w-16 md:h-16 flex items-center justify-center rounded-sm bg-black text-white mt-4 md:mt-0"
-                whileHover={{ scale: 1.05, backgroundColor: "#00000" }}
-                whileTap={{ scale: 0.95 }}
-                transition={{ type: "spring", stiffness: 300 }}
-                style={{ width: "180px" }}
-              >
-                <a href="mailto:wildanrizki9560@gmail.com">Write an Email</a>
-              </motion.button>
-            </motion.div>
-          </motion.section>
-        </div>
+          {heading}
+        </motion.span>
+        {/* <span className="relative z-10 mt-2 block text-base transition-colors duration-500">
+          {subheading}
+        </span> */}
       </div>
-    )
+
+      <motion.img
+        style={{
+          top,
+          left,
+          translateX: "-25%",
+          translateY: "-50%",
+        }}
+        variants={{
+          initial: { scale: 0, rotate: "-6deg" },
+          whileHover: { scale: 1, rotate: "6deg" },
+        }}
+        transition={{ type: "spring" }}
+        src={imgSrc}
+        className="absolute z-0 h-auto w-96 rounded-lg object-cover shadow-md md:w-72 sm:w-60"
+        alt={`Image ${heading}`}
+      />
+
+      <motion.div
+        variants={{
+          initial: {
+            x: "25%",
+            opacity: 1,
+          },
+          whileHover: {
+            x: "0%",
+            opacity: 1,
+          },
+        }}
+        transition={{ type: "spring" }}
+        className="relative z-10 p-4 text-black"
+      >
+        <FiArrowRight className="text-5xl" />
+      </motion.div>
+    </motion.a>
   );
+};
+
+const fadeInUp = {
+  hidden: { opacity: 0, y: 60 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
+};
+
+const staggerChildren = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: { staggerChildren: 0.6, delayChildren: 0.8 },
+  },
 };
 
 export default Projects;
