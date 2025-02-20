@@ -233,8 +233,6 @@ const Sparepart = () => {
                 <motion.div
                   className="w-fit cursor-pointer"
                   variants={fadeInUp}
-                  initial="initial"
-                  whileHover="hovered"
                   onClick={() =>
                     window.open("https://trialbasemakercmw.online", "_blank")
                   }
