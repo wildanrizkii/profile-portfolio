@@ -112,14 +112,14 @@ const Sparepart = () => {
               variants={fadeInUp}
             >
               <motion.div
-                className="flex gap-6 justify-center text-4xl sm:text-5xl md:text-8xl lg:text-9xl text-nowrap font-black text-zinc-800 transition-all"
+                className="flex gap-3 md:gap-6 justify-center text-4xl sm:text-5xl md:text-8xl lg:text-9xl text-nowrap font-black text-zinc-800 transition-all"
                 variants={fadeInUp}
                 whileHover="hovered"
               >
                 <motion.h1
                   variants={{
                     hovered: {
-                      y: -10,
+                      y: -8,
                       color: "#27272a",
                       transition: {
                         duration: 0.4,

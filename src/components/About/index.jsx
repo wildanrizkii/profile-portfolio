@@ -66,21 +66,6 @@ const About = () => {
     return () => clearTimeout(timer);
   }, [pathname]);
 
-  // useEffect(() => {
-  //   const handleScroll = () => {
-  //     if (window.scrollY >= 300 && window.scrollY <= 2800) {
-  //       setLerpValue(0.05);
-  //     } else {
-  //       setLerpValue(0.1);
-  //     }
-  //   };
-
-  //   window.addEventListener("scroll", handleScroll);
-  //   return () => {
-  //     window.removeEventListener("scroll", handleScroll);
-  //   };
-  // }, []);
-
   return (
     <ReactLenis
       root
@@ -179,14 +164,6 @@ const About = () => {
                 </ul>
               </motion.div>
             </motion.div>
-
-            {/* Scroll Mouse */}
-            {/* <motion.div
-    className="w-full flex justify-center"
-    variants={fadeIn}
-  >
-    <AnimatedScrollMouse />
-  </motion.div> */}
           </motion.section>
 
           {/* Achivements Section */}
