@@ -230,7 +230,7 @@ const Sparepart = () => {
                   </div>
                 </motion.div>
 
-                <motion.div
+                {/* <motion.div
                   className="w-fit cursor-pointer"
                   variants={fadeInUp}
                   onClick={() =>
@@ -243,7 +243,6 @@ const Sparepart = () => {
                       Website
                     </motion.div>
 
-                    {/* Ikon Panah */}
                     <motion.div
                       className="text-black"
                       variants={{
@@ -256,7 +255,7 @@ const Sparepart = () => {
                       <FiArrowRight className="text-4xl pb-1" />
                     </motion.div>
                   </motion.div>
-                </motion.div>
+                </motion.div> */}
               </motion.div>
             </motion.div>
           </motion.section>
