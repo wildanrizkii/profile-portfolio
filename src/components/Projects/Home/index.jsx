@@ -36,7 +36,7 @@ const Projects = () => {
             <Link
               heading="Spare Part Information System"
               subheading="Learn what we do here"
-              imgSrc="/images/CMW.png"
+              imgSrc=""
               href="/projects/sparepart"
             />
           </motion.div>
@@ -120,22 +120,24 @@ const Link = ({ heading, imgSrc, subheading, href }) => {
         </span> */}
       </div>
 
-      <motion.img
-        style={{
-          top,
-          left,
-          translateX: "-25%",
-          translateY: "-50%",
-        }}
-        variants={{
-          initial: { scale: 0, rotate: "-6deg" },
-          whileHover: { scale: 1, rotate: "6deg" },
-        }}
-        transition={{ type: "spring" }}
-        src={imgSrc}
-        className="absolute z-0 h-auto w-96 rounded-lg object-cover shadow-md md:w-72 sm:w-60"
-        alt={`Image ${heading}`}
-      />
+      {imgSrc && (
+        <motion.img
+          style={{
+            top,
+            left,
+            translateX: "-25%",
+            translateY: "-50%",
+          }}
+          variants={{
+            initial: { scale: 0, rotate: "-12.5deg" },
+            whileHover: { scale: 1, rotate: "12.5deg" },
+          }}
+          transition={{ type: "spring" }}
+          src={imgSrc}
+          className="absolute z-0 h-auto w-96 rounded-lg object-cover shadow-2xl md:w-72 sm:w-60"
+          alt={`Image ${heading}`}
+        />
+      )}
 
       <motion.div
         variants={{

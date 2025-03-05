@@ -152,10 +152,9 @@ const Sparepart = () => {
                 variants={fadeInUp}
               >
                 This Spare Part Information System is designed to empower sales
-                representatives and employees of PT Cipta Mandiri Wirasakti by
-                providing an intuitive platform for showcasing and delivering
-                comprehensive information about a diverse range of spare parts
-                to clients and prospective buyers.
+                representatives and employees by providing an intuitive platform
+                to showcase and deliver comprehensive information about a wide
+                range of spare parts to clients and prospective buyers.
               </motion.h1>
 
               <motion.h1
@@ -197,20 +196,15 @@ const Sparepart = () => {
                 variants={staggerChildren}
               >
                 <motion.div variants={fadeInUp}>
-                  <p className="text-lg sm:text-xl font-medium">Client</p>
-                  <div className="mt-2 space-y-2">
-                    <h1 className="font-semibold text-2xl md:text-3xl">
-                      Yudha Wisnu
-                    </h1>
-                  </div>
-                </motion.div>
-
-                <motion.div variants={fadeInUp}>
                   <p className="text-lg sm:text-xl font-medium">Company</p>
                   <div className="mt-2 space-y-2">
                     <h1 className="font-semibold text-2xl md:text-3xl">
-                      PT Cipta Mandiri Wirasakti
+                      PT XXX
                     </h1>
+                    <p className="text-sm text-gray-500">
+                      * This company has not given permission to be mentioned in
+                      the portfolio
+                    </p>
                   </div>
                 </motion.div>
 
@@ -219,6 +213,15 @@ const Sparepart = () => {
                   <div className="mt-2 space-y-2">
                     <h1 className="font-semibold text-2xl md:text-3xl">
                       Sales Support System
+                    </h1>
+                  </div>
+                </motion.div>
+
+                <motion.div variants={fadeInUp}>
+                  <p className="text-lg sm:text-xl font-medium">Tech Stack</p>
+                  <div className="mt-2 space-y-2">
+                    <h1 className="font-semibold text-2xl md:text-3xl">
+                      Next.js, React, Tailwind CSS, PostgreSQL
                     </h1>
                   </div>
                 </motion.div>
