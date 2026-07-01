@@ -1,8 +1,8 @@
 import React from "react";
-import Construction from "@/components/Constraction";
+import ProjectList from "@/components/Projects/List";
 
 const page = () => {
-  return <Construction />;
+  return <ProjectList />;
 };
 
 export default page;

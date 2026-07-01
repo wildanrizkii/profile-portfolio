@@ -4,11 +4,13 @@ import { Github, Mail, Linkedin, Instagram } from "lucide-react";
 import { motion } from "framer-motion";
 import AnimatedBackground from "../AnimatedBackground";
 import { useRouter } from "next/navigation";
+import { useLenis } from "lenis/react";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const router = useRouter();
+  const lenis = useLenis();
 
   const toggleMenu = () => {
     setIsOpen((prev) => !prev);
@@ -24,14 +26,20 @@ const Navbar = () => {
 
   useEffect(() => {
     if (isOpen) {
+      document.documentElement.style.overflow = "hidden";
       document.body.style.overflow = "hidden";
+      lenis?.stop();
     } else {
-      document.body.style.overflow = "unset";
+      document.documentElement.style.overflow = "";
+      document.body.style.overflow = "";
+      lenis?.start();
     }
     return () => {
-      document.body.style.overflow = "unset";
+      document.documentElement.style.overflow = "";
+      document.body.style.overflow = "";
+      lenis?.start();
     };
-  }, [isOpen]);
+  }, [isOpen, lenis]);
 
   const fadeInUp = {
     hidden: { opacity: 0, y: 60 },
@@ -61,20 +69,7 @@ const Navbar = () => {
     },
   };
 
-  // useEffect(() => {
-  //   if (isOpen) {
-  //     document.body.style.overflow = "hidden";
-  //     document.body.style.position = "fixed"; // Mencegah scroll di iOS
-  //     document.body.style.width = "100%";
-  //   } else {
-  //     document.body.style.overflow = "unset";
-  //     document.body.style.position = "unset";
-  //   }
-  //   return () => {
-  //     document.body.style.overflow = "unset";
-  //     document.body.style.position = "unset";
-  //   };
-  // }, [isOpen]);
+
 
   const navLinks = [
     { href: "/", label: "Home" },

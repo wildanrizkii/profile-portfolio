@@ -1,26 +1,52 @@
+"use client";
 import React, { useState, useEffect, useRef } from "react";
 import { useMotionValue, motion, useSpring, useTransform } from "framer-motion";
-import { ArrowRight } from "lucide-react";
 import { FiArrowRight } from "react-icons/fi";
-import { usePathname, useRouter } from "next/navigation";
+import { usePathname } from "next/navigation";
+import Link from "next/link";
 
-const projects = [
+const projectList = [
   {
     title: "Spare Part Information System",
-    link: "/projects/sparepart",
+    category: "Full-Stack Sales Platform",
+    description: "An intuitive web platform designed to manage complex spare part hierarchies, vendor specifications, materials, and automated order generation.",
+    tech: ["Next.js", "React", "Tailwind CSS", "PostgreSQL"],
     img: "/images/CMW.png",
+    href: "/projects/sparepart",
+    featured: true,
   },
   {
     title: "Cash Flow Tracking Application",
-    link: "/projects",
+    category: "Financial Dashboard",
+    description: "A tracking application with clean analytics, charts, and transaction history filters for personal financial management.",
+    tech: ["Next.js", "Recharts", "PostgreSQL", "Supabase"],
     img: "/images/Cashify.png",
+    href: "/projects/cashflow",
+    featured: false,
   },
   {
-    title: "Adora Pharmacy Information System",
-    link: "/projects",
+    title: "Adora SaaS",
+    category: "SaaS · Healthcare ERP",
+    description: "A cloud-native, multi-tenant SaaS pharmacy platform for PT Adora Medika — managing prescriptions, drug inventory, staff roles, and branch analytics.",
+    tech: ["Next.js", "Ant Design", "PostgreSQL", "Supabase"],
     img: "/images/Apotek.jpg",
+    href: "/projects/adora",
+    featured: false,
   },
 ];
+
+const fadeInUp = {
+  hidden: { opacity: 0, y: 50 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
+};
+
+const staggerChildren = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: { staggerChildren: 0.2, delayChildren: 0.1 },
+  },
+};
 
 const Projects = () => {
   const [isMounted, setIsMounted] = useState(false);
@@ -30,165 +56,175 @@ const Projects = () => {
     setIsMounted(false);
     const timer = setTimeout(() => {
       setIsMounted(true);
-      window.scrollTo(0, 0);
-    }, 100);
+    }, 50);
     return () => clearTimeout(timer);
   }, [pathname]);
+
   return (
     isMounted && (
       <motion.section
-        className="bg-transparent md:p-8 pb-20 md:pb-20"
+        className="bg-transparent py-12 md:py-20 px-4 md:px-8 w-full"
         key={pathname}
         initial="hidden"
         whileInView="visible"
-        viewport={{ once: true, amount: 0.1 }}
+        viewport={{ once: true, amount: 0.05 }}
         variants={staggerChildren}
       >
-        <motion.h1
-          className="text-6xl font-medium text-dark-gray py-14 px-3 md:px-8"
-          variants={fadeInUp}
-        >
-          Projects
-        </motion.h1>
-        <div className="mx-auto max-w-5xl px-8">
-          <motion.div variants={fadeInUp}>
-            <Link
-              heading="Spare Part Information System"
-              subheading="Learn what we do here"
-              imgSrc=""
-              href="/projects/sparepart"
-            />
-          </motion.div>
+        <div className="max-w-5xl mx-auto mb-12">
+          <motion.p 
+            className="text-sm font-semibold tracking-widest text-gray-500 uppercase mb-2"
+            variants={fadeInUp}
+          >
+            Selected Works
+          </motion.p>
+          <motion.h1
+            className="text-4xl md:text-6xl font-medium text-dark-gray"
+            variants={fadeInUp}
+          >
+            Projects
+          </motion.h1>
+        </div>
 
-          <motion.div variants={fadeInUp}>
-            <Link
-              heading="Cash Flow Tracking Application"
-              subheading="We work with great people"
-              imgSrc="/images/Cashify.png"
-              href="/projects"
-            />
-          </motion.div>
-          <motion.div variants={fadeInUp}>
-            <Link
-              heading="Adora Pharmacy Information System"
-              subheading="Our work speaks for itself"
-              imgSrc="/images/Apotek.jpg"
-              href="/projects"
-            />
-          </motion.div>
+        <div className="mx-auto max-w-5xl">
+          {/* Asymmetric Bento Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {projectList.map((project, idx) => (
+              <motion.div
+                key={project.title}
+                variants={fadeInUp}
+                className={project.featured ? "md:col-span-2 h-full" : "md:col-span-1 h-full"}
+              >
+                <ProjectCard project={project} />
+              </motion.div>
+            ))}
+          </div>
         </div>
       </motion.section>
     )
   );
 };
 
-const Link = ({ heading, imgSrc, subheading, href }) => {
-  const ref = useRef(null);
+const ProjectCard = ({ project }) => {
+  const cardRef = useRef(null);
 
-  const x = useMotionValue(0);
-  const y = useMotionValue(0);
+  // Motion values for tilt animation
+  const x = useMotionValue(0.5);
+  const y = useMotionValue(0.5);
 
-  const mouseXSpring = useSpring(x);
-  const mouseYSpring = useSpring(y);
+  const rotateX = useSpring(useTransform(y, [0, 1], [8, -8]), { damping: 25, stiffness: 180 });
+  const rotateY = useSpring(useTransform(x, [0, 1], [-8, 8]), { damping: 25, stiffness: 180 });
 
-  const top = useTransform(mouseYSpring, [0.5, -0.5], ["40%", "60%"]);
-  const left = useTransform(mouseXSpring, [0.5, -0.5], ["60%", "70%"]);
+  // Spotlight highlight background tracking
+  const spotlightX = useMotionValue(0);
+  const spotlightY = useMotionValue(0);
 
   const handleMouseMove = (e) => {
-    const rect = ref.current.getBoundingClientRect();
-
+    if (!cardRef.current) return;
+    const rect = cardRef.current.getBoundingClientRect();
     const width = rect.width;
     const height = rect.height;
 
     const mouseX = e.clientX - rect.left;
     const mouseY = e.clientY - rect.top;
 
-    const xPct = mouseX / width - 0.5;
-    const yPct = mouseY / height - 0.5;
+    x.set(mouseX / width);
+    y.set(mouseY / height);
 
-    x.set(xPct);
-    y.set(yPct);
+    spotlightX.set(mouseX);
+    spotlightY.set(mouseY);
+  };
+
+  const handleMouseLeave = () => {
+    x.set(0.5);
+    y.set(0.5);
   };
 
   return (
-    <motion.a
-      href={href}
-      ref={ref}
-      onMouseMove={handleMouseMove}
-      initial="initial"
-      whileHover="whileHover"
-      className="group relative flex items-center justify-between border-b-2 border-neutral-300 py-4 transition-colors duration-500 hover:border-black md:py-8"
-    >
-      <div>
-        <motion.span
-          variants={{
-            initial: { x: 0 },
-            whileHover: { x: -16 },
-          }}
-          transition={{
-            type: "spring",
-            staggerChildren: 0.075,
-            delayChildren: 0.25,
-          }}
-          className="relative z-10 block text-3xl font-semibold transition-colors duration-500 md:text-4xl"
-        >
-          {heading}
-        </motion.span>
-        {/* <span className="relative z-10 mt-2 block text-base transition-colors duration-500">
-          {subheading}
-        </span> */}
-      </div>
-
-      {imgSrc && (
-        <motion.img
-          style={{
-            top,
-            left,
-            translateX: "-25%",
-            translateY: "-50%",
-          }}
-          variants={{
-            initial: { scale: 0, rotate: "-12.5deg" },
-            whileHover: { scale: 1, rotate: "12.5deg" },
-          }}
-          transition={{ type: "spring" }}
-          src={imgSrc}
-          className="absolute z-0 h-auto w-96 rounded-lg object-cover shadow-2xl md:w-72 sm:w-60"
-          alt={`Image ${heading}`}
-        />
-      )}
-
+    <Link href={project.href} className="block group h-full">
       <motion.div
-        variants={{
-          initial: {
-            x: "25%",
-            opacity: 1,
-          },
-          whileHover: {
-            x: "0%",
-            opacity: 1,
-          },
+        ref={cardRef}
+        onMouseMove={handleMouseMove}
+        onMouseLeave={handleMouseLeave}
+        style={{
+          transformStyle: "preserve-3d",
+          rotateX,
+          rotateY,
         }}
-        transition={{ type: "spring" }}
-        className="relative z-10 p-4 text-black"
+        whileHover={{ scale: 1.01 }}
+        transition={{ type: "spring", stiffness: 300, damping: 20 }}
+        className={`relative overflow-hidden rounded-2xl border-2 border-neutral-300/60 bg-white/30 backdrop-blur-md p-6 md:p-8 flex flex-col justify-between h-full hover:border-black transition-colors duration-500 min-h-[460px] cursor-none clickable`}
       >
-        <FiArrowRight className="text-5xl" />
+        {/* Spotlight Effect Overlay */}
+        <motion.div
+          className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"
+          style={{
+            background: useTransform(
+              [spotlightX, spotlightY],
+              ([sx, sy]) => `radial-gradient(400px circle at ${sx}px ${sy}px, rgba(0, 0, 0, 0.03), transparent 80%)`
+            ),
+          }}
+        />
+
+        {/* Top Info */}
+        <div className="relative z-10 flex flex-col gap-4">
+          <div className="flex justify-between items-start gap-4">
+            <div>
+              <span className="inline-block text-xs font-semibold uppercase tracking-widest text-gray-500 bg-white/80 border border-neutral-200 px-3 py-1 rounded-full backdrop-blur-xs mb-2">
+                {project.category}
+              </span>
+              <h2 className="text-2xl md:text-3xl font-bold text-dark-gray leading-tight">
+                {project.title}
+              </h2>
+            </div>
+            {/* Sliding Arrow with frame-motion style */}
+            <motion.div
+              className="bg-black text-white p-3 rounded-full flex items-center justify-center shadow-lg group-hover:bg-neutral-800 transition-colors duration-300"
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.9 }}
+            >
+              <motion.div
+                animate={{ x: [0, 4, 0] }}
+                transition={{ repeat: Infinity, duration: 1.5, ease: "easeInOut" }}
+              >
+                <FiArrowRight className="text-xl" />
+              </motion.div>
+            </motion.div>
+          </div>
+
+          <p className="text-base text-gray-600 font-medium max-w-2xl group-hover:text-black transition-colors duration-300 leading-relaxed">
+            {project.description}
+          </p>
+
+          <div className="flex flex-wrap gap-2 pt-2">
+            {project.tech.map((t) => (
+              <span
+                key={t}
+                className="text-xs font-semibold text-neutral-700 bg-neutral-200/50 hover:bg-neutral-200/80 px-2.5 py-1 rounded-md transition-colors"
+              >
+                {t}
+              </span>
+            ))}
+          </div>
+        </div>
+
+        {/* Display Image in Card */}
+        <div 
+          className={`relative w-full rounded-xl overflow-hidden mt-8 border border-neutral-200/50 bg-neutral-100 flex-grow flex items-center justify-center min-h-[220px] max-h-[300px] shadow-inner`}
+          style={{ transform: "translateZ(30px)" }}
+        >
+          {project.img ? (
+            <motion.img
+              src={project.img}
+              alt={project.title}
+              className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+            />
+          ) : (
+            <div className="text-gray-400 font-medium text-sm">Preview Unavailable</div>
+          )}
+        </div>
       </motion.div>
-    </motion.a>
+    </Link>
   );
-};
-
-const fadeInUp = {
-  hidden: { opacity: 0, y: 60 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
-};
-
-const staggerChildren = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: { staggerChildren: 0.4, delayChildren: 0.4 },
-  },
 };
 
 export default Projects;
