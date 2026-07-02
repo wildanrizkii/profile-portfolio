@@ -101,7 +101,7 @@ const About = () => {
       exit={{ opacity: 0 }}
       transition={{ duration: 0.8 }}
     >
-      <div className="relative overflow-x-clip">
+      <div className="relative overflow-x-hidden">
         {/* Background animation */}
         <motion.section
           className="absolute top-0 left-0 w-screen h-screen overflow-hidden"
@@ -237,7 +237,7 @@ const About = () => {
                     </span>
                   </div>
                   <h3 className="text-xl font-bold text-black">{item.title}</h3>
-                  <p className="text-base text-gray-600 font-medium leading-relaxed leading-5">
+                  <p className="text-base text-gray-600 font-medium leading-relaxed">
                     {item.description}
                   </p>
                 </div>

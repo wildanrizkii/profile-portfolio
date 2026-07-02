@@ -7,16 +7,18 @@ import { usePathname } from "next/navigation";
 import { FiArrowRight, FiArrowLeft } from "react-icons/fi";
 import { useTransitionState } from "../../PageTransition";
 import {
-  TrendingUp,
-  PieChart,
-  CalendarRange,
-  Bell,
-  Download,
-  LayoutDashboard,
-  Wallet,
-  ArrowUpDown,
+  Pill,
+  Users,
+  ClipboardList,
+  BarChart3,
   ShieldCheck,
-  Smartphone,
+  Globe,
+  Building2,
+  Database,
+  Settings,
+  Bell,
+  Layers,
+  Zap,
 } from "lucide-react";
 
 /* ─── Animation Variants ─── */
@@ -46,86 +48,111 @@ const navbarFadeDown = {
 
 /* ─── Data ─── */
 const meta = [
-  { label: "Client", value: "Personal Project" },
-  { label: "Project Type", value: "Finance Tracker" },
+  { label: "Client", value: "PT Adora Medika" },
+  { label: "Project Type", value: "SaaS Platform" },
   { label: "Role", value: "Full Stack Developer" },
-  { label: "Year", value: "2025" },
+  { label: "Year", value: "2026" },
 ];
 
 const techStack = [
-  { cat: "Front-End", items: ["Next.js", "React", "Tailwind CSS", "Recharts"] },
-  { cat: "Back-End", items: ["Next.js API Routes", "Prisma ORM"] },
-  { cat: "Database", items: ["PostgreSQL", "Supabase"] },
-  { cat: "Tools", items: ["Git", "GitHub", "Figma", "Vercel"] },
+  {
+    cat: "Front-End",
+    items: ["Next.js 16", "React 19", "TypeScript", "Tailwind CSS v4"],
+  },
+  {
+    cat: "UI & UX",
+    items: ["Shadcn UI", "Radix UI", "Framer Motion", "Lucide React"],
+  },
+  {
+    cat: "Back-End",
+    items: ["NestJS", "Node.js", "REST API", "Swagger"],
+  },
+  {
+    cat: "Data & Auth",
+    items: ["PostgreSQL", "Prisma ORM", "JWT", "Passport.js"],
+  },
+  {
+    cat: "State & Query",
+    items: ["TanStack Query", "Axios", "Zod", "Class Validator"],
+  },
+  {
+    cat: "DevOps & Tools",
+    items: ["Docker", "GitHub Actions", "Vercel", "Biome"],
+  },
 ];
 
 const features = [
   {
-    icon: <LayoutDashboard className="w-6 h-6" />,
-    title: "Real-Time Dashboard",
-    desc: "Bird's-eye view of your income, expenses, and net cash flow with live updating charts and balances.",
+    icon: <Layers className="w-6 h-6" />,
+    title: "Multi-Tenant SaaS Architecture",
+    desc: "Each pharmacy client operates in a fully isolated tenant environment with dedicated data scopes—true enterprise SaaS scalability built on NestJS.",
   },
   {
-    icon: <ArrowUpDown className="w-6 h-6" />,
-    title: "Income & Expense Tracking",
-    desc: "Log every transaction with category tags, notes, and timestamps for complete financial transparency.",
+    icon: <ClipboardList className="w-6 h-6" />,
+    title: "Prescription Management",
+    desc: "Digital prescription processing with doctor verification, patient records, and dispensing history logs—fully integrated into the cashier workflow.",
   },
   {
-    icon: <PieChart className="w-6 h-6" />,
-    title: "Interactive Charts & Analytics",
-    desc: "Beautiful donut charts, bar graphs, and trend lines powered by Recharts to visualize spending habits.",
+    icon: <Pill className="w-6 h-6" />,
+    title: "Drug & Inventory Catalog",
+    desc: "Comprehensive pharmacy inventory with drug information, batch tracking, expiry management, and automated restock alerts.",
   },
   {
-    icon: <CalendarRange className="w-6 h-6" />,
-    title: "Period-Based Reporting",
-    desc: "Filter and compare cash flow by day, week, month, or custom date range for granular analysis.",
-  },
-  {
-    icon: <Bell className="w-6 h-6" />,
-    title: "Budget Alerts",
-    desc: "Set monthly spending limits per category and receive automatic alerts when approaching thresholds.",
-  },
-  {
-    icon: <Download className="w-6 h-6" />,
-    title: "Export to CSV / PDF",
-    desc: "Download your financial reports in structured formats ready for bookkeeping or auditing.",
-  },
-  {
-    icon: <Wallet className="w-6 h-6" />,
-    title: "Multi-Account Wallet",
-    desc: "Manage cash, bank, and e-wallet accounts in one place with unified balance tracking.",
+    icon: <BarChart3 className="w-6 h-6" />,
+    title: "Sales & Revenue Analytics",
+    desc: "Interactive dashboards built with Recharts displaying daily revenue, top-selling products, and monthly growth trends per branch.",
   },
   {
     icon: <ShieldCheck className="w-6 h-6" />,
-    title: "Secure Auth",
-    desc: "Email and OAuth sign-in with session management and role-based access powered by NextAuth.",
+    title: "Role-Based Access Control",
+    desc: "Granular permission system for pharmacists, cashiers, managers, and super-admins with full audit trail—powered by Passport.js and JWT.",
   },
   {
-    icon: <Smartphone className="w-6 h-6" />,
-    title: "Mobile Responsive",
-    desc: "Fully responsive design optimized for mobile-first usage—track finances anywhere, anytime.",
+    icon: <Bell className="w-6 h-6" />,
+    title: "Low Stock & Expiry Alerts",
+    desc: "Automated notifications delivered via email (Nodemailer) when products hit minimum stock levels or approach expiration dates.",
+  },
+  {
+    icon: <Building2 className="w-6 h-6" />,
+    title: "Multi-Branch Management",
+    desc: "Centralized admin panel to manage all pharmacy branches, staff, inventory, and reports from one unified dashboard.",
+  },
+  {
+    icon: <Database className="w-6 h-6" />,
+    title: "Data Export & Reporting",
+    desc: "Generate financial summaries, inventory snapshots, and prescription logs exportable to Excel (xlsx) and PDF formats.",
+  },
+  {
+    icon: <Zap className="w-6 h-6" />,
+    title: "Optimistic UI & Fast UX",
+    desc: "Built with TanStack Query for server-state management, providing instant optimistic updates and background data synchronization.",
   },
 ];
 
 const highlights = [
-  { num: "Multi", label: "Account Support" },
-  { num: "100%", label: "Responsive" },
-  { num: "Real-Time", label: "Dashboard" },
-  { num: "CSV/PDF", label: "Export" },
+  { num: "Multi", label: "Tenant SaaS" },
+  { num: "NestJS", label: "API Backend" },
+  { num: "RBAC", label: "Access Control" },
+  { num: "React 19", label: "Frontend" },
 ];
 
-/* ─── Bar chart mock data ─── */
-const mockBars = [
-  { month: "Jan", income: 72, expense: 45 },
-  { month: "Feb", income: 60, expense: 52 },
-  { month: "Mar", income: 85, expense: 38 },
-  { month: "Apr", income: 78, expense: 62 },
-  { month: "May", income: 92, expense: 55 },
-  { month: "Jun", income: 68, expense: 48 },
+/* ─── Mock dashboard data ─── */
+const mockStats = [
+  { label: "Today's Revenue", value: "Rp 6.870.000", sub: "+14% vs yesterday" },
+  { label: "Prescriptions", value: "83", sub: "Processed today" },
+  { label: "Active Tenants", value: "12", sub: "Pharmacy branches" },
+  { label: "Low Stock Alerts", value: "7", sub: "Need restock" },
+];
+
+const mockPrescriptions = [
+  { name: "Amoxicillin 500mg", qty: "3×1", status: "Dispensed", statusColor: "text-emerald-400" },
+  { name: "Paracetamol 500mg", qty: "3×1", status: "Dispensed", statusColor: "text-emerald-400" },
+  { name: "Omeprazole 20mg", qty: "1×1", status: "Pending", statusColor: "text-amber-400" },
+  { name: "Vitamin C 1000mg", qty: "1×1", status: "Dispensed", statusColor: "text-emerald-400" },
 ];
 
 /* ─── Component ─── */
-const CashFlow = () => {
+const AdoraSaaSNew = () => {
   const router = useRouter();
   const pathname = usePathname();
   const { isTransitioning } = useTransitionState();
@@ -141,11 +168,11 @@ const CashFlow = () => {
       {/* Decorative blobs */}
       <div className="fixed inset-0 pointer-events-none overflow-hidden z-0">
         <div
-          className="absolute -top-32 -right-32 w-150 h-150 rounded-full opacity-[0.04]"
+          className="absolute -top-32 -left-32 w-150 h-150 rounded-full opacity-[0.04]"
           style={{ background: "radial-gradient(circle, #000 0%, transparent 70%)" }}
         />
         <div
-          className="absolute bottom-0 left-0 w-125 h-125 rounded-full opacity-[0.03]"
+          className="absolute bottom-0 right-0 w-125 h-125 rounded-full opacity-[0.03]"
           style={{ background: "radial-gradient(circle, #000 0%, transparent 70%)" }}
         />
       </div>
@@ -174,7 +201,7 @@ const CashFlow = () => {
           {/* Label pill */}
           <motion.div variants={fadeInUp} className="mb-6">
             <span className="inline-flex items-center gap-2 text-xs font-bold tracking-widest uppercase text-gray-500 bg-neutral-200/60 border border-neutral-300 px-3 py-1.5 rounded-full">
-              <TrendingUp className="w-4 h-4" />
+              <Layers className="w-4 h-4" />
               Project Case Study
             </span>
           </motion.div>
@@ -184,8 +211,8 @@ const CashFlow = () => {
             variants={fadeInUp}
             className="text-5xl sm:text-7xl md:text-8xl lg:text-[7rem] font-black text-zinc-900 leading-none tracking-tight mb-8"
           >
-            Cash Flow<br />
-            <span className="text-neutral-400">Tracker</span>
+            Adora<br />
+            <span className="text-neutral-400">SaaS</span>
           </motion.h1>
 
           {/* Tagline */}
@@ -193,9 +220,10 @@ const CashFlow = () => {
             variants={fadeInUp}
             className="text-lg md:text-xl text-gray-600 font-medium max-w-2xl leading-relaxed mb-12"
           >
-            A personal finance web application that gives you complete visibility
-            over your income and expenses—with beautiful analytics, multi-account
-            wallets, and smart budget alerts.
+            A cloud-native, multi-tenant SaaS pharmacy platform—rebuilt from the
+            ground up using NestJS, Next.js 16, and React 19—enabling PT Adora Medika
+            to manage prescriptions, inventory, staff, and analytics across multiple
+            branches from a single unified dashboard.
           </motion.p>
 
           {/* Meta grid */}
@@ -214,96 +242,85 @@ const CashFlow = () => {
           </motion.div>
         </motion.section>
 
-        {/* ── HERO VISUAL / MOCKUP ── */}
+        {/* ── SCREENSHOT SHOWCASE ── */}
         <motion.section
           className="w-full max-w-6xl mx-auto px-4 md:px-8 pb-24"
           initial="hidden"
           whileInView={isTransitioning ? "hidden" : "visible"}
           viewport={{ once: true, amount: 0.1 }}
-          variants={fadeIn}
+          variants={staggerChildren}
         >
-          <div className="relative rounded-3xl overflow-hidden border-2 border-neutral-200 bg-linear-to-br from-slate-900 via-slate-800 to-slate-700 min-h-90 md:min-h-120 p-8 flex flex-col justify-between">
-            {/* Grid bg */}
-            <div
-              className="absolute inset-0 opacity-[0.07]"
-              style={{
-                backgroundImage:
-                  "linear-gradient(rgba(255,255,255,.25) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.25) 1px, transparent 1px)",
-                backgroundSize: "36px 36px",
-              }}
+          {/* Featured Screenshot */}
+          <motion.div
+            variants={fadeInUp}
+            className="relative rounded-3xl overflow-hidden border-2 border-neutral-200 shadow-2xl mb-4 group cursor-none"
+          >
+            <img
+              src="/images/adora-saas/adora-1.webp"
+              alt="Adora SaaS - Landing Page & Dashboard Preview"
+              className="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-[1.02]"
             />
+            <div className="absolute inset-0 bg-linear-to-t from-black/30 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+            <div className="absolute bottom-5 left-6 opacity-0 group-hover:opacity-100 transition-all duration-500 translate-y-2 group-hover:translate-y-0">
+              <span className="text-xs font-bold text-white bg-black/60 backdrop-blur-sm border border-white/20 px-3 py-1.5 rounded-full">
+                Landing Page & Dashboard
+              </span>
+            </div>
+          </motion.div>
 
-            {/* Top: header row */}
-            <div className="relative z-10 flex items-start justify-between flex-wrap gap-4">
-              <div>
-                <p className="text-white/50 text-xs font-bold uppercase tracking-widest mb-1">Cash Flow Tracker</p>
-                <h2 className="text-2xl md:text-3xl font-black text-white">June 2025 Overview</h2>
-              </div>
-              <div className="flex gap-3 flex-wrap">
-                {["Income", "Expense", "Balance"].map((tag) => (
-                  <span
-                    key={tag}
-                    className="text-xs font-bold text-white/70 bg-white/10 border border-white/10 px-3 py-1.5 rounded-full"
-                  >
-                    {tag}
+          {/* Grid: 4 screenshots */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-4">
+            {[
+              { src: "/images/adora-saas/adora-5.webp", label: "Pharmacy Dashboard" },
+              { src: "/images/adora-saas/adora-4.webp", label: "Super Admin Panel" },
+              { src: "/images/adora-saas/adora-3.webp", label: "Login Page" },
+              { src: "/images/adora-saas/adora-6.webp", label: "Subscription Plans" },
+            ].map((img, i) => (
+              <motion.div
+                key={i}
+                variants={fadeInUp}
+                className="relative rounded-2xl overflow-hidden border-2 border-neutral-200 shadow-md group cursor-none aspect-video"
+              >
+                <img
+                  src={img.src}
+                  alt={img.label}
+                  className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-linear-to-t from-black/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-400" />
+                <div className="absolute bottom-3 left-3 opacity-0 group-hover:opacity-100 transition-all duration-400 translate-y-1 group-hover:translate-y-0">
+                  <span className="text-[10px] font-bold text-white bg-black/60 backdrop-blur-sm border border-white/20 px-2 py-1 rounded-full">
+                    {img.label}
                   </span>
-                ))}
-              </div>
-            </div>
-
-            {/* Middle: stat cards */}
-            <div className="relative z-10 grid grid-cols-3 gap-3 md:gap-5 my-6">
-              {[
-                { label: "Total Income", value: "Rp 8.400.000", trend: "+12%", positive: true },
-                { label: "Total Expense", value: "Rp 4.800.000", trend: "-5%", positive: false },
-                { label: "Net Cash Flow", value: "Rp 3.600.000", trend: "+27%", positive: true },
-              ].map((card, i) => (
-                <div
-                  key={i}
-                  className="rounded-2xl bg-white/10 border border-white/10 backdrop-blur-sm p-4 md:p-5"
-                >
-                  <p className="text-white/50 text-xs font-semibold mb-2">{card.label}</p>
-                  <p className="text-white text-base md:text-xl font-black leading-tight">{card.value}</p>
-                  <p className={`text-xs font-bold mt-1 ${card.positive ? "text-emerald-400" : "text-rose-400"}`}>
-                    {card.trend} vs last month
-                  </p>
                 </div>
-              ))}
-            </div>
+              </motion.div>
+            ))}
+          </div>
 
-            {/* Bottom: mini bar chart */}
-            <div className="relative z-10">
-              <p className="text-white/40 text-xs font-bold uppercase tracking-widest mb-3">
-                Monthly Trend
-              </p>
-              <div className="flex items-end gap-2 h-20">
-                {mockBars.map((bar, i) => (
-                  <div key={i} className="flex-1 flex flex-col items-center gap-1">
-                    <div className="w-full flex flex-col gap-0.5">
-                      <div
-                        className="w-full rounded-t bg-emerald-400/70"
-                        style={{ height: `${(bar.income / 100) * 64}px` }}
-                      />
-                      <div
-                        className="w-full rounded-b bg-rose-400/60"
-                        style={{ height: `${(bar.expense / 100) * 64}px` }}
-                      />
-                    </div>
-                    <span className="text-white/30 text-[10px] font-semibold">{bar.month}</span>
-                  </div>
-                ))}
-              </div>
-              <div className="flex gap-4 mt-3">
-                <span className="flex items-center gap-1.5 text-xs text-white/50 font-semibold">
-                  <span className="w-2.5 h-2.5 rounded-sm bg-emerald-400/70" />
-                  Income
-                </span>
-                <span className="flex items-center gap-1.5 text-xs text-white/50 font-semibold">
-                  <span className="w-2.5 h-2.5 rounded-sm bg-rose-400/60" />
-                  Expense
-                </span>
-              </div>
-            </div>
+          {/* Grid: 3 more screenshots */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            {[
+              { src: "/images/adora-saas/adora-2.webp", label: "Customer-Facing Portal" },
+              { src: "/images/adora-saas/adora-7.webp", label: "AI Chatbot Management" },
+              { src: "/images/adora-saas/adora-8.webp", label: "Server Monitoring" },
+            ].map((img, i) => (
+              <motion.div
+                key={i}
+                variants={fadeInUp}
+                className="relative rounded-2xl overflow-hidden border-2 border-neutral-200 shadow-md group cursor-none aspect-video"
+              >
+                <img
+                  src={img.src}
+                  alt={img.label}
+                  className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-linear-to-t from-black/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-400" />
+                <div className="absolute bottom-3 left-3 opacity-0 group-hover:opacity-100 transition-all duration-400 translate-y-1 group-hover:translate-y-0">
+                  <span className="text-[10px] font-bold text-white bg-black/60 backdrop-blur-sm border border-white/20 px-2 py-1 rounded-full">
+                    {img.label}
+                  </span>
+                </div>
+              </motion.div>
+            ))}
           </div>
         </motion.section>
 
@@ -320,7 +337,7 @@ const CashFlow = () => {
               Overview
             </p>
             <h2 className="text-3xl md:text-5xl font-bold text-zinc-900 max-w-3xl leading-snug">
-              Your money, fully in view
+              A SaaS evolution—rebuilt with enterprise-grade architecture
             </h2>
           </motion.div>
 
@@ -330,15 +347,17 @@ const CashFlow = () => {
               className="space-y-5 text-base md:text-lg text-gray-600 font-medium leading-relaxed"
             >
               <p>
-                Cash Flow Tracker is a full-stack personal finance application built to
-                give users complete visibility over their financial health. It allows
-                users to log every income and expense, categorize transactions, and
-                monitor their cash position in real time.
+                Adora SaaS is the next evolution of the Adora Pharmacy Management
+                System—rebuilt from the ground up as a fully cloud-native,
+                multi-tenant SaaS platform. The backend was migrated from Express.js
+                to NestJS for a modular, scalable architecture, while the frontend
+                was upgraded to Next.js 16 with React 19.
               </p>
               <p>
-                The dashboard surfaces interactive charts and trend graphs that transform
-                raw transaction data into actionable insights—helping users understand
-                exactly where their money comes from and where it goes.
+                Each pharmacy client operates within a fully isolated tenant
+                environment, sharing infrastructure while maintaining strict data
+                boundaries—enabling true SaaS scalability for PT Adora Medika's
+                growing pharmacy network.
               </p>
             </motion.div>
             <motion.div
@@ -346,14 +365,16 @@ const CashFlow = () => {
               className="space-y-5 text-base md:text-lg text-gray-600 font-medium leading-relaxed"
             >
               <p>
-                Multi-account support lets users track cash, bank accounts, and digital
-                wallets side by side. Budget alerts send timely notifications before
-                spending limits are breached, keeping finances disciplined.
+                The API layer is built with NestJS, leveraging Passport.js for
+                authentication, JWT for stateless session management, and
+                class-validator with Zod for strict request validation—all
+                documented via Swagger.
               </p>
               <p>
-                Reports can be exported to CSV or PDF for bookkeeping and tax filing.
-                The fully responsive design ensures a seamless experience on both
-                desktop and mobile devices.
+                The frontend leverages TanStack Query for performant server-state
+                management, Shadcn UI and Radix UI for accessible components, and
+                Recharts for rich analytics dashboards—delivering a polished,
+                enterprise-grade user experience.
               </p>
             </motion.div>
           </div>
@@ -397,7 +418,7 @@ const CashFlow = () => {
               Features
             </p>
             <h2 className="text-3xl md:text-5xl font-bold text-zinc-900">
-              Everything you need to track your finances
+              A full-stack pharmacy SaaS operating system
             </h2>
           </motion.div>
 
@@ -434,11 +455,11 @@ const CashFlow = () => {
               Tech Stack
             </p>
             <h2 className="text-3xl md:text-5xl font-bold text-zinc-900">
-              Built with modern tools
+              Built with modern enterprise tools
             </h2>
           </motion.div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
             {techStack.map((group, i) => (
               <motion.div
                 key={i}
@@ -473,7 +494,7 @@ const CashFlow = () => {
         >
           <motion.div
             variants={fadeInUp}
-            className="relative overflow-hidden rounded-3xl bg-slate-900 p-10 md:p-16 flex flex-col md:flex-row items-start md:items-center justify-between gap-8"
+            className="relative overflow-hidden rounded-3xl bg-linear-to-br from-slate-900 via-violet-950 to-indigo-900 p-10 md:p-16 flex flex-col md:flex-row items-start md:items-center justify-between gap-8"
           >
             <div
               className="absolute inset-0 opacity-[0.06]"
@@ -518,4 +539,4 @@ const CashFlow = () => {
   );
 };
 
-export default CashFlow;
+export default AdoraSaaSNew;

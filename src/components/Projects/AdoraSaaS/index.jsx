@@ -47,9 +47,9 @@ const navbarFadeDown = {
 /* ─── Data ─── */
 const meta = [
   { label: "Client", value: "PT Adora Medika" },
-  { label: "Project Type", value: "SaaS Platform" },
+  { label: "Project Type", value: "Pharmacy Management System" },
   { label: "Role", value: "Full Stack Developer" },
-  { label: "Year", value: "2025" },
+  { label: "Year", value: "2024" },
 ];
 
 const techStack = [
@@ -114,14 +114,6 @@ const highlights = [
   { num: "Cloud", label: "Native" },
 ];
 
-/* ─── Mock prescription items ─── */
-const mockPrescriptions = [
-  { name: "Amoxicillin 500mg", qty: "3×1", status: "Dispensed", statusColor: "text-emerald-400" },
-  { name: "Paracetamol 500mg", qty: "3×1", status: "Dispensed", statusColor: "text-emerald-400" },
-  { name: "Omeprazole 20mg", qty: "1×1", status: "Pending", statusColor: "text-amber-400" },
-  { name: "Vitamin C 1000mg", qty: "1×1", status: "Dispensed", statusColor: "text-emerald-400" },
-];
-
 /* ─── Component ─── */
 const AdoraSaaS = () => {
   const router = useRouter();
@@ -139,25 +131,18 @@ const AdoraSaaS = () => {
       {/* Decorative blobs */}
       <div className="fixed inset-0 pointer-events-none overflow-hidden z-0">
         <div
-          className="absolute -top-32 -left-32 w-[600px] h-[600px] rounded-full opacity-[0.04]"
+          className="absolute -top-32 -left-32 w-150 h-150 rounded-full opacity-[0.04]"
           style={{ background: "radial-gradient(circle, #000 0%, transparent 70%)" }}
         />
         <div
-          className="absolute bottom-0 right-0 w-[500px] h-[500px] rounded-full opacity-[0.03]"
+          className="absolute bottom-0 right-0 w-125 h-125 rounded-full opacity-[0.03]"
           style={{ background: "radial-gradient(circle, #000 0%, transparent 70%)" }}
         />
       </div>
 
       <div className="relative z-10">
         {/* ── Navbar ── */}
-        <motion.nav
-          className="fixed top-0 left-0 w-full bg-[#f9f2ed]/80 backdrop-blur-md shadow-sm z-50"
-          initial="hidden"
-          animate={isTransitioning ? "hidden" : "visible"}
-          variants={navbarFadeDown}
-        >
-          <Navbar />
-        </motion.nav>
+        <Navbar />
 
         {/* ── HERO ── */}
         <motion.section
@@ -190,7 +175,7 @@ const AdoraSaaS = () => {
             className="text-5xl sm:text-7xl md:text-8xl lg:text-[7rem] font-black text-zinc-900 leading-none tracking-tight mb-8"
           >
             Adora<br />
-            <span className="text-neutral-400">SaaS</span>
+            <span className="text-neutral-400">Pharmacy</span>
           </motion.h1>
 
           {/* Tagline */}
@@ -198,9 +183,9 @@ const AdoraSaaS = () => {
             variants={fadeInUp}
             className="text-lg md:text-xl text-gray-600 font-medium max-w-2xl leading-relaxed mb-12"
           >
-            A cloud-native, multi-tenant pharmacy management SaaS platform built for
-            PT Adora Medika—enabling pharmacies to manage prescriptions, inventory,
-            staff, and analytics across multiple branches from a single dashboard.
+            A full-featured pharmacy management system built for PT Adora Medika—
+            enabling pharmacies to manage prescriptions, drug inventory, staff roles,
+            and financial reporting from a single centralized dashboard.
           </motion.p>
 
           {/* Meta grid */}
@@ -219,107 +204,85 @@ const AdoraSaaS = () => {
           </motion.div>
         </motion.section>
 
-        {/* ── HERO VISUAL MOCKUP ── */}
+        {/* ── SCREENSHOT SHOWCASE ── */}
         <motion.section
           className="w-full max-w-6xl mx-auto px-4 md:px-8 pb-24"
           initial="hidden"
           whileInView={isTransitioning ? "hidden" : "visible"}
           viewport={{ once: true, amount: 0.1 }}
-          variants={fadeIn}
+          variants={staggerChildren}
         >
-          <div className="relative rounded-3xl overflow-hidden border-2 border-neutral-200 bg-gradient-to-br from-violet-950 via-indigo-900 to-blue-900 min-h-[400px] md:min-h-[520px] p-6 md:p-10 flex flex-col justify-between">
-            {/* Grid bg */}
-            <div
-              className="absolute inset-0 opacity-[0.07]"
-              style={{
-                backgroundImage:
-                  "linear-gradient(rgba(255,255,255,.25) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.25) 1px, transparent 1px)",
-                backgroundSize: "36px 36px",
-              }}
+          {/* Featured Screenshot */}
+          <motion.div
+            variants={fadeInUp}
+            className="relative rounded-3xl overflow-hidden border-2 border-neutral-200 shadow-2xl mb-4 group cursor-none"
+          >
+            <img
+              src="/images/adora-saas/adora-1.webp"
+              alt="Adora SaaS - Landing Page & Dashboard Preview"
+              className="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-[1.02]"
             />
+            <div className="absolute inset-0 bg-linear-to-t from-black/30 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+            <div className="absolute bottom-5 left-6 opacity-0 group-hover:opacity-100 transition-all duration-500 translate-y-2 group-hover:translate-y-0">
+              <span className="text-xs font-bold text-white bg-black/60 backdrop-blur-sm border border-white/20 px-3 py-1.5 rounded-full">
+                Landing Page & Dashboard
+              </span>
+            </div>
+          </motion.div>
 
-            {/* Header */}
-            <div className="relative z-10 flex items-center justify-between flex-wrap gap-4">
-              <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-xl bg-white/15 border border-white/20 flex items-center justify-center">
-                  <Pill className="w-5 h-5 text-white" />
-                </div>
-                <div>
-                  <p className="text-white font-black text-lg leading-tight">Adora SaaS</p>
-                  <p className="text-white/40 text-xs font-semibold">Pharmacy Management Platform</p>
-                </div>
-              </div>
-              <div className="flex gap-2 flex-wrap">
-                {["Tenant: Adora Cimahi", "Branch: Main"].map((tag) => (
-                  <span
-                    key={tag}
-                    className="text-xs font-bold text-white/60 bg-white/10 border border-white/10 px-3 py-1 rounded-full"
-                  >
-                    {tag}
+          {/* Grid: 4 screenshots */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-4">
+            {[
+              { src: "/images/adora-saas/adora-5.webp", label: "Pharmacy Dashboard" },
+              { src: "/images/adora-saas/adora-4.webp", label: "Super Admin Panel" },
+              { src: "/images/adora-saas/adora-3.webp", label: "Login Page" },
+              { src: "/images/adora-saas/adora-6.webp", label: "Subscription Plans" },
+            ].map((img, i) => (
+              <motion.div
+                key={i}
+                variants={fadeInUp}
+                className="relative rounded-2xl overflow-hidden border-2 border-neutral-200 shadow-md group cursor-none aspect-video"
+              >
+                <img
+                  src={img.src}
+                  alt={img.label}
+                  className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-linear-to-t from-black/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-400" />
+                <div className="absolute bottom-3 left-3 opacity-0 group-hover:opacity-100 transition-all duration-400 translate-y-1 group-hover:translate-y-0">
+                  <span className="text-[10px] font-bold text-white bg-black/60 backdrop-blur-sm border border-white/20 px-2 py-1 rounded-full">
+                    {img.label}
                   </span>
-                ))}
-              </div>
-            </div>
-
-            {/* Body: 2-column */}
-            <div className="relative z-10 grid grid-cols-1 md:grid-cols-2 gap-4 my-6">
-              {/* Left: Stats */}
-              <div className="grid grid-cols-2 gap-3">
-                {[
-                  { label: "Today's Revenue", value: "Rp 4.250.000", sub: "+8% vs yesterday" },
-                  { label: "Prescriptions", value: "47", sub: "Processed today" },
-                  { label: "Products", value: "1.240", sub: "In inventory" },
-                  { label: "Low Stock Alerts", value: "12", sub: "Need restock" },
-                ].map((card, i) => (
-                  <div
-                    key={i}
-                    className="rounded-2xl bg-white/10 border border-white/10 backdrop-blur-sm p-4"
-                  >
-                    <p className="text-white/50 text-xs font-semibold mb-1">{card.label}</p>
-                    <p className="text-white text-xl font-black">{card.value}</p>
-                    <p className="text-white/40 text-xs mt-1">{card.sub}</p>
-                  </div>
-                ))}
-              </div>
-
-              {/* Right: Prescription table */}
-              <div className="rounded-2xl bg-white/10 border border-white/10 backdrop-blur-sm p-4">
-                <p className="text-white/50 text-xs font-bold uppercase tracking-widest mb-3">
-                  Recent Prescriptions
-                </p>
-                <div className="space-y-2">
-                  {mockPrescriptions.map((rx, i) => (
-                    <div
-                      key={i}
-                      className="flex items-center justify-between py-2 border-b border-white/5 last:border-0"
-                    >
-                      <div>
-                        <p className="text-white text-sm font-semibold leading-tight">{rx.name}</p>
-                        <p className="text-white/40 text-xs">{rx.qty}</p>
-                      </div>
-                      <span className={`text-xs font-bold ${rx.statusColor}`}>{rx.status}</span>
-                    </div>
-                  ))}
                 </div>
-              </div>
-            </div>
+              </motion.div>
+            ))}
+          </div>
 
-            {/* Bottom badge row */}
-            <div className="relative z-10 flex flex-wrap gap-2">
-              {["Multi-Tenant", "Role-Based Access", "Cloud-Native", "Real-Time Alerts"].map((badge) => (
-                <span
-                  key={badge}
-                  className="text-xs font-bold text-white/60 bg-white/10 border border-white/10 px-3 py-1.5 rounded-lg"
-                >
-                  {badge}
-                </span>
-              ))}
-            </div>
-
-            {/* Corner decoration */}
-            <div className="absolute bottom-6 right-8 opacity-[0.04]">
-              <Pill className="w-52 h-52 text-white" />
-            </div>
+          {/* Grid: 3 more screenshots */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            {[
+              { src: "/images/adora-saas/adora-2.webp", label: "Customer-Facing Portal" },
+              { src: "/images/adora-saas/adora-7.webp", label: "AI Chatbot Management" },
+              { src: "/images/adora-saas/adora-8.webp", label: "Server Monitoring" },
+            ].map((img, i) => (
+              <motion.div
+                key={i}
+                variants={fadeInUp}
+                className="relative rounded-2xl overflow-hidden border-2 border-neutral-200 shadow-md group cursor-none aspect-video"
+              >
+                <img
+                  src={img.src}
+                  alt={img.label}
+                  className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-linear-to-t from-black/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-400" />
+                <div className="absolute bottom-3 left-3 opacity-0 group-hover:opacity-100 transition-all duration-400 translate-y-1 group-hover:translate-y-0">
+                  <span className="text-[10px] font-bold text-white bg-black/60 backdrop-blur-sm border border-white/20 px-2 py-1 rounded-full">
+                    {img.label}
+                  </span>
+                </div>
+              </motion.div>
+            ))}
           </div>
         </motion.section>
 
@@ -336,7 +299,7 @@ const AdoraSaaS = () => {
               Overview
             </p>
             <h2 className="text-3xl md:text-5xl font-bold text-zinc-900 max-w-3xl leading-snug">
-              Reimagining pharmacy operations as a SaaS product
+              Digitizing pharmacy operations for PT Adora Medika
             </h2>
           </motion.div>
 
@@ -346,11 +309,10 @@ const AdoraSaaS = () => {
               className="space-y-5 text-base md:text-lg text-gray-600 font-medium leading-relaxed"
             >
               <p>
-                Adora SaaS is a transformation of PT Adora Medika's internal pharmacy
-                information system into a fully cloud-native, multi-tenant SaaS
-                platform. The project was scoped to support multiple pharmacy branches
-                under a single platform instance, each operating within isolated data
-                boundaries.
+                Adora Pharmacy Management System is the foundational internal system
+                built for PT Adora Medika in 2024. Developed as a full-stack web
+                application using Next.js and Express.js, it serves as the centralized
+                digital backbone for pharmacy operations across multiple branches.
               </p>
               <p>
                 The system handles the complete lifecycle of pharmacy operations—from
@@ -364,14 +326,13 @@ const AdoraSaaS = () => {
             >
               <p>
                 Role-based access control ensures that pharmacists, cashiers, branch
-                managers, and platform administrators each experience a tailored
-                interface with relevant permissions and data scopes.
+                managers, and administrators each experience a tailored interface with
+                the relevant permissions and data scopes.
               </p>
               <p>
-                Built on a modern cloud stack with Supabase and Vercel, Adora SaaS
-                is designed for resilience and scalability—supporting high transaction
-                volumes with real-time updates, automated stock alerts, and branch-level
-                analytics.
+                This system later served as the foundation and inspiration for the
+                evolution into a cloud-native, multi-tenant SaaS architecture—the
+                Adora SaaS platform launched in 2025.
               </p>
             </motion.div>
           </div>
@@ -415,7 +376,7 @@ const AdoraSaaS = () => {
               Features
             </p>
             <h2 className="text-3xl md:text-5xl font-bold text-zinc-900">
-              A full-stack pharmacy operating system
+              A complete pharmacy management solution
             </h2>
           </motion.div>
 
@@ -491,7 +452,7 @@ const AdoraSaaS = () => {
         >
           <motion.div
             variants={fadeInUp}
-            className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-violet-950 to-indigo-900 p-10 md:p-16 flex flex-col md:flex-row items-start md:items-center justify-between gap-8"
+            className="relative overflow-hidden rounded-3xl bg-linear-to-br from-violet-950 to-indigo-900 p-10 md:p-16 flex flex-col md:flex-row items-start md:items-center justify-between gap-8"
           >
             <div
               className="absolute inset-0 opacity-[0.06]"

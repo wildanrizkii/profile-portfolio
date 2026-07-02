@@ -52,29 +52,23 @@ html:active ::-webkit-scrollbar-thumb {
   background: rgba(100, 100, 100, 0.4);
 }
 
-.custom-cursor {
-  mix-blend-mode: difference;
-  /* Efek warna terbalik */
-  background-color: white;
-  will-change: transform, scale;
+.custom-cursor-outer,
+.custom-cursor-inner {
+  opacity: 0;
+  will-change: transform;
+  backface-visibility: hidden;
+  pointer-events: none;
 }
 
 * {
   cursor: none !important;
 }
 
-/* Tetap tampilkan cursor text untuk input dan text area */
+/* Sembunyikan cursor bawaan untuk input dan text area agar hanya memakai custom cursor */
 input,
 textarea,
 [contenteditable="true"] {
-  cursor: text !important;
-}
-
-/* Style khusus untuk custom cursor */
-.custom-cursor {
-  pointer-events: none;
-  backface-visibility: hidden;
-  will-change: transform;
+  cursor: none !important;
 }
 
 /* Tambahkan class ini ke elemen yang bisa diklik jika deteksi otomatis tidak bekerja */
@@ -90,8 +84,9 @@ textarea,
 }
 
 @media (max-width: 768px) {
-  .custom-cursor {
-    display: none;
+  .custom-cursor-outer,
+  .custom-cursor-inner {
+    display: none !important;
   }
 
   * {

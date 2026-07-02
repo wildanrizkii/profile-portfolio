@@ -112,25 +112,18 @@ const Sparepart = () => {
       {/* Subtle decorative gradient blobs */}
       <div className="fixed inset-0 pointer-events-none overflow-hidden z-0">
         <div
-          className="absolute -top-32 -left-32 w-[600px] h-[600px] rounded-full opacity-[0.04]"
+          className="absolute -top-32 -left-32 w-150 h-150 rounded-full opacity-[0.04]"
           style={{ background: "radial-gradient(circle, #000 0%, transparent 70%)" }}
         />
         <div
-          className="absolute bottom-0 right-0 w-[500px] h-[500px] rounded-full opacity-[0.03]"
+          className="absolute bottom-0 right-0 w-125 h-125 rounded-full opacity-[0.03]"
           style={{ background: "radial-gradient(circle, #000 0%, transparent 70%)" }}
         />
       </div>
 
       <div className="relative z-10">
         {/* ── Navbar ── */}
-        <motion.nav
-          className="fixed top-0 left-0 w-full bg-[#f9f2ed]/80 backdrop-blur-md shadow-sm z-50"
-          initial="hidden"
-          animate={isTransitioning ? "hidden" : "visible"}
-          variants={navbarFadeDown}
-        >
-          <Navbar />
-        </motion.nav>
+        <Navbar />
 
         {/* ── HERO ── */}
         <motion.section
@@ -203,7 +196,7 @@ const Sparepart = () => {
           viewport={{ once: true, amount: 0.1 }}
           variants={fadeIn}
         >
-          <div className="relative rounded-3xl overflow-hidden border-2 border-neutral-200 bg-gradient-to-br from-zinc-900 via-zinc-800 to-zinc-700 min-h-[320px] md:min-h-[460px] flex items-center justify-center">
+          <div className="relative rounded-3xl overflow-hidden border-2 border-neutral-200 bg-linear-to-br from-zinc-900 via-zinc-800 to-zinc-700 min-h-80 md:min-h-115 flex items-center justify-center">
             {/* Decorative grid */}
             <div
               className="absolute inset-0 opacity-10"

@@ -11,13 +11,14 @@ import useDebounce from "@/hooks/useDebounce";
 
 const projectList = [
   {
-    title: "Spare Part Information System",
-    category: "Full-Stack Sales Platform",
-    description: "An intuitive web platform designed to manage complex spare part hierarchies, vendor specifications, materials, and automated order generation.",
-    tech: ["Next.js", "React", "Tailwind CSS", "PostgreSQL"],
-    img: "/images/CMW.png",
-    href: "/projects/sparepart",
-    categoryFilter: "full-stack",
+    title: "Adora SaaS",
+    category: "SaaS · Healthcare ERP",
+    description: "A cloud-native, multi-tenant SaaS pharmacy platform rebuilt with NestJS & Next.js 16 — managing prescriptions, drug inventory, staff roles, and branch analytics across multiple tenants.",
+    tech: ["Next.js 16", "NestJS", "React 19", "Shadcn UI"],
+    img: "/images/adora-saas/adora-1.webp",
+    imgFit: "contain",
+    href: "/projects/adora-saas",
+    categoryFilter: "saas",
   },
   {
     title: "Cash Flow Tracking Application",
@@ -29,13 +30,22 @@ const projectList = [
     categoryFilter: "finance",
   },
   {
-    title: "Adora SaaS",
-    category: "SaaS · Healthcare ERP",
-    description: "A cloud-native, multi-tenant SaaS pharmacy platform for PT Adora Medika — managing prescriptions, drug inventory, staff roles, and branch analytics.",
-    tech: ["Next.js", "Ant Design", "PostgreSQL", "Supabase"],
+    title: "Adora Pharmacy Management System",
+    category: "Healthcare · Management System",
+    description: "A full-featured pharmacy management system built for PT Adora Medika (2024) — managing prescriptions, drug inventory, staff roles, and financial reporting from a centralized dashboard.",
+    tech: ["Next.js", "Express.js", "Ant Design", "PostgreSQL"],
     img: "/images/Apotek.jpg",
     href: "/projects/adora",
     categoryFilter: "saas",
+  },
+  {
+    title: "Spare Part Information System",
+    category: "Full-Stack Sales Platform",
+    description: "An intuitive web platform designed to manage complex spare part hierarchies, vendor specifications, materials, and automated order generation.",
+    tech: ["Next.js", "React", "Tailwind CSS", "PostgreSQL"],
+    img: "",
+    href: "/projects/sparepart",
+    categoryFilter: "full-stack",
   },
 ];
 
@@ -126,17 +136,10 @@ const ProjectList = () => {
         </motion.section>
 
         {/* Navigation */}
-        <motion.nav
-          className="fixed top-0 left-0 w-full bg-white shadow-md z-50"
-          initial="hidden"
-          animate={isTransitioning ? "hidden" : "visible"}
-          variants={navbarFadeDown}
-        >
-          <Navbar />
-        </motion.nav>
+        <Navbar />
 
         {/* Main Content */}
-        <div className="relative w-full max-w-5xl mx-auto px-4 md:px-8 pt-36 md:pt-44 pb-12 flex-grow">
+        <div className="relative w-full max-w-5xl mx-auto px-4 md:px-8 pt-36 md:pt-44 pb-12 grow">
           {/* Header */}
           <motion.div
             className="mb-12"
@@ -172,8 +175,8 @@ const ProjectList = () => {
                   key={cat.id}
                   onClick={() => setSelectedCategory(cat.id)}
                   className={`px-4 py-2 rounded-xl text-sm font-semibold border-2 transition-all duration-300 cursor-none clickable ${selectedCategory === cat.id
-                      ? "bg-black border-black text-white shadow-sm"
-                      : "border-neutral-300/60 bg-white/40 hover:border-black text-neutral-700 hover:text-black"
+                    ? "bg-black border-black text-white shadow-sm"
+                    : "border-neutral-300/60 bg-white/40 hover:border-black text-neutral-700 hover:text-black"
                     }`}
                 >
                   {cat.label}
@@ -182,7 +185,7 @@ const ProjectList = () => {
             </div>
 
             {/* Search Input Box */}
-            <div className="relative flex-grow md:max-w-xs">
+            <div className="relative grow md:max-w-xs">
               <FiSearch className="absolute left-4 top-1/2 -translate-y-1/2 text-neutral-400 text-lg pointer-events-none" />
               <input
                 type="text"
@@ -341,7 +344,7 @@ const ProjectCard = ({ project }) => {
         }}
         whileHover={{ scale: 1.01 }}
         transition={{ type: "spring", stiffness: 300, damping: 20 }}
-        className="relative overflow-hidden rounded-2xl border-2 border-neutral-300/60 bg-white/30 backdrop-blur-md p-6 md:p-8 flex flex-col justify-between h-full hover:border-black transition-colors duration-500 min-h-[460px] cursor-none clickable"
+        className="relative overflow-hidden rounded-2xl border-2 border-neutral-300/60 bg-white/30 backdrop-blur-md p-6 md:p-8 flex flex-col justify-between h-full hover:border-black transition-colors duration-500 min-h-115 cursor-none clickable"
       >
         {/* Spotlight Effect Overlay */}
         <motion.div
@@ -367,7 +370,7 @@ const ProjectCard = ({ project }) => {
             </div>
             {/* Sliding Arrow */}
             <motion.div
-              className="bg-black text-white p-3 rounded-full flex items-center justify-center shadow-lg group-hover:bg-neutral-800 transition-colors duration-300 flex-shrink-0"
+              className="bg-black text-white p-3 rounded-full flex items-center justify-center shadow-lg group-hover:bg-neutral-800 transition-colors duration-300 shrink-0"
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
             >
@@ -398,14 +401,16 @@ const ProjectCard = ({ project }) => {
 
         {/* Display Image in Card */}
         <div
-          className="relative w-full rounded-xl overflow-hidden mt-8 border border-neutral-200/50 bg-neutral-100 flex-grow flex items-center justify-center min-h-[200px] max-h-[260px] shadow-inner"
+          className="relative w-full rounded-xl overflow-hidden mt-8 border border-neutral-200/50 bg-neutral-100 grow flex items-center justify-center min-h-50 max-h-65 shadow-inner"
           style={{ transform: "translateZ(30px)" }}
         >
           {project.img ? (
             <motion.img
               src={project.img}
               alt={project.title}
-              className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+              className={`w-full h-full transition-transform duration-700 ease-out group-hover:scale-105 ${
+                project.imgFit === "contain" ? "object-cover object-top" : "object-cover"
+              }`}
             />
           ) : (
             <div className="text-gray-400 font-medium text-sm">Preview Unavailable</div>

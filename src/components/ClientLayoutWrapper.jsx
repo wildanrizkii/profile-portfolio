@@ -18,7 +18,7 @@ function TransitionHandler({ children }) {
 
 export default function ClientLayoutWrapper({ children }) {
   return (
-    <ReactLenis root options={{ lerp: 0.08 }}>
+    <ReactLenis root options={{ lerp: 0.08, syncTouch: true }}>
       <PageTransitionProvider>
         <TransitionHandler>
           {children}
