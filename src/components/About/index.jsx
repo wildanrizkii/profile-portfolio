@@ -101,7 +101,7 @@ const About = () => {
       exit={{ opacity: 0 }}
       transition={{ duration: 0.8 }}
     >
-      <div className="relative overflow-x-hidden">
+      <div className="relative" style={{ overflowX: "clip" }}>
         {/* Background animation */}
         <motion.section
           className="absolute top-0 left-0 w-screen h-screen overflow-hidden"
