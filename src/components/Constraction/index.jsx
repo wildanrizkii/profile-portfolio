@@ -99,19 +99,17 @@ const Constraction = () => {
             >
               This section is currently under development
             </motion.h1>
-            <motion.div
-              variants={fadeInUp}
-              className="relative z-10"
-            >
-              <motion.button
-                className="mt-2 md:mt-8 px-4 py-4 bg-black rounded-sm text-white focus:outline-none text-xl w-[180px]"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                transition={{ type: "spring", stiffness: 300 }}
-                onClick={() => router.push("/")}
-              >
-                Back to Home
-              </motion.button>
+            <motion.div variants={fadeInUp} className="flex justify-center relative z-10">
+              <Link href="/">
+                <motion.button
+                  className="mt-2 md:mt-8 px-4 py-4 bg-black rounded-md text-white focus:outline-none text-lg md:text-xl w-50 flex items-center justify-center cursor-pointer font-medium"
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  transition={{ type: "spring", stiffness: 300 }}
+                >
+                  Back to Home
+                </motion.button>
+              </Link>
             </motion.div>
           </motion.div>
         </motion.section>

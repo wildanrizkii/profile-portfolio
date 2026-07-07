@@ -134,6 +134,16 @@ const About = () => {
             {/* Left side: Typography, Name & Quick Facts */}
             <div className="lg:col-span-6 space-y-8">
               <motion.div className="space-y-4" variants={fadeInUp}>
+                <motion.div
+                  variants={fadeInUp}
+                  className="flex items-center gap-2 px-3 py-1.5 rounded-full border border-neutral-300 bg-transparent text-neutral-800 text-sm font-semibold w-fit select-none mb-1"
+                >
+                  <span className="relative flex h-2 w-2">
+                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-neutral-400 opacity-75"></span>
+                    <span className="relative inline-flex rounded-full h-2 w-2 bg-neutral-800"></span>
+                  </span>
+                  Available for Freelance Projects
+                </motion.div>
                 <h1 className="text-4xl sm:text-6xl font-semibold text-dark-gray leading-tight">
                   Wildan Rizki Nurfauzi
                 </h1>
@@ -186,6 +196,16 @@ const About = () => {
                 >
                   Hire Me
                   <ChevronRight className="w-4 h-4" />
+                </motion.a>
+                <motion.a
+                  href="/files/cv.pdf"
+                  download="en_CV_Wildan_Rizki_Nurfauzi_2025.pdf"
+                  className="flex items-center gap-2 px-6 py-3.5 border-2 border-neutral-300 rounded-md text-neutral-800 text-sm font-semibold hover:border-black hover:text-black transition-colors shadow-lg cursor-none clickable bg-white/40 backdrop-blur-sm"
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  Download CV
+                  <Download className="w-4 h-4" />
                 </motion.a>
               </div>
             </motion.div>

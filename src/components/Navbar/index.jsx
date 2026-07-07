@@ -184,10 +184,19 @@ const Navbar = () => {
       >
         <div className="max-w-6xl mx-auto px-4">
           <div className="flex justify-between items-center">
-            {/* Logo */}
-            <div className="text-2xl font-bold text-dark-gray hover:text-primary relative group z-50">
-              <span className="relative z-10">.wildanrizkii</span>
-              <span className="absolute bottom-0 left-0 w-0 h-1 bg-primary transition-all duration-300 group-hover:w-full"></span>
+            {/* Logo & Availability Status */}
+            <div className="flex items-center gap-3 relative z-50">
+              <div className="text-2xl font-bold text-dark-gray hover:text-primary relative group">
+                <span className="relative z-10">.wildanrizkii</span>
+                <span className="absolute bottom-0 left-0 w-0 h-1 bg-primary transition-all duration-300 group-hover:w-full"></span>
+              </div>
+              <div className="flex items-center gap-1.5 px-2.5 py-1 rounded-full border border-neutral-300 bg-transparent text-neutral-800 text-[10px] sm:text-xs font-semibold select-none">
+                <span className="relative flex h-1.5 w-1.5 sm:h-2 sm:w-2">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-neutral-400 opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-1.5 w-1.5 sm:h-2 sm:w-2 bg-neutral-800"></span>
+                </span>
+                <span className="hidden sm:inline">Available for Projects</span>
+              </div>
             </div>
 
             <button

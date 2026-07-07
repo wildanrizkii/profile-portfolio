@@ -1,6 +1,6 @@
 "use client";
 import React, { useState, useEffect } from "react";
-import { useRouter } from "next/navigation";
+import Link from "next/link";
 import Navbar from "@/components/Navbar/";
 import { motion } from "framer-motion";
 import { usePathname } from "next/navigation";
@@ -41,7 +41,6 @@ const navbarFadeDown = {
 };
 
 const HalamanTidakAda = () => {
-  const router = useRouter();
   const pathname = usePathname();
   const { isTransitioning } = useTransitionState();
 
@@ -99,16 +98,17 @@ const HalamanTidakAda = () => {
             >
               This Page does not exist
             </motion.h1>
-            <motion.div variants={fadeInUp} className="flex justify-center">
-              <motion.button
-                className="mt-2 md:mt-8 px-4 py-4 bg-black rounded-md text-white focus:outline-none text-lg md:text-xl w-[200px]"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                transition={{ type: "spring", stiffness: 300 }}
-                onClick={() => router.push("/")}
-              >
-                Back to Home
-              </motion.button>
+            <motion.div variants={fadeInUp} className="flex justify-center relative z-10">
+              <Link href="/">
+                <motion.button
+                  className="mt-2 md:mt-8 px-4 py-4 bg-black rounded-md text-white focus:outline-none text-lg md:text-xl w-50 flex items-center justify-center cursor-pointer font-medium"
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  transition={{ type: "spring", stiffness: 300 }}
+                >
+                  Back to Home
+                </motion.button>
+              </Link>
             </motion.div>
           </motion.div>
         </motion.section>

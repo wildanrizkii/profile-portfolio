@@ -102,6 +102,16 @@ const Portfolio = () => {
             className="w-full max-w-5xl mx-auto grid gap-4 md:gap-3"
             variants={staggerChildren}
           >
+            <motion.div
+              variants={fadeInUp}
+              className="flex items-center gap-2 px-3 py-1.5 rounded-full border border-neutral-300 bg-transparent text-neutral-800 text-sm font-semibold w-fit select-none mb-2"
+            >
+              <span className="relative flex h-2 w-2">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-neutral-400 opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-neutral-800"></span>
+              </span>
+              Available for Freelance Projects
+            </motion.div>
             <motion.h1
               className="text-3xl md:text-7xl font-medium text-dark-gray"
               variants={fadeInUp}
@@ -124,7 +134,7 @@ const Portfolio = () => {
             </motion.h1>
             <motion.div variants={fadeInUp}>
               <motion.button
-                className="mt-2 md:mt-8 px-4 py-4 bg-black rounded-md text-white focus:outline-none text-lg md:text-xl w-[150px] md:w-[180px]"
+                className="mt-2 md:mt-8 px-4 py-4 bg-black rounded-md text-white focus:outline-none text-lg md:text-xl w-37.5 md:w-45"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 transition={{ type: "spring", stiffness: 300 }}
@@ -496,7 +506,7 @@ const Workflow = () => {
                 Step {step.num}
               </span>
               <h3 className="text-xl font-bold text-black pt-2">{step.title}</h3>
-              <p className="text-sm text-gray-600 font-medium leading-relaxed leading-5">
+              <p className="text-sm text-gray-600 font-medium leading-relaxed">
                 {step.desc}
               </p>
             </div>
