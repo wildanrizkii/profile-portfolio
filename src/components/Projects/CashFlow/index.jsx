@@ -473,7 +473,7 @@ const CashFlow = () => {
         >
           <motion.div
             variants={fadeInUp}
-            className="relative overflow-hidden rounded-3xl bg-slate-900 p-10 md:p-16 flex flex-col md:flex-row items-start md:items-center justify-between gap-8"
+            className="relative overflow-hidden rounded-3xl bg-linear-to-br from-zinc-950 via-zinc-900 to-zinc-900 p-10 md:p-16 flex flex-col md:flex-row items-start md:items-center justify-between gap-8"
           >
             <div
               className="absolute inset-0 opacity-[0.06]"

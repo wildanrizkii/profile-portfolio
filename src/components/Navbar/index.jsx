@@ -106,7 +106,7 @@ const Navbar = () => {
 
   const DesktopSocialLinks = () => (
     <div className="hidden md:flex items-end justify-end pl-16">
-      <div className="min-w-[360px] max-h-[400px] aspect-square">
+      <div className="min-w-90 max-h-100 aspect-square">
         <div className="grid grid-cols-2 gap-2 h-full">
           {socialLinks.map((link, index) => (
             <motion.a
@@ -253,7 +253,7 @@ const Navbar = () => {
             </div>
 
             {/* Right side - Social Links */}
-            <div className="flex-shrink-0">
+            <div className="shrink-0">
               <DesktopSocialLinks />
               <MobileSocialLinks />
             </div>
