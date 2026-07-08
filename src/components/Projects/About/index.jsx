@@ -221,9 +221,8 @@ const ProjectCard = ({ project }) => {
             <motion.img
               src={project.img}
               alt={project.title}
-              className={`w-full h-full transition-transform duration-700 ease-out group-hover:scale-105 ${
-                project.imgFit === "contain" ? "object-cover object-top" : "object-cover"
-              }`}
+              className={`w-full h-full transition-transform duration-700 ease-out group-hover:scale-105 ${project.imgFit === "contain" ? "object-cover object-top" : "object-cover"
+                }`}
             />
           ) : (
             <div className="text-gray-400 font-medium text-sm">Preview Unavailable</div>

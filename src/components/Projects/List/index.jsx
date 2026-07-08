@@ -69,6 +69,41 @@ const staggerChildren = {
   },
 };
 
+const gridVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.12,
+      delayChildren: 0.55, // delayed to start after the header and controls slide up
+    },
+  },
+};
+
+const cardVariants = {
+  hidden: { 
+    opacity: 0, 
+    y: 45, 
+    scale: 0.96 
+  },
+  visible: { 
+    opacity: 1, 
+    y: 0, 
+    scale: 1, 
+    transition: { 
+      type: "spring", 
+      stiffness: 90, 
+      damping: 15 
+    } 
+  },
+  exit: { 
+    opacity: 0, 
+    scale: 0.96, 
+    y: 20, 
+    transition: { duration: 0.25, ease: "easeInOut" } 
+  }
+};
+
 const backgroundFadeIn = {
   hidden: { opacity: 0 },
   visible: {
@@ -94,11 +129,31 @@ const ProjectList = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const debouncedSearch = useDebounce(searchTerm, 600);
   const [selectedCategory, setSelectedCategory] = useState("all");
+  const [isInitialLoad, setIsInitialLoad] = useState(true);
 
   useEffect(() => {
     setIsMounted(true);
     window.scrollTo(0, 0);
   }, []);
+
+  useEffect(() => {
+    if (!isTransitioning) {
+      const timer = setTimeout(() => {
+        setIsInitialLoad(false);
+      }, 3000);
+      return () => clearTimeout(timer);
+    }
+  }, [isTransitioning]);
+
+  const handleCategoryChange = (catId) => {
+    setSelectedCategory(catId);
+    setIsInitialLoad(false);
+  };
+
+  const handleSearchChange = (e) => {
+    setSearchTerm(e.target.value);
+    setIsInitialLoad(false);
+  };
 
   const filteredProjects = useMemo(() => {
     return projectList.filter((project) => {
@@ -173,7 +228,7 @@ const ProjectList = () => {
               {categories.map((cat) => (
                 <button
                   key={cat.id}
-                  onClick={() => setSelectedCategory(cat.id)}
+                  onClick={() => handleCategoryChange(cat.id)}
                   className={`px-4 py-2 rounded-xl text-sm font-semibold border-2 transition-all duration-300 cursor-none clickable ${selectedCategory === cat.id
                     ? "bg-foreground border-foreground text-background shadow-sm"
                     : "border-neutral-300/60 dark:border-neutral-800 bg-white/40 dark:bg-white/5 hover:border-foreground text-neutral-700 dark:text-neutral-300 hover:text-foreground"
@@ -191,38 +246,53 @@ const ProjectList = () => {
                 type="text"
                 placeholder="Search tech or project name..."
                 value={searchTerm}
-                onChange={(e) => setSearchTerm(e.target.value)}
+                onChange={handleSearchChange}
                 className="w-full pl-11 pr-4 py-2.5 rounded-xl border-2 border-neutral-300/60 dark:border-neutral-800 bg-white/40 dark:bg-white/5 placeholder-neutral-400 text-foreground outline-none focus:border-foreground transition-all duration-300 text-sm font-semibold cursor-none clickable"
               />
             </div>
           </motion.div>
 
           {/* Project Cards Grid */}
-          <motion.div
-            className="relative z-10 mb-20"
-            initial="hidden"
-            animate={isTransitioning ? "hidden" : "visible"}
-            variants={staggerChildren}
-          >
+          <div className="relative z-10 mb-20">
             <AnimatePresence mode="popLayout">
               {filteredProjects.length > 0 ? (
                 <motion.div
                   layout
                   className="grid grid-cols-1 md:grid-cols-2 gap-8"
+                  key="grid"
                 >
-                  {filteredProjects.map((project) => (
-                    <motion.div
-                      layout
-                      initial={{ opacity: 0, scale: 0.9 }}
-                      animate={{ opacity: 1, scale: 1 }}
-                      exit={{ opacity: 0, scale: 0.9 }}
-                      transition={{ duration: 0.4 }}
-                      key={project.title}
-                      className="h-full"
-                    >
-                      <ProjectCard project={project} />
-                    </motion.div>
-                  ))}
+                  <AnimatePresence mode="popLayout">
+                    {filteredProjects.map((project, index) => (
+                      <motion.div
+                        layout
+                        initial={{ opacity: 0, y: 45, scale: 0.96 }}
+                        animate={isTransitioning 
+                          ? { opacity: 0, y: 45, scale: 0.96 }
+                          : {
+                              opacity: 1,
+                              y: 0,
+                              scale: 1,
+                              transition: {
+                                type: "spring",
+                                stiffness: 90,
+                                damping: 15,
+                                delay: isInitialLoad ? 0.55 + index * 0.12 : 0
+                              }
+                            }
+                        }
+                        exit={{ 
+                          opacity: 0, 
+                          scale: 0.96, 
+                          y: 20, 
+                          transition: { duration: 0.2, ease: "easeInOut" } 
+                        }}
+                        key={project.title}
+                        className="h-full"
+                      >
+                        <ProjectCard project={project} />
+                      </motion.div>
+                    ))}
+                  </AnimatePresence>
                 </motion.div>
               ) : (
                 <motion.div
@@ -230,6 +300,7 @@ const ProjectList = () => {
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0 }}
                   className="text-center py-20 bg-white/70 dark:bg-white/5 border border-dashed border-neutral-300/80 dark:border-neutral-800/60 rounded-2xl backdrop-blur-md"
+                  key="no-results"
                 >
                   <p className="text-lg text-gray-500 font-medium">
                     No projects match your search query or filter selection.
@@ -238,6 +309,7 @@ const ProjectList = () => {
                     onClick={() => {
                       setSearchTerm("");
                       setSelectedCategory("all");
+                      setIsInitialLoad(false);
                     }}
                     className="mt-4 px-5 py-2.5 bg-black text-white text-sm font-semibold rounded-xl hover:bg-neutral-800 transition-colors duration-300 cursor-none clickable"
                   >
@@ -246,7 +318,7 @@ const ProjectList = () => {
                 </motion.div>
               )}
             </AnimatePresence>
-          </motion.div>
+          </div>
 
           {/* CTA Let's Work Together */}
           <motion.section
@@ -403,9 +475,8 @@ const ProjectCard = ({ project }) => {
             <motion.img
               src={project.img}
               alt={project.title}
-              className={`w-full h-full transition-transform duration-700 ease-out group-hover:scale-105 ${
-                project.imgFit === "contain" ? "object-cover object-top" : "object-cover"
-              }`}
+              className={`w-full h-full transition-transform duration-700 ease-out group-hover:scale-105 ${project.imgFit === "contain" ? "object-cover object-top" : "object-cover"
+                }`}
             />
           ) : (
             <div className="text-gray-400 font-medium text-sm">Preview Unavailable</div>
