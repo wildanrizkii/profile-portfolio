@@ -38,25 +38,25 @@ const TechTools = () => {
     {
       title: "Front-End Development",
       description: "Building responsive, componentized user interfaces with absolute attention to layout structure and design details.",
-      icon: <Layout className="w-6 h-6 text-black" />,
-      skills: ["HTML5", "CSS3", "JavaScript", "TypeScript", "React.js", "Next.js", "Tailwind CSS", "Ant Design", "Styled Components", "SWR"],
+      icon: <Layout className="w-6 h-6" />,
+      skills: ["JavaScript", "TypeScript", "React.js", "Next.js", "Tailwind CSS", "React Query", "Shadcn UI", "Radix UI", "Ant Design", "Styled Components", "SWR"],
     },
     {
       title: "Backend & Systems",
       description: "Creating secure APIs, routing logical controllers, modeling relational database tables, and integrating storage assets.",
-      icon: <Database className="w-6 h-6 text-black" />,
-      skills: ["Node.js", "Express.js", "PostgreSQL", "Supabase", "REST APIs", "CRUD Operations"],
+      icon: <Database className="w-6 h-6" />,
+      skills: ["Node.js", "NestJS", "Express.js", "Prisma ORM", "PostgreSQL", "Supabase", "Docker", "REST APIs", "Swagger OpenAPI", "CRUD Operations"],
     },
     {
       title: "Creative Motion",
       description: "Creating immersive scroll animations, micro-interactions, page transitions, and responsive spring effects.",
-      icon: <Sparkles className="w-6 h-6 text-black" />,
-      skills: ["Framer Motion", "GSAP", "Git", "GitHub Version Control"],
+      icon: <Sparkles className="w-6 h-6" />,
+      skills: ["Framer Motion", "GSAP", "Lenis Scroll", "Git & GitHub"],
     },
     {
       title: "Design & Prototyping",
       description: "Mapping intuitive user flows, framing interactive layouts, building responsive mockups, and assets editing.",
-      icon: <PenTool className="w-6 h-6 text-black" />,
+      icon: <PenTool className="w-6 h-6" />,
       skills: ["Figma", "Adobe XD", "Framer Studio", "Adobe Photoshop"],
     },
   ];
@@ -91,27 +91,27 @@ const TechTools = () => {
                 key={idx}
                 variants={fadeInUp}
                 whileHover={{ y: -6 }}
-                className="p-8 rounded-2xl border-2 border-neutral-300 bg-white/30 backdrop-blur-md hover:border-black transition-colors duration-500 cursor-none clickable flex flex-col justify-between group h-full"
+                className="p-8 rounded-2xl border-2 border-neutral-300 dark:border-neutral-800 bg-white/30 dark:bg-white/5 backdrop-blur-md hover:border-foreground transition-colors duration-500 cursor-none clickable flex flex-col justify-between group h-full"
               >
                 <div className="space-y-4">
                   <div className="flex items-center gap-4">
-                    <div className="w-12 h-12 rounded-xl bg-neutral-200/50 border border-neutral-300 flex items-center justify-center group-hover:bg-black group-hover:text-white transition-colors duration-500">
-                      <span className="transition-colors duration-500 [&>svg]:group-hover:text-white">
+                    <div className="w-12 h-12 rounded-xl bg-neutral-200/50 dark:bg-neutral-800/50 border border-neutral-300 dark:border-neutral-700 flex items-center justify-center group-hover:bg-foreground dark:group-hover:bg-foreground group-hover:text-background dark:group-hover:text-background transition-colors duration-500">
+                      <span className="transition-colors duration-500 [&>svg]:group-hover:text-background">
                         {category.icon}
                       </span>
                     </div>
-                    <h3 className="text-xl font-bold text-black">{category.title}</h3>
+                    <h3 className="text-xl font-bold text-foreground">{category.title}</h3>
                   </div>
-                  <p className="text-sm text-gray-600 font-semibold leading-relaxed leading-5">
+                  <p className="text-sm text-gray-600 dark:text-neutral-400 font-semibold leading-relaxed">
                     {category.description}
                   </p>
                 </div>
 
-                <div className="mt-8 flex flex-wrap gap-2 pt-4 border-t border-neutral-200">
+                <div className="mt-8 flex flex-wrap gap-2 pt-4 border-t border-neutral-200 dark:border-neutral-800">
                   {category.skills.map((skill) => (
                     <span
                       key={skill}
-                      className="text-xs font-semibold text-neutral-700 bg-neutral-200/50 hover:bg-black hover:text-white px-2.5 py-1.5 rounded-lg border border-neutral-200/60 transition-all duration-300"
+                      className="text-xs font-semibold text-neutral-700 dark:text-neutral-300 bg-neutral-200/50 dark:bg-neutral-800/50 hover:bg-foreground hover:text-background px-2.5 py-1.5 rounded-lg border border-neutral-200/60 dark:border-neutral-700 transition-all duration-300"
                     >
                       {skill}
                     </span>

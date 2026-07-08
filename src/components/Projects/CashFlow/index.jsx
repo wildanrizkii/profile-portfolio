@@ -142,11 +142,11 @@ const CashFlow = () => {
       <div className="fixed inset-0 pointer-events-none overflow-hidden z-0">
         <div
           className="absolute -top-32 -right-32 w-150 h-150 rounded-full opacity-[0.04]"
-          style={{ background: "radial-gradient(circle, #000 0%, transparent 70%)" }}
+          style={{ background: "radial-gradient(circle, var(--foreground) 0%, transparent 70%)" }}
         />
         <div
           className="absolute bottom-0 left-0 w-125 h-125 rounded-full opacity-[0.03]"
-          style={{ background: "radial-gradient(circle, #000 0%, transparent 70%)" }}
+          style={{ background: "radial-gradient(circle, var(--foreground) 0%, transparent 70%)" }}
         />
       </div>
 
@@ -164,7 +164,7 @@ const CashFlow = () => {
           {/* Back */}
           <motion.button
             variants={fadeInUp}
-            className="flex items-center gap-2 text-sm font-semibold text-gray-500 hover:text-black transition-colors duration-200 mb-10 group cursor-none clickable"
+            className="flex items-center gap-2 text-sm font-semibold text-gray-500 hover:text-foreground transition-colors duration-200 mb-10 group cursor-none clickable"
             onClick={() => router.back()}
           >
             <FiArrowLeft className="transition-transform group-hover:-translate-x-1" />
@@ -173,7 +173,7 @@ const CashFlow = () => {
 
           {/* Label pill */}
           <motion.div variants={fadeInUp} className="mb-6">
-            <span className="inline-flex items-center gap-2 text-xs font-bold tracking-widest uppercase text-gray-500 bg-neutral-200/60 border border-neutral-300 px-3 py-1.5 rounded-full">
+            <span className="inline-flex items-center gap-2 text-xs font-bold tracking-widest uppercase text-gray-500 bg-neutral-200/60 dark:bg-neutral-800/40 border border-neutral-300 dark:border-neutral-800 px-3 py-1.5 rounded-full">
               <TrendingUp className="w-4 h-4" />
               Project Case Study
             </span>
@@ -201,14 +201,14 @@ const CashFlow = () => {
           {/* Meta grid */}
           <motion.div
             variants={staggerChildren}
-            className="grid grid-cols-2 md:grid-cols-4 gap-4 border-t border-b border-neutral-200 py-8"
+            className="grid grid-cols-2 md:grid-cols-4 gap-4 border-t border-b border-neutral-200 dark:border-neutral-800 py-8"
           >
             {meta.map((m, i) => (
               <motion.div key={i} variants={fadeInUp} className="flex flex-col gap-1">
                 <span className="text-xs font-bold tracking-widest uppercase text-gray-400">
                   {m.label}
                 </span>
-                <span className="text-base md:text-lg font-bold text-black">{m.value}</span>
+                <span className="text-base md:text-lg font-bold text-foreground">{m.value}</span>
               </motion.div>
             ))}
           </motion.div>
@@ -373,9 +373,9 @@ const CashFlow = () => {
                 key={i}
                 variants={fadeInUp}
                 whileHover={{ y: -6 }}
-                className="p-8 rounded-2xl border-2 border-neutral-200 bg-white/40 backdrop-blur-sm flex flex-col items-center justify-center text-center hover:border-black transition-all duration-300 cursor-none clickable"
+                className="p-8 rounded-2xl border-2 border-neutral-200 dark:border-neutral-800 bg-white/40 dark:bg-white/5 backdrop-blur-sm flex flex-col items-center justify-center text-center hover:border-foreground transition-all duration-300 cursor-none clickable"
               >
-                <span className="text-3xl md:text-4xl font-extrabold text-black mb-2">
+                <span className="text-3xl md:text-4xl font-extrabold text-foreground mb-2">
                   {h.num}
                 </span>
                 <span className="text-sm font-semibold text-gray-500">{h.label}</span>
@@ -407,14 +407,14 @@ const CashFlow = () => {
                 key={i}
                 variants={fadeInUp}
                 whileHover={{ y: -6 }}
-                className="p-7 rounded-2xl border-2 border-neutral-200 bg-white/30 backdrop-blur-sm flex flex-col gap-4 hover:border-black transition-all duration-300 cursor-none clickable group"
+                className="p-7 rounded-2xl border-2 border-neutral-200 dark:border-neutral-800 bg-white/30 dark:bg-white/5 backdrop-blur-sm flex flex-col gap-4 hover:border-foreground transition-all duration-300 cursor-none clickable group"
               >
-                <div className="w-12 h-12 rounded-xl bg-neutral-100 border border-neutral-200 flex items-center justify-center group-hover:bg-black group-hover:text-white group-hover:border-black transition-all duration-300">
+                <div className="w-12 h-12 rounded-xl bg-neutral-100 dark:bg-neutral-800 border border-neutral-200 dark:border-neutral-700 flex items-center justify-center group-hover:bg-foreground dark:group-hover:bg-foreground group-hover:text-background dark:group-hover:text-background group-hover:border-foreground transition-all duration-300">
                   {f.icon}
                 </div>
                 <div>
-                  <h3 className="text-lg font-bold text-black mb-2">{f.title}</h3>
-                  <p className="text-sm text-gray-600 font-medium leading-relaxed">{f.desc}</p>
+                  <h3 className="text-lg font-bold text-foreground mb-2">{f.title}</h3>
+                  <p className="text-sm text-gray-600 dark:text-neutral-400 font-medium leading-relaxed">{f.desc}</p>
                 </div>
               </motion.div>
             ))}
@@ -443,16 +443,16 @@ const CashFlow = () => {
               <motion.div
                 key={i}
                 variants={fadeInUp}
-                className="p-6 rounded-2xl border-2 border-neutral-200 bg-white/30 backdrop-blur-sm hover:border-black transition-colors duration-300 cursor-none clickable"
+                className="p-6 rounded-2xl border-2 border-neutral-200 dark:border-neutral-800 bg-white/30 dark:bg-white/5 backdrop-blur-sm hover:border-foreground transition-colors duration-300 cursor-none clickable"
               >
-                <h3 className="text-xs font-bold uppercase tracking-widest text-gray-400 border-b border-neutral-200 pb-3 mb-4">
+                <h3 className="text-xs font-bold uppercase tracking-widest text-gray-400 border-b border-neutral-200 dark:border-neutral-800 pb-3 mb-4">
                   {group.cat}
                 </h3>
                 <div className="flex flex-wrap gap-2">
                   {group.items.map((item) => (
                     <span
                       key={item}
-                      className="text-sm font-semibold text-neutral-700 bg-neutral-100 hover:bg-black hover:text-white px-3 py-1 rounded-lg border border-neutral-200 transition-all duration-200"
+                      className="text-sm font-semibold text-neutral-700 dark:text-neutral-300 bg-neutral-100 dark:bg-neutral-800 hover:bg-foreground hover:text-background px-3 py-1 rounded-lg border border-neutral-200 dark:border-neutral-700 transition-all duration-200"
                     >
                       {item}
                     </span>
@@ -473,27 +473,27 @@ const CashFlow = () => {
         >
           <motion.div
             variants={fadeInUp}
-            className="relative overflow-hidden rounded-3xl bg-linear-to-br from-zinc-950 via-zinc-900 to-zinc-900 p-10 md:p-16 flex flex-col md:flex-row items-start md:items-center justify-between gap-8"
+            className="relative overflow-hidden rounded-3xl bg-linear-to-br from-[#f3eae1] via-[#f7eade] to-[#eedcd0] dark:from-neutral-900 dark:via-neutral-950 dark:to-neutral-900 border border-neutral-300/40 dark:border-neutral-800/80 p-10 md:p-16 flex flex-col md:flex-row items-start md:items-center justify-between gap-8 shadow-sm"
           >
             <div
               className="absolute inset-0 opacity-[0.06]"
               style={{
                 backgroundImage:
-                  "linear-gradient(rgba(255,255,255,.3) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.3) 1px, transparent 1px)",
+                  "linear-gradient(rgba(0,0,0,.1) 1px, transparent 1px), linear-gradient(90deg, rgba(0,0,0,.1) 1px, transparent 1px)",
                 backgroundSize: "32px 32px",
               }}
             />
             <div className="relative z-10">
-              <p className="text-white/50 text-sm font-bold uppercase tracking-widest mb-3">
+              <p className="text-gray-500 dark:text-neutral-400 text-sm font-bold uppercase tracking-widest mb-3">
                 Let's Work Together
               </p>
-              <h2 className="text-3xl md:text-4xl font-black text-white leading-tight">
+              <h2 className="text-3xl md:text-4xl font-black text-black dark:text-foreground leading-tight">
                 Have a project in mind?
               </h2>
             </div>
             <motion.a
               href="mailto:wildanrizki9560@gmail.com"
-              className="relative z-10 flex items-center gap-2 px-7 py-4 bg-white text-black text-base font-bold rounded-xl hover:bg-neutral-100 transition-colors duration-200 whitespace-nowrap cursor-none clickable group"
+              className="relative z-10 flex items-center gap-2 px-7 py-4 bg-foreground text-background text-base font-bold rounded-xl hover:opacity-90 transition-opacity whitespace-nowrap cursor-none clickable group"
               whileHover={{ scale: 1.04 }}
               whileTap={{ scale: 0.97 }}
             >

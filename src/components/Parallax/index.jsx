@@ -65,7 +65,7 @@ const SmoothScrollHero = () => {
         <p className="text-sm font-semibold tracking-widest text-gray-500 uppercase mb-2">
           Recognitions
         </p>
-        <h2 className="text-3xl md:text-4xl font-medium text-neutral-800">
+        <h2 className="text-3xl md:text-4xl font-medium text-foreground">
           Photo &amp; Certifications
         </h2>
       </motion.div>
@@ -76,7 +76,7 @@ const SmoothScrollHero = () => {
         {/* Main Portrait */}
         <motion.div
           variants={fadeInUp}
-          className="w-full h-full min-h-[300px] overflow-hidden rounded-2xl border-2 border-neutral-300 shadow-md"
+          className="w-full h-full min-h-75 overflow-hidden rounded-2xl border-2 border-neutral-300 dark:border-neutral-800 shadow-md"
         >
           <Image
             width={800}
@@ -102,9 +102,9 @@ const SmoothScrollHero = () => {
               variants={fadeInUp}
               whileHover={{ y: -4, scale: 1.02 }}
               transition={{ type: "spring", stiffness: 300 }}
-              className="flex flex-col h-full rounded-2xl border-2 border-neutral-300 bg-white/30 backdrop-blur-md overflow-hidden shadow-md p-3 cursor-none clickable hover:border-neutral-500 transition-colors duration-300"
+              className="flex flex-col h-full rounded-2xl border-2 border-neutral-300 dark:border-neutral-800 bg-white/30 dark:bg-white/5 backdrop-blur-md overflow-hidden shadow-md p-3 cursor-none clickable hover:border-foreground transition-colors duration-300"
             >
-              <div className="relative flex-1 min-h-[100px] sm:min-h-[120px] bg-neutral-100/60 rounded-xl flex items-center justify-center border border-neutral-200/50 shadow-inner overflow-hidden">
+              <div className="relative flex-1 min-h-25 sm:min-h-30 bg-neutral-100/60 dark:bg-neutral-900/60 rounded-xl flex items-center justify-center border border-neutral-200/50 dark:border-neutral-800/50 shadow-inner overflow-hidden">
                 <Image
                   src={cert.src}
                   alt={cert.alt}
@@ -119,7 +119,7 @@ const SmoothScrollHero = () => {
                 <span className="text-[10px] sm:text-xs font-bold text-neutral-500 uppercase tracking-wide">
                   {cert.issuer} • {cert.year}
                 </span>
-                <h4 className="text-xs sm:text-sm font-bold text-black leading-tight">
+                <h4 className="text-xs sm:text-sm font-bold text-foreground leading-tight">
                   {cert.title}
                 </h4>
               </div>

@@ -104,11 +104,11 @@ const Portfolio = () => {
           >
             <motion.div
               variants={fadeInUp}
-              className="flex items-center gap-2 px-3 py-1.5 rounded-full border border-neutral-300 bg-transparent text-neutral-800 text-sm font-semibold w-fit select-none mb-2"
+              className="flex items-center gap-2 px-3 py-1.5 rounded-full border border-neutral-300 dark:border-neutral-800 bg-transparent text-foreground text-sm font-semibold w-fit select-none mb-2"
             >
               <span className="relative flex h-2 w-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-neutral-400 opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-neutral-800"></span>
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-neutral-400 dark:bg-neutral-600 opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-foreground"></span>
               </span>
               Available for Freelance Projects
             </motion.div>
@@ -134,7 +134,7 @@ const Portfolio = () => {
             </motion.h1>
             <motion.div variants={fadeInUp}>
               <motion.button
-                className="mt-2 md:mt-8 px-4 py-4 bg-black rounded-md text-white focus:outline-none text-lg md:text-xl w-37.5 md:w-45"
+                className="mt-2 md:mt-8 px-4 py-4 bg-foreground text-background rounded-md focus:outline-none text-lg md:text-xl w-37.5 md:w-45 cursor-none clickable"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 transition={{ type: "spring", stiffness: 300 }}
@@ -194,13 +194,13 @@ const Portfolio = () => {
             </h1>
 
             <motion.button
-              className="w-12 h-14 md:w-16 md:h-16 flex items-center justify-center rounded-sm bg-black text-white mt-4 md:mt-0"
-              whileHover={{ scale: 1.05, backgroundColor: "#222222" }}
+              className="w-12 h-14 md:w-16 md:h-16 flex items-center justify-center rounded-sm bg-foreground text-background mt-4 md:mt-0 cursor-none clickable"
+              whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               transition={{ type: "spring", stiffness: 300 }}
               style={{ width: "180px" }}
             >
-              <a href="mailto:wildanrizki9560@gmail.com" className="w-full h-full flex items-center justify-center font-semibold">
+              <a href="mailto:wildanrizki9560@gmail.com" className="w-full h-full flex items-center justify-center font-semibold cursor-none clickable">
                 Write an Email
               </a>
             </motion.button>
@@ -215,7 +215,7 @@ const Portfolio = () => {
           viewport={{ once: true }}
           variants={fadeInUp}
         >
-          <div className="text-gray-700 flex flex-col md:flex-row justify-center items-center gap-1 text-center font-medium">
+          <div className="text-gray-500 flex flex-col md:flex-row justify-center items-center gap-1 text-center font-medium">
             <span>Designed and developed by me</span>
           </div>
         </motion.footer>
@@ -260,7 +260,7 @@ const AboutBrief = () => {
         </p>
         <motion.div className="pt-4">
           <motion.button
-            className="flex items-center justify-center gap-2 px-6 py-3.5 bg-black rounded-md text-white text-base font-semibold group cursor-none clickable"
+            className="flex items-center justify-center gap-2 px-6 py-3.5 bg-foreground text-background rounded-md text-base font-semibold group cursor-none clickable"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             onClick={() => router.push("/about")}
@@ -279,7 +279,7 @@ const AboutBrief = () => {
             variants={fadeInUp}
             whileHover={{ y: -5 }}
           >
-            <h3 className="text-3xl md:text-4xl font-extrabold text-black mb-1">
+            <h3 className="text-3xl md:text-4xl font-extrabold text-foreground mb-1">
               {stat.number}
             </h3>
             <p className="text-sm text-gray-500 font-semibold">{stat.label}</p>
@@ -294,19 +294,19 @@ const Services = () => {
   const { isTransitioning } = useTransitionState();
   const serviceList = [
     {
-      icon: <Palette className="w-8 h-8 text-black" />,
+      icon: <Palette className="w-8 h-8" />,
       title: "UI/UX Design",
       desc: "Creating high-fidelity wireframes, interactive user flows, and modern design systems that captivate and convert.",
       deliverables: ["User Research", "Wireframing & Prototyping", "Aesthetic Light Themes", "Design Systems in Figma"],
     },
     {
-      icon: <Code2 className="w-8 h-8 text-black" />,
+      icon: <Code2 className="w-8 h-8" />,
       title: "Front-End Engineering",
       desc: "Building pixel-perfect interfaces with smooth animations, optimized core web vitals, and structured accessibility.",
       deliverables: ["React.js & Next.js Builds", "Tailwind CSS & Modern Styling", "Framer Motion Animations", "Responsive Mobile-First CSS"],
     },
     {
-      icon: <Globe className="w-8 h-8 text-black" />,
+      icon: <Globe className="w-8 h-8" />,
       title: "Full-Stack Development",
       desc: "Architecting backend integrations, relational databases, REST/GraphQL APIs, and secure application rules.",
       deliverables: ["Node.js & Express API Routes", "Supabase & Firebase Integration", "PostgreSQL & Schema Layouts", "Secure Authentication & Roles"],
@@ -342,21 +342,21 @@ const Services = () => {
             key={idx}
             variants={fadeInUp}
             whileHover={{ y: -8 }}
-            className="p-8 rounded-2xl border-2 border-neutral-300 bg-white/30 backdrop-blur-md flex flex-col justify-between hover:border-black transition-all duration-500 cursor-none clickable group"
+            className="p-8 rounded-2xl border-2 border-neutral-300 dark:border-neutral-800 bg-white/30 dark:bg-white/5 backdrop-blur-md flex flex-col justify-between hover:border-foreground transition-all duration-500 cursor-none clickable group"
           >
             <div className="space-y-6">
-              <div className="w-16 h-16 rounded-xl bg-neutral-200/50 border border-neutral-300 flex items-center justify-center group-hover:bg-black group-hover:text-white transition-colors duration-500">
-                <span className="transition-colors duration-500 [&>svg]:group-hover:text-white">
+              <div className="w-16 h-16 rounded-xl bg-neutral-200/50 dark:bg-neutral-800/50 border border-neutral-300 dark:border-neutral-700 flex items-center justify-center group-hover:bg-foreground dark:group-hover:bg-foreground group-hover:text-background dark:group-hover:text-background transition-colors duration-500">
+                <span className="transition-colors duration-500 [&>svg]:group-hover:text-background">
                   {service.icon}
                 </span>
               </div>
-              <h3 className="text-2xl font-bold text-black">{service.title}</h3>
+              <h3 className="text-2xl font-bold text-foreground">{service.title}</h3>
               <p className="text-base text-gray-600 font-medium leading-relaxed">
                 {service.desc}
               </p>
             </div>
 
-            <div className="mt-8 pt-6 border-t border-neutral-200">
+            <div className="mt-8 pt-6 border-t border-neutral-200 dark:border-neutral-800">
               <ul className="space-y-2 text-sm font-semibold text-neutral-600">
                 {service.deliverables.map((item, dIdx) => (
                   <li key={dIdx} className="flex items-center gap-2">
@@ -378,15 +378,15 @@ const TechShowcase = () => {
   const groups = [
     {
       name: "Front-End",
-      skills: ["HTML5", "CSS3", "JavaScript", "TypeScript", "React.js", "Next.js", "Tailwind CSS", "Ant Design"],
+      skills: ["JavaScript", "TypeScript", "React.js", "Next.js", "Tailwind CSS", "React Query", "Shadcn UI", "Radix UI", "Ant Design"],
     },
     {
       name: "Back-End & DB",
-      skills: ["Node.js", "Express.js", "PostgreSQL", "Supabase", "REST APIs"],
+      skills: ["Node.js", "NestJS", "Express.js", "Prisma ORM", "PostgreSQL", "Supabase", "Docker", "REST APIs", "Swagger OpenAPI"],
     },
     {
       name: "Tools & Motion",
-      skills: ["Git", "GitHub", "Framer Motion", "GSAP", "Figma", "Adobe XD"],
+      skills: ["Git & GitHub", "Framer Motion", "GSAP", "Lenis Scroll", "Figma", "Adobe XD"],
     },
   ];
 
@@ -418,16 +418,16 @@ const TechShowcase = () => {
           <motion.div
             key={idx}
             variants={fadeInUp}
-            className="p-8 rounded-2xl border-2 border-neutral-300 bg-white/30 backdrop-blur-md hover:border-black transition-colors duration-500 cursor-none clickable flex flex-col justify-start"
+            className="p-8 rounded-2xl border-2 border-neutral-300 dark:border-neutral-800 bg-white/30 dark:bg-white/5 backdrop-blur-md hover:border-foreground transition-colors duration-500 cursor-none clickable flex flex-col justify-start"
           >
-            <h3 className="text-lg font-bold uppercase tracking-wider text-gray-500 border-b border-neutral-200 pb-3 mb-4">
+            <h3 className="text-lg font-bold uppercase tracking-wider text-gray-500 border-b border-neutral-200 dark:border-neutral-800 pb-3 mb-4">
               {group.name}
             </h3>
             <div className="flex flex-wrap gap-2.5">
               {group.skills.map((skill) => (
                 <span
                   key={skill}
-                  className="text-sm font-semibold text-neutral-700 bg-neutral-200/50 hover:bg-black hover:text-white px-3.5 py-1.5 rounded-lg border border-neutral-200/60 transition-all duration-300"
+                  className="text-sm font-semibold text-neutral-700 dark:text-neutral-300 bg-neutral-200/50 dark:bg-neutral-800/50 hover:bg-foreground hover:text-background px-3.5 py-1.5 rounded-lg border border-neutral-200/60 dark:border-neutral-700 transition-all duration-300"
                 >
                   {skill}
                 </span>
@@ -493,19 +493,19 @@ const Workflow = () => {
           <motion.div
             key={idx}
             variants={fadeInUp}
-            className="relative p-6 rounded-2xl border-2 border-neutral-300 bg-white/20 backdrop-blur-xs flex flex-col gap-4 justify-between hover:border-black transition-colors duration-500 cursor-none clickable overflow-hidden group"
+            className="relative p-6 rounded-2xl border-2 border-neutral-300 dark:border-neutral-800 bg-white/20 dark:bg-white/5 backdrop-blur-xs flex flex-col gap-4 justify-between hover:border-foreground transition-colors duration-500 cursor-none clickable overflow-hidden group"
           >
             <div className="absolute top-0 right-0 p-4 opacity-5 group-hover:opacity-10 transition-opacity duration-300">
-              <span className="text-7xl font-black text-black select-none">
+              <span className="text-7xl font-black text-foreground select-none">
                 {step.num}
               </span>
             </div>
 
             <div className="space-y-3 relative z-10">
-              <span className="text-xs font-bold text-gray-500 uppercase tracking-widest bg-neutral-200/50 border border-neutral-300 px-2 py-0.5 rounded-md">
+              <span className="text-xs font-bold text-gray-500 dark:text-neutral-400 uppercase tracking-widest bg-neutral-200/50 dark:bg-neutral-800 border border-neutral-300 dark:border-neutral-700 px-2 py-0.5 rounded-md">
                 Step {step.num}
               </span>
-              <h3 className="text-xl font-bold text-black pt-2">{step.title}</h3>
+              <h3 className="text-xl font-bold text-foreground pt-2">{step.title}</h3>
               <p className="text-sm text-gray-600 font-medium leading-relaxed">
                 {step.desc}
               </p>

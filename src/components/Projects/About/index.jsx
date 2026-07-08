@@ -162,7 +162,7 @@ const ProjectCard = ({ project }) => {
         }}
         whileHover={{ scale: 1.01 }}
         transition={{ type: "spring", stiffness: 300, damping: 20 }}
-        className={`relative overflow-hidden rounded-2xl border-2 border-neutral-300/60 bg-white/30 backdrop-blur-md p-6 md:p-8 flex flex-col justify-between h-full hover:border-black transition-colors duration-500 min-h-115 cursor-none clickable`}
+        className={`relative overflow-hidden rounded-2xl border-2 border-neutral-300/60 dark:border-neutral-800 bg-white/30 dark:bg-white/5 backdrop-blur-md p-6 md:p-8 flex flex-col justify-between h-full hover:border-foreground transition-colors duration-500 min-h-115 cursor-none clickable`}
       >
         {/* Spotlight Effect Overlay */}
         <motion.div
@@ -179,29 +179,24 @@ const ProjectCard = ({ project }) => {
         <div className="relative z-10 flex flex-col gap-4">
           <div className="flex justify-between items-start gap-4">
             <div>
-              <span className="inline-block text-xs font-semibold uppercase tracking-widest text-gray-500 bg-white/80 border border-neutral-200 px-3 py-1 rounded-full backdrop-blur-xs mb-2">
+              <span className="inline-block text-xs font-semibold uppercase tracking-widest text-gray-500 bg-white/80 dark:bg-neutral-800 border border-neutral-200 dark:border-neutral-700 px-3 py-1 rounded-full backdrop-blur-xs mb-2">
                 {project.category}
               </span>
               <h2 className="text-2xl md:text-3xl font-bold text-dark-gray leading-tight">
                 {project.title}
               </h2>
             </div>
-            {/* Sliding Arrow with frame-motion style */}
+            {/* Arrow with frame-motion style */}
             <motion.div
-              className="bg-black text-white p-3 rounded-full flex items-center justify-center shadow-lg group-hover:bg-neutral-800 transition-colors duration-300"
+              className="bg-foreground text-background p-3 rounded-full flex items-center justify-center shadow-lg group-hover:bg-foreground/80 transition-colors duration-300"
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
             >
-              <motion.div
-                animate={{ x: [0, 4, 0] }}
-                transition={{ repeat: Infinity, duration: 1.5, ease: "easeInOut" }}
-              >
-                <FiArrowRight className="text-xl" />
-              </motion.div>
+              <FiArrowRight className="text-xl" />
             </motion.div>
           </div>
 
-          <p className="text-base text-gray-600 font-medium max-w-2xl group-hover:text-black transition-colors duration-300 leading-relaxed">
+          <p className="text-base text-gray-600 dark:text-neutral-400 font-medium max-w-2xl group-hover:text-foreground transition-colors duration-300 leading-relaxed">
             {project.description}
           </p>
 
@@ -209,7 +204,7 @@ const ProjectCard = ({ project }) => {
             {project.tech.map((t) => (
               <span
                 key={t}
-                className="text-xs font-semibold text-neutral-700 bg-neutral-200/50 hover:bg-neutral-200/80 px-2.5 py-1 rounded-md transition-colors"
+                className="text-xs font-semibold text-neutral-700 dark:text-neutral-300 bg-neutral-200/50 dark:bg-neutral-800/50 hover:bg-neutral-200/80 dark:hover:bg-neutral-800/80 px-2.5 py-1 rounded-md transition-colors"
               >
                 {t}
               </span>
@@ -219,7 +214,7 @@ const ProjectCard = ({ project }) => {
 
         {/* Display Image in Card */}
         <div
-          className={`relative w-full rounded-xl overflow-hidden mt-8 border border-neutral-200/50 bg-neutral-100 grow flex items-center justify-center min-h-55 max-h-75 shadow-inner`}
+          className={`relative w-full rounded-xl overflow-hidden mt-8 border border-neutral-200/50 dark:border-neutral-800/50 bg-neutral-100 dark:bg-neutral-900 grow flex items-center justify-center min-h-55 max-h-75 shadow-inner`}
           style={{ transform: "translateZ(30px)" }}
         >
           {project.img ? (

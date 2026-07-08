@@ -49,43 +49,43 @@ const milestones = [
     year: "2019",
     title: "Informatics Graduate",
     institution: "Parahyangan Catholic University",
-    icon: <GraduationCap className="w-5 h-5 text-black" />,
+    icon: <GraduationCap className="w-5 h-5 text-foreground" />,
     description: "Specialized in Software Engineering, database systems, and web frameworks. Built strong foundations in computing algorithms, system design, and cooperative software engineering.",
+  },
+  {
+    year: "2023",
+    title: "CyberOps & DevNet Associate",
+    institution: "Cisco Networking Academy",
+    icon: <Award className="w-5 h-5 text-foreground" />,
+    description: "Gained core hands-on experience in networking automation scripts, cloud API security protocols, threat detection procedures, and infrastructure-as-code structures.",
   },
   {
     year: "2024",
     title: "Google Cloud Computing Foundations",
     institution: "Google Cloud Academic Program",
-    icon: <Award className="w-5 h-5 text-black" />,
+    icon: <Award className="w-5 h-5 text-foreground" />,
     description: "Completed comprehensive practical training in cloud infrastructure, container orchestration, cloud application deployments, and virtualization engines.",
   },
   {
     year: "2024",
-    title: "CyberOps & DevNet Associate",
-    institution: "Cisco Networking Academy",
-    icon: <Award className="w-5 h-5 text-black" />,
-    description: "Gained core hands-on experience in networking automation scripts, cloud API security protocols, threat detection procedures, and infrastructure-as-code structures.",
-  },
-  {
-    year: "2025",
     title: "Full-Stack Freelance Developer",
     institution: "Apotek Adora",
-    icon: <Briefcase className="w-5 h-5 text-black" />,
+    icon: <Briefcase className="w-5 h-5 text-foreground" />,
     description: "Developed and launched custom high-performance web systems (e.g. Sales support tools, inventory dashboards, cash monitors) using Next.js, PostgreSQL, and Supabase.",
   },
   {
     year: "2025 - Present",
     title: "Web Developer",
     institution: "PT Ganesha Operation",
-    icon: <Briefcase className="w-5 h-5 text-black" />,
+    icon: <Briefcase className="w-5 h-5 text-foreground" />,
     description: "Developing and maintaining internal web applications to support academic operations and digital learning management systems at one of Indonesia's leading educational institutions.",
   },
 ];
 
 const quickFacts = [
-  { icon: <MapPin className="w-5 h-5 text-black" />, label: "Bandung, Indonesia" },
-  { icon: <GraduationCap className="w-5 h-5 text-black" />, label: "Informatics UNPAR" },
-  { icon: <Sparkles className="w-5 h-5 text-black" />, label: "UI/UX & Full Stack" },
+  { icon: <MapPin className="w-5 h-5 text-foreground" />, label: "Bandung, Indonesia" },
+  { icon: <GraduationCap className="w-5 h-5 text-foreground" />, label: "Informatics UNPAR" },
+  { icon: <Sparkles className="w-5 h-5 text-foreground" />, label: "UI/UX & Full Stack" },
 ];
 
 const About = () => {
@@ -136,11 +136,11 @@ const About = () => {
               <motion.div className="space-y-4" variants={fadeInUp}>
                 <motion.div
                   variants={fadeInUp}
-                  className="flex items-center gap-2 px-3 py-1.5 rounded-full border border-neutral-300 bg-transparent text-neutral-800 text-sm font-semibold w-fit select-none mb-1"
+                  className="flex items-center gap-2 px-3 py-1.5 rounded-full border border-neutral-300 dark:border-neutral-800 bg-transparent text-foreground text-sm font-semibold w-fit select-none mb-1"
                 >
                   <span className="relative flex h-2 w-2">
-                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-neutral-400 opacity-75"></span>
-                    <span className="relative inline-flex rounded-full h-2 w-2 bg-neutral-800"></span>
+                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-neutral-400 dark:bg-neutral-600 opacity-75"></span>
+                    <span className="relative inline-flex rounded-full h-2 w-2 bg-foreground"></span>
                   </span>
                   Available for Freelance Projects
                 </motion.div>
@@ -161,12 +161,12 @@ const About = () => {
                   <motion.div
                     key={idx}
                     variants={fadeInUp}
-                    className="flex flex-row items-center gap-3 p-3 lg:p-4 rounded-xl border border-neutral-300/80 bg-white/20 backdrop-blur-md cursor-none clickable hover:border-black transition-colors"
+                    className="flex flex-row items-center gap-3 p-3 lg:p-4 rounded-xl border border-neutral-300/80 dark:border-neutral-800 bg-white/20 dark:bg-white/5 backdrop-blur-md cursor-none clickable hover:border-foreground transition-colors"
                   >
-                    <div className="p-2 rounded-lg bg-neutral-200/50 border border-neutral-300 shrink-0">
+                    <div className="p-2 rounded-lg bg-neutral-200/50 dark:bg-neutral-800/50 border border-neutral-300 dark:border-neutral-700 shrink-0">
                       {fact.icon}
                     </div>
-                    <span className="text-sm font-semibold text-neutral-800 leading-tight">{fact.label}</span>
+                    <span className="text-sm font-semibold text-foreground leading-tight">{fact.label}</span>
                   </motion.div>
                 ))}
               </motion.div>
@@ -174,7 +174,7 @@ const About = () => {
 
             {/* Right side: Story & CV Download */}
             <motion.div className="lg:col-span-6 space-y-6" variants={fadeInUp}>
-              <h2 className="text-2xl font-bold text-black pb-2 border-b border-neutral-200">
+              <h2 className="text-2xl font-bold text-foreground pb-2 border-b border-neutral-200 dark:border-neutral-800">
                 My Story
               </h2>
               <p className="text-base sm:text-lg text-gray-600 font-medium leading-relaxed">
@@ -190,7 +190,7 @@ const About = () => {
               <div className="pt-4 flex flex-wrap gap-4">
                 <motion.a
                   href="mailto:wildanrizki9560@gmail.com"
-                  className="flex items-center gap-2 px-6 py-3.5 bg-black rounded-md text-white text-sm font-semibold hover:bg-neutral-800 transition-colors shadow-lg cursor-none clickable"
+                  className="flex items-center gap-2 px-6 py-3.5 bg-foreground text-background rounded-md text-sm font-semibold hover:bg-foreground/80 transition-colors shadow-lg cursor-none clickable"
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                 >
@@ -200,7 +200,7 @@ const About = () => {
                 <motion.a
                   href="/files/cv.pdf"
                   download="en_CV_Wildan_Rizki_Nurfauzi_2025.pdf"
-                  className="flex items-center gap-2 px-6 py-3.5 border-2 border-neutral-300 rounded-md text-neutral-800 text-sm font-semibold hover:border-black hover:text-black transition-colors shadow-lg cursor-none clickable bg-white/40 backdrop-blur-sm"
+                  className="flex items-center gap-2 px-6 py-3.5 border-2 border-neutral-300 dark:border-neutral-700 rounded-md text-foreground text-sm font-semibold hover:border-foreground hover:text-foreground transition-colors shadow-lg cursor-none clickable bg-white/10 backdrop-blur-sm"
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                 >
@@ -242,21 +242,21 @@ const About = () => {
                 className="relative cursor-none clickable group"
               >
                 {/* Timeline Dot Indicator */}
-                <div className="absolute -left-8 sm:-left-12 top-0 -translate-x-1/2 w-10 h-10 rounded-full bg-[#f9f2ed] border-2 border-neutral-300 flex items-center justify-center group-hover:border-black group-hover:bg-black group-hover:text-white transition-all duration-500 [&>svg]:group-hover:text-white">
+                <div className="absolute -left-8 sm:-left-12 top-0 -translate-x-1/2 w-10 h-10 rounded-full bg-background border-2 border-neutral-300 dark:border-neutral-700 flex items-center justify-center group-hover:border-foreground group-hover:bg-foreground group-hover:text-background transition-all duration-500 [&>svg]:group-hover:text-background">
                   {item.icon}
                 </div>
 
                 {/* Timeline Box Content */}
-                <div className="p-6 rounded-2xl border-2 border-neutral-300/80 bg-white/20 backdrop-blur-md group-hover:border-black transition-colors duration-500 space-y-3">
+                <div className="p-6 rounded-2xl border-2 border-neutral-300/80 dark:border-neutral-800 bg-white/20 dark:bg-white/5 backdrop-blur-md group-hover:border-foreground transition-colors duration-500 space-y-3">
                   <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-1.5">
-                    <span className="text-sm font-bold text-neutral-500 bg-neutral-200/50 border border-neutral-300 px-2.5 py-0.5 rounded-md w-fit">
+                    <span className="text-sm font-bold text-neutral-500 dark:text-neutral-400 bg-neutral-200/50 dark:bg-neutral-800/50 border border-neutral-300 dark:border-neutral-700 px-2.5 py-0.5 rounded-md w-fit">
                       {item.year}
                     </span>
-                    <span className="text-sm font-semibold text-gray-500 flex items-center gap-1">
+                    <span className="text-sm font-semibold text-gray-500 dark:text-gray-400 flex items-center gap-1">
                       {item.institution}
                     </span>
                   </div>
-                  <h3 className="text-xl font-bold text-black">{item.title}</h3>
+                  <h3 className="text-xl font-bold text-foreground">{item.title}</h3>
                   <p className="text-base text-gray-600 font-medium leading-relaxed">
                     {item.description}
                   </p>
@@ -305,8 +305,8 @@ const About = () => {
             </h1>
 
             <motion.button
-              className="w-12 h-14 md:w-16 md:h-16 flex items-center justify-center rounded-sm bg-black text-white mt-4 md:mt-0"
-              whileHover={{ scale: 1.05, backgroundColor: "#222222" }}
+              className="w-12 h-14 md:w-16 md:h-16 flex items-center justify-center rounded-sm bg-foreground text-background mt-4 md:mt-0"
+              whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               transition={{ type: "spring", stiffness: 300 }}
               style={{ width: "180px" }}
@@ -326,7 +326,7 @@ const About = () => {
           viewport={{ once: true }}
           variants={fadeInUp}
         >
-          <div className="text-gray-700 flex flex-col md:flex-row justify-center items-center gap-1 text-center font-medium">
+          <div className="text-gray-500 flex flex-col md:flex-row justify-center items-center gap-1 text-center font-medium">
             <span>Designed and developed by me</span>
           </div>
         </motion.footer>

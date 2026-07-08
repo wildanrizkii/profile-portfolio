@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import AnimatedBackground from "../AnimatedBackground";
 import { useRouter } from "next/navigation";
 import { useLenis } from "lenis/react";
+import ThemeToggle from "../ThemeToggle";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -125,7 +126,7 @@ const Navbar = () => {
                 damping: 10,
                 delay: 0.01,
               }}
-              className={`${link.bgColor} aspect-square flex flex-col items-center justify-center text-black border-2 border-black`}
+              className={`${link.bgColor} aspect-square flex flex-col items-center justify-center text-foreground border-2 border-foreground`}
             >
               <span className="text-2xl mb-1">{link.icon}</span>
               <span className="text-lg">{link.title}</span>
@@ -158,7 +159,7 @@ const Navbar = () => {
               damping: 10,
               delay: 0.01,
             }}
-            className="w-12 h-12 bg-black border-solid rounded-full flex items-center justify-center text-white"
+            className="w-12 h-12 bg-foreground border-solid rounded-full flex items-center justify-center text-background"
           >
             <motion.span
               whileHover={{ rotate: -10 }}
@@ -190,38 +191,34 @@ const Navbar = () => {
                 <span className="relative z-10">.wildanrizkii</span>
                 <span className="absolute bottom-0 left-0 w-0 h-1 bg-primary transition-all duration-300 group-hover:w-full"></span>
               </div>
-              <div className="flex items-center gap-1.5 px-2.5 py-1 rounded-full border border-neutral-300 bg-transparent text-neutral-800 text-[10px] sm:text-xs font-semibold select-none">
-                <span className="relative flex h-1.5 w-1.5 sm:h-2 sm:w-2">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-neutral-400 opacity-75"></span>
-                  <span className="relative inline-flex rounded-full h-1.5 w-1.5 sm:h-2 sm:w-2 bg-neutral-800"></span>
-                </span>
-                <span className="hidden sm:inline">Available for Projects</span>
-              </div>
             </div>
 
-            <button
-              onClick={toggleMenu}
-              className="relative w-10 h-8 flex flex-col justify-between p-2"
-              aria-label={isOpen ? "Close Menu" : "Open Menu"}
-            >
-              {/* Garis Atas */}
-              <motion.div
-                className="w-8 h-1 bg-black rounded-full"
-                animate={isOpen ? { rotate: 45, y: 6 } : { rotate: 0, y: 0 }}
-                transition={{ duration: 0.3, ease: "easeInOut" }}
-              />
+            <div className="flex items-center gap-4 relative z-50">
+              <ThemeToggle />
+              <button
+                onClick={toggleMenu}
+                className="relative w-10 h-8 flex flex-col justify-between p-2"
+                aria-label={isOpen ? "Close Menu" : "Open Menu"}
+              >
+                {/* Garis Atas */}
+                <motion.div
+                  className="w-8 h-0.5 bg-black dark:bg-[#f9f2ed] rounded-full"
+                  animate={isOpen ? { rotate: 45, y: 7 } : { rotate: 0, y: 0 }}
+                  transition={{ duration: 0.3, ease: "easeInOut" }}
+                />
 
-              {/* Garis Bawah */}
-              <motion.div
-                className="w-6 h-1 bg-black rounded-full"
-                animate={
-                  isOpen
-                    ? { rotate: -45, y: -6, width: "2rem" }
-                    : { rotate: 0, y: 0, width: "1.5rem" }
-                }
-                transition={{ duration: 0.3, ease: "easeInOut" }}
-              />
-            </button>
+                {/* Garis Bawah */}
+                <motion.div
+                  className="w-6 h-0.5 bg-black dark:bg-[#f9f2ed] rounded-full"
+                  animate={
+                    isOpen
+                      ? { rotate: -45, y: -7, width: "2rem" }
+                      : { rotate: 0, y: 0, width: "1.5rem" }
+                  }
+                  transition={{ duration: 0.3, ease: "easeInOut" }}
+                />
+              </button>
+            </div>
           </div>
         </div>
       </nav>
@@ -230,7 +227,7 @@ const Navbar = () => {
         animate={{ y: isOpen ? "0%" : "-100%", opacity: isOpen ? 1 : 0 }}
         exit={{ y: "-100%", opacity: 0 }}
         transition={{ duration: 0.6, ease: "easeInOut" }}
-        className="fixed inset-0 z-40 bg-[#f9f2ed]"
+        className="fixed inset-0 z-40 bg-background"
       >
         <div className="flex items-center justify-center h-full px-4">
           <div className="grid sm:flex md:flex items-center justify-center gap-32 w-full max-w-7xl">

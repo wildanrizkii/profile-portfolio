@@ -1,16 +1,18 @@
 @import "tailwindcss";
 @config "../../tailwind.config.mjs";
 
+@custom-variant dark (&:is(.dark *));
+
 :root {
   --background: #f9f2ed;
   --foreground: #181818;
+  --muted-foreground: #737373;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #f9f2ed;
-    --foreground: #181818;
-  }
+.dark {
+  --background: #000000;
+  --foreground: #f9f2ed;
+  --muted-foreground: #d2c8be;
 }
 
 body {
@@ -18,6 +20,44 @@ body {
   background: var(--background);
   font-family: var(--font-plus-jakarta-sans), sans-serif;
   cursor: none;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Disable all transitions saat first paint */
+.no-transition *,
+.no-transition {
+  transition: none !important;
+  animation: none !important;
+}
+
+/* View Transitions API - Theme Ripple Effect */
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation: none;
+  mix-blend-mode: normal;
+}
+
+/* Optional: Smooth fade jika View Transitions tidak support */
+@supports not (view-transition-name: auto) {
+  body {
+    transition:
+      background-color 0.2s ease,
+      color 0.2s ease;
+  }
+}
+
+/* Reduce motion support */
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-old(root),
+  ::view-transition-new(root) {
+    animation: none !important;
+  }
+}
+
+/* Jangan ikut View Transition */
+.theme-toggle,
+.theme-toggle * {
+  view-transition-name: none;
 }
 
 html {

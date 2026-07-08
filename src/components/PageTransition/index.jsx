@@ -50,7 +50,7 @@ export const usePageTransition = (duration = 1200) => {
 const PageTransition = () => {
   return (
     <motion.div
-      className="fixed top-0 left-0 w-full h-screen bg-black origin-top z-50"
+      className="fixed top-0 left-0 w-full h-screen bg-[#181818] dark:bg-[#f9f2ed] origin-top z-50"
       initial={{ scaleY: 0 }}
       animate={{
         scaleY: [0, 1, 1, 0],

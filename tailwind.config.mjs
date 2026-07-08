@@ -10,6 +10,18 @@ export default {
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
+        "dark-gray": "var(--foreground)",
+        zinc: {
+          900: "var(--foreground)",
+        },
+        gray: {
+          500: "var(--muted-foreground)",
+          600: "var(--muted-foreground)",
+        },
+        neutral: {
+          500: "var(--muted-foreground)",
+          600: "var(--muted-foreground)",
+        },
       },
       screens: {
         sm: "360px", // Mobile
