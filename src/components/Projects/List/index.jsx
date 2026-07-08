@@ -163,7 +163,7 @@ const ProjectList = () => {
 
           {/* Controls: Search and Filters */}
           <motion.div
-            className="flex flex-col md:flex-row justify-between items-stretch md:items-center gap-6 mb-12 bg-white/20 border-2 border-neutral-300/60 p-4 rounded-2xl backdrop-blur-md relative z-10"
+            className="flex flex-col md:flex-row justify-between items-stretch md:items-center gap-6 mb-12 relative z-10"
             initial="hidden"
             animate={isTransitioning ? "hidden" : "visible"}
             variants={fadeInUp}
@@ -229,7 +229,7 @@ const ProjectList = () => {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0 }}
-                  className="text-center py-20 bg-white/20 border-2 border-dashed border-neutral-300/60 rounded-2xl backdrop-blur-md"
+                  className="text-center py-20 bg-white/70 dark:bg-white/5 border border-dashed border-neutral-300/80 dark:border-neutral-800/60 rounded-2xl backdrop-blur-md"
                 >
                   <p className="text-lg text-gray-500 font-medium">
                     No projects match your search query or filter selection.
