@@ -3,7 +3,7 @@ import { usePathname } from "next/navigation";
 import { useLenis } from "lenis/react";
 import { motion } from "framer-motion";
 
-const PageTransitionContext = createContext({ isTransitioning: false });
+const PageTransitionContext = createContext({ isTransitioning: true });
 
 export const PageTransitionProvider = ({ children }) => {
   const isTransitioning = usePageTransition();
@@ -18,7 +18,8 @@ export const useTransitionState = () => useContext(PageTransitionContext);
 
 export const usePageTransition = (duration = 1200) => {
   const pathname = usePathname();
-  const [isTransitioning, setIsTransitioning] = useState(false);
+  // Start isTransitioning as true so that on initial load/refresh, the transition is rendered immediately
+  const [isTransitioning, setIsTransitioning] = useState(true);
   const lenis = useLenis();
 
   useEffect(() => {
@@ -49,20 +50,11 @@ export const usePageTransition = (duration = 1200) => {
 
 const PageTransition = () => {
   return (
-    <motion.div
-      className="fixed top-0 left-0 w-full h-screen bg-[#181818] dark:bg-[#f9f2ed] origin-top z-50"
-      initial={{ scaleY: 0 }}
-      animate={{
-        scaleY: [0, 1, 1, 0],
-        originY: ["0%", "0%", "100%", "100%"],
-      }}
-      transition={{
-        duration: 1.2,
-        times: [0, 0.4, 0.6, 1],
-        ease: "easeInOut",
-      }}
+    <div
+      className="fixed top-0 left-0 w-full h-screen bg-[#181818] dark:bg-[#f9f2ed] z-50 page-transition-overlay"
     />
   );
 };
 
 export default PageTransition;
+

@@ -136,3 +136,23 @@ textarea,
     cursor: auto !important;
   }
 }
+
+@keyframes pageTransitionAnim {
+  0% {
+    transform: translateY(-100%);
+  }
+  40% {
+    transform: translateY(0);
+  }
+  60% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(100%);
+  }
+}
+
+.page-transition-overlay {
+  transform: translateY(-100%);
+  animation: pageTransitionAnim 1.2s ease-in-out forwards;
+}
