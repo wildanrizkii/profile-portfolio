@@ -177,11 +177,10 @@ const Navbar = () => {
   return (
     <>
       <nav
-        className={`fixed w-full z-50 transition-all duration-300 ${
-          scrolled
-            ? "bg-transparent backdrop-blur-sm shadow-md py-2"
-            : "bg-transparent py-4"
-        }`}
+        className={`fixed w-full z-50 transition-all duration-300 ${scrolled
+          ? "bg-transparent backdrop-blur-sm shadow-md py-2"
+          : "bg-transparent py-4"
+          }`}
       >
         <div className="max-w-6xl mx-auto px-4">
           <div className="flex justify-between items-center">
@@ -197,22 +196,22 @@ const Navbar = () => {
               <ThemeToggle />
               <button
                 onClick={toggleMenu}
-                className="relative w-10 h-8 flex flex-col justify-between p-2"
+                className="relative w-10 h-8 flex flex-col justify-center gap-2 p-2"
                 aria-label={isOpen ? "Close Menu" : "Open Menu"}
               >
                 {/* Garis Atas */}
                 <motion.div
-                  className="w-8 h-0.5 bg-black dark:bg-[#f9f2ed] rounded-full"
-                  animate={isOpen ? { rotate: 45, y: 7 } : { rotate: 0, y: 0 }}
+                  className="w-8 h-0.75 bg-black dark:bg-[#f9f2ed] rounded-full"
+                  animate={isOpen ? { rotate: 45, y: 5.5 } : { rotate: 0, y: 0 }}
                   transition={{ duration: 0.3, ease: "easeInOut" }}
                 />
 
                 {/* Garis Bawah */}
                 <motion.div
-                  className="w-6 h-0.5 bg-black dark:bg-[#f9f2ed] rounded-full"
+                  className="w-6 h-0.75 bg-black dark:bg-[#f9f2ed] rounded-full"
                   animate={
                     isOpen
-                      ? { rotate: -45, y: -7, width: "2rem" }
+                      ? { rotate: -45, y: -5.5, width: "2rem" }
                       : { rotate: 0, y: 0, width: "1.5rem" }
                   }
                   transition={{ duration: 0.3, ease: "easeInOut" }}

@@ -67,7 +67,7 @@ const ThemeToggle = ({ className }) => {
     <button
       onClick={handleThemeToggle}
       aria-label="Toggle theme"
-      title="Ganti Tema"
+      title="Switch Theme"
       className={`theme-toggle relative flex h-10 w-10 rounded-sm items-center justify-center cursor-none clickable ${className || ""}`}
     >
       <Moon className="absolute h-6 w-6 transition-all duration-300 ease-out rotate-90 scale-75 opacity-0 dark:rotate-0 dark:scale-100 dark:opacity-100 text-foreground" />
