@@ -65,7 +65,6 @@ const BroadsheetTechTools = () => {
     isMounted && (
       <div className="relative justify-center bg-transparent w-full max-w-5xl mx-auto py-16 px-6 z-10 min-h-screen">
         <CropMarks />
-        <Navbar />
 
         <motion.section
           key={pathname}
