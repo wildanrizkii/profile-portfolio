@@ -1,24 +1,60 @@
+@import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&family=Big+Shoulders+Display:wght@700;800;900&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,400&family=Spline+Sans+Mono:wght@400;500;600;700&display=swap');
 @import "tailwindcss";
 @config "../../tailwind.config.mjs";
 
 @custom-variant dark (&:is(.dark *));
 
 :root {
+  --font-serif: 'Instrument Serif', Georgia, serif;
+  --font-sans: 'Plus Jakarta Sans', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+  
+  /* Hallmark Default */
+  --background: #faf9f6;
+  --foreground: #121212;
+  --muted-foreground: #5e5d59;
+}
+
+.dark {
+  --background: #0d0d0c;
+  --foreground: #f4f3ef;
+  --muted-foreground: #9a9893;
+}
+
+/* Original Theme Overrides */
+html.aesthetic-original {
   --background: #f9f2ed;
   --foreground: #181818;
   --muted-foreground: #737373;
 }
 
-.dark {
+html.aesthetic-original.dark {
   --background: #000000;
   --foreground: #f9f2ed;
   --muted-foreground: #d2c8be;
 }
 
+/* Broadsheet Theme Overrides */
+html.aesthetic-broadsheet {
+  --background: #f4eae1;
+  --foreground: #1e201e;
+  --muted-foreground: #5c636e;
+  --accent-vermilion: #e1523d;
+  --accent-teal: #3b7c80;
+}
+
+html.aesthetic-broadsheet.dark {
+  --background: #141413;
+  --foreground: #efece6;
+  --muted-foreground: #8a8882;
+  --accent-vermilion: #eb6855;
+  --accent-teal: #519c9f;
+}
+
 body {
   color: var(--foreground);
   background: var(--background);
-  font-family: var(--font-plus-jakarta-sans), sans-serif;
+  font-family: var(--font-sans), sans-serif;
   cursor: none;
   transition: background-color 0.3s ease, color 0.3s ease;
 }
@@ -155,4 +191,111 @@ textarea,
 .page-transition-overlay {
   transform: translateY(-100%);
   animation: pageTransitionAnim 1.2s ease-in-out forwards;
+}
+
+/* ────────────────────────────────────────────────────────── */
+/* ─── ORIGINAL DESIGN SYSTEM AESTHETIC OVERRIDES ─── */
+/* ────────────────────────────────────────────────────────── */
+
+html.aesthetic-original body {
+  --font-serif: var(--font-plus-jakarta-sans), 'Plus Jakarta Sans', sans-serif !important;
+  --font-sans: var(--font-plus-jakarta-sans), 'Plus Jakarta Sans', sans-serif !important;
+  --font-mono: var(--font-plus-jakarta-sans), 'Plus Jakarta Sans', sans-serif !important;
+  font-family: var(--font-plus-jakarta-sans), sans-serif !important;
+}
+
+/* ────────────────────────────────────────────────────────── */
+/* ─── BROADSHEET DESIGN SYSTEM AESTHETIC OVERRIDES ─── */
+/* ────────────────────────────────────────────────────────── */
+
+html.aesthetic-broadsheet body {
+  --font-display: 'Big Shoulders Display', sans-serif !important;
+  --font-serif: 'Fraunces', Georgia, serif !important;
+  --font-sans: 'Spline Sans Mono', monospace !important;
+  --font-mono: 'Spline Sans Mono', monospace !important;
+  font-family: var(--font-sans), monospace !important;
+  position: relative;
+}
+
+/* Paper Grain Texture and Halftone Grid Background */
+html.aesthetic-broadsheet body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.16;
+  background-image: 
+    /* Fine hatch grain */
+    repeating-linear-gradient(45deg, var(--muted-foreground) 0px, var(--muted-foreground) 0.5px, transparent 0.5px, transparent 3px),
+    /* Halftone dot pattern */
+    radial-gradient(var(--muted-foreground) 0.75px, transparent 1.25px);
+  background-size: 5px 5px, 24px 24px;
+  mix-blend-mode: multiply;
+}
+
+html.aesthetic-broadsheet.dark body::before {
+  mix-blend-mode: screen;
+  opacity: 0.05;
+}
+
+/* Riso off-register animations */
+@keyframes risoSettleTeal {
+  0% {
+    transform: translate(6px, 4px);
+  }
+  100% {
+    transform: translate(1.5px, 1.25px);
+  }
+}
+@keyframes risoSettleRed {
+  0% {
+    transform: translate(-5px, -3px);
+  }
+  100% {
+    transform: translate(-1.5px, -1.25px);
+  }
+}
+
+.riso-container {
+  position: relative;
+  display: inline-block;
+}
+
+.riso-teal {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -2;
+  color: var(--accent-teal);
+  opacity: 0.8;
+  mix-blend-mode: multiply;
+  animation: risoSettleTeal 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.riso-red {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  color: var(--accent-vermilion);
+  opacity: 0.8;
+  mix-blend-mode: multiply;
+  animation: risoSettleRed 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+html.dark .riso-teal,
+html.dark .riso-red {
+  mix-blend-mode: screen;
+}
+
+/* Marquee Scrolling Animation */
+@keyframes marquee {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+  display: inline-block;
+  animation: marquee 20s linear infinite;
 }

@@ -3,6 +3,7 @@ import "./globals.css";
 import CustomCursor from "@/components/CustomCursor";
 import ClientLayoutWrapper from "@/components/ClientLayoutWrapper";
 import { NextThemeProvider } from "@/components/ThemeProvider";
+import { AestheticProvider } from "@/context/AestheticContext";
 
 const plusJakartaSans = Plus_Jakarta_Sans({
   variable: "--font-plus-jakarta-sans",
@@ -40,6 +41,11 @@ export default function RootLayout({ children }) {
                   } else {
                     root.classList.remove('dark');
                   }
+                  
+                  // Also apply initial aesthetic
+                  const aesthetic = localStorage.getItem('aesthetic') || 'broadsheet';
+                  root.classList.remove('aesthetic-hallmark', 'aesthetic-original', 'aesthetic-broadsheet');
+                  root.classList.add('aesthetic-' + aesthetic);
                 } catch (e) {}
               })();
             `,
@@ -47,10 +53,12 @@ export default function RootLayout({ children }) {
         />
       </head>
       <body className={`${plusJakartaSans.variable} antialiased`} suppressHydrationWarning>
-        <CustomCursor />
-        <NextThemeProvider>
-          <ClientLayoutWrapper>{children}</ClientLayoutWrapper>
-        </NextThemeProvider>
+        <AestheticProvider>
+          <CustomCursor />
+          <NextThemeProvider>
+            <ClientLayoutWrapper>{children}</ClientLayoutWrapper>
+          </NextThemeProvider>
+        </AestheticProvider>
       </body>
     </html>
   );

@@ -39,6 +39,12 @@ export default {
           md: "2rem",
         },
       },
+      fontFamily: {
+        serif: ["var(--font-serif)", "serif"],
+        sans: ["var(--font-sans)", "sans-serif"],
+        mono: ["var(--font-mono)", "monospace"],
+        display: ["var(--font-display)", "sans-serif"],
+      },
     },
   },
   plugins: [],

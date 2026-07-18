@@ -1,8 +1,10 @@
 "use client";
 import { motion, useMotionValue, useSpring } from "framer-motion";
 import { useEffect, useState } from "react";
+import { useAesthetic } from "@/context/AestheticContext";
 
 const CustomCursor = () => {
+  const { aesthetic } = useAesthetic();
   const [isVisible, setIsVisible] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
   const [isClicked, setIsClicked] = useState(false);
@@ -79,9 +81,11 @@ const CustomCursor = () => {
 
   if (!hasMoved) return null;
 
+  const isBoxy = aesthetic === "hallmark" || aesthetic === "broadsheet";
+
   return (
     <>
-      {/* Outer Ring */}
+      {/* Outer Ring / Square Bracket */}
       <motion.div
         className="custom-cursor-outer fixed top-0 left-0 pointer-events-none"
         style={{
@@ -89,37 +93,37 @@ const CustomCursor = () => {
           y: trailY,
           translateX: "-50%",
           translateY: "-50%",
-          width: isTextInput ? 2 : (isHovered ? 48 : 32),
-          height: isTextInput ? 24 : (isHovered ? 48 : 32),
-          backgroundColor: isTextInput ? "white" : (isHovered ? "rgba(255, 255, 255, 0.15)" : "transparent"),
-          border: isTextInput ? "none" : (isHovered ? "1px solid rgba(255, 255, 255, 0.4)" : "1.5px solid white"),
-          borderRadius: isTextInput ? "1px" : "50%",
+          width: isTextInput ? 2 : (isHovered ? (isBoxy ? 38 : 48) : (isBoxy ? 24 : 32)),
+          height: isTextInput ? 20 : (isHovered ? (isBoxy ? 38 : 48) : (isBoxy ? 24 : 32)),
+          backgroundColor: isTextInput ? "white" : (isHovered && !isBoxy ? "rgba(255, 255, 255, 0.15)" : "transparent"),
+          border: isTextInput ? "none" : (isHovered ? (isBoxy ? "1px solid rgba(255, 255, 255, 0.7)" : "1px solid rgba(255, 255, 255, 0.4)") : (isBoxy ? "1px solid white" : "1.5px solid white")),
+          borderRadius: isTextInput ? "1px" : (isBoxy ? "0px" : "50%"),
+          rotate: isHovered && isBoxy ? 45 : 0,
           mixBlendMode: "difference",
           opacity: isVisible ? 1 : 0,
-          scale: isClicked ? 0.85 : 1,
+          scale: isClicked ? (isBoxy ? 0.8 : 0.85) : 1,
           zIndex: 99999,
         }}
         transition={{
           width: { type: "spring", stiffness: 350, damping: 25 },
           height: { type: "spring", stiffness: 350, damping: 25 },
-          borderRadius: { duration: 0.1 },
-          backgroundColor: { duration: 0.15 },
-          border: { duration: 0.15 },
+          rotate: { type: "spring", stiffness: 300, damping: 20 },
           opacity: { duration: 0.15 },
-          scale: { type: "spring", stiffness: 400, damping: 15 },
+          scale: { type: "spring", stiffness: 450, damping: 12 },
         }}
       />
       {/* Inner Dot */}
       <motion.div
-        className="custom-cursor-inner fixed top-0 left-0 w-2 h-2 bg-white rounded-full pointer-events-none"
+        className={`custom-cursor-inner fixed top-0 left-0 bg-white pointer-events-none ${isBoxy ? "w-1.5 h-1.5" : "w-2 h-2"}`}
         style={{
           x: mouseX,
           y: mouseY,
           translateX: "-50%",
           translateY: "-50%",
+          borderRadius: isBoxy ? "0px" : "50%",
           mixBlendMode: "difference",
           opacity: isVisible && !isTextInput ? 1 : 0,
-          scale: isHovered ? 1.5 : (isClicked ? 0.5 : 1),
+          scale: isHovered ? (isBoxy ? 1.4 : 1.5) : (isClicked ? (isBoxy ? 0.4 : 0.5) : 1),
           zIndex: 99999,
         }}
         transition={{
