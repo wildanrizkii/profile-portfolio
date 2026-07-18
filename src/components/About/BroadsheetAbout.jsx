@@ -75,14 +75,9 @@ const BroadsheetAbout = () => {
   const router = useRouter();
   const pathname = usePathname();
   const { isTransitioning } = useTransitionState();
-  const [isMounted, setIsMounted] = useState(false);
-
   useEffect(() => {
-    setIsMounted(true);
     window.scrollTo(0, 0);
   }, []);
-
-  if (!isMounted) return null;
 
   return (
     <motion.div

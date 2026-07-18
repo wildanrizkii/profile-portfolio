@@ -51,7 +51,7 @@ export const usePageTransition = (duration = 1200) => {
 const PageTransition = () => {
   return (
     <div
-      className="fixed top-0 left-0 w-full h-screen bg-[#181818] dark:bg-[#f9f2ed] z-50 page-transition-overlay"
+      className="fixed top-0 left-0 w-full h-screen bg-[#181818] dark:bg-[#f9f2ed] z-9999 pointer-events-none page-transition-overlay"
     />
   );
 };

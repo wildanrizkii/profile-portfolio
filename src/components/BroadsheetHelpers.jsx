@@ -1,5 +1,4 @@
-"use client";
-import React from "react";
+import { motion } from "framer-motion";
 
 export const CropMarks = () => {
   return (
@@ -27,9 +26,23 @@ export const CropMarks = () => {
 
 export const RisoText = ({ children, className }) => {
   return (
-    <span className="riso-container">
-      <span className={`${className} riso-teal select-none pointer-events-none`}>{children}</span>
-      <span className={`${className} riso-red select-none pointer-events-none`}>{children}</span>
+    <span className="riso-container relative inline-block">
+      <motion.span
+        initial={{ x: 6, y: 4 }}
+        animate={{ x: 1.5, y: 1.25 }}
+        transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
+        className={`${className} absolute top-0 left-0 -z-2 text-(--accent-teal) opacity-80 mix-blend-multiply dark:mix-blend-screen dark:opacity-60 select-none pointer-events-none`}
+      >
+        {children}
+      </motion.span>
+      <motion.span
+        initial={{ x: -5, y: -3 }}
+        animate={{ x: -1.5, y: -1.25 }}
+        transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
+        className={`${className} absolute top-0 left-0 -z-1 text-(--accent-vermilion) opacity-80 mix-blend-multiply dark:mix-blend-screen dark:opacity-60 select-none pointer-events-none`}
+      >
+        {children}
+      </motion.span>
       <span className={`${className} relative z-10`}>{children}</span>
     </span>
   );

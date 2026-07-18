@@ -8,7 +8,7 @@
   --font-serif: 'Instrument Serif', Georgia, serif;
   --font-sans: 'Plus Jakarta Sans', sans-serif;
   --font-mono: 'JetBrains Mono', monospace;
-  
+
   /* Hallmark Default */
   --background: #faf9f6;
   --foreground: #121212;
@@ -84,6 +84,7 @@ body {
 
 /* Reduce motion support */
 @media (prefers-reduced-motion: reduce) {
+
   ::view-transition-old(root),
   ::view-transition-new(root) {
     animation: none !important;
@@ -177,12 +178,15 @@ textarea,
   0% {
     transform: translateY(-100%);
   }
+
   40% {
     transform: translateY(0);
   }
+
   60% {
     transform: translateY(0);
   }
+
   100% {
     transform: translateY(100%);
   }
@@ -225,7 +229,7 @@ html.aesthetic-broadsheet body::before {
   z-index: 0;
   pointer-events: none;
   opacity: 0.16;
-  background-image: 
+  background-image:
     /* Fine hatch grain */
     repeating-linear-gradient(45deg, var(--muted-foreground) 0px, var(--muted-foreground) 0.5px, transparent 0.5px, transparent 3px),
     /* Halftone dot pattern */
@@ -244,14 +248,17 @@ html.aesthetic-broadsheet.dark body::before {
   0% {
     transform: translate(6px, 4px);
   }
+
   100% {
     transform: translate(1.5px, 1.25px);
   }
 }
+
 @keyframes risoSettleRed {
   0% {
     transform: translate(-5px, -3px);
   }
+
   100% {
     transform: translate(-1.5px, -1.25px);
   }
@@ -291,8 +298,13 @@ html.dark .riso-red {
 
 /* Marquee Scrolling Animation */
 @keyframes marquee {
-  0% { transform: translateX(0%); }
-  100% { transform: translateX(-50%); }
+  0% {
+    transform: translateX(0%);
+  }
+
+  100% {
+    transform: translateX(-50%);
+  }
 }
 
 .animate-marquee {

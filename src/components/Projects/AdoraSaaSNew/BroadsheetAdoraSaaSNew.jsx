@@ -1,6 +1,6 @@
 "use client";
 import React, { useEffect } from "react";
-import { useRouter } from "next/navigation";
+import { useRouter, usePathname } from "next/navigation";
 import Navbar from "@/components/Navbar";
 import { motion } from "framer-motion";
 import { FiArrowLeft } from "react-icons/fi";
@@ -10,6 +10,7 @@ import { CropMarks, RisoText } from "../../BroadsheetHelpers";
 
 const BroadsheetAdoraSaaSNew = () => {
   const router = useRouter();
+  const pathname = usePathname();
   const { isTransitioning } = useTransitionState();
 
   useEffect(() => {
@@ -72,7 +73,7 @@ const BroadsheetAdoraSaaSNew = () => {
 
   return (
     <motion.div
-      key="adora-saas-new-broadsheet"
+      key={pathname}
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}

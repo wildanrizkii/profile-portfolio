@@ -246,9 +246,8 @@ const Navbar = () => {
                             setAesthetic("original");
                             setDropdownOpen(false);
                           }}
-                          className={`w-full flex items-center gap-2 px-3 py-2 text-xs font-semibold uppercase tracking-wider text-foreground hover:bg-foreground hover:text-background transition-colors duration-150 text-left cursor-none clickable ${
-                            aesthetic === "original" ? "bg-foreground/10" : ""
-                          }`}
+                          className={`w-full flex items-center gap-2 px-3 py-2 text-xs font-semibold uppercase tracking-wider text-foreground hover:bg-foreground hover:text-background transition-colors duration-150 text-left cursor-none clickable ${aesthetic === "original" ? "bg-foreground/10" : ""
+                            }`}
                         >
                           <div className="w-4 h-4 flex items-center justify-center">
                             <Circle className="w-2.5 h-2.5 fill-current" />
@@ -260,9 +259,8 @@ const Navbar = () => {
                             setAesthetic("hallmark");
                             setDropdownOpen(false);
                           }}
-                          className={`w-full flex items-center gap-2 px-3 py-2 text-xs font-semibold uppercase tracking-wider text-foreground hover:bg-foreground hover:text-background transition-colors duration-150 text-left cursor-none clickable ${
-                            aesthetic === "hallmark" ? "bg-foreground/10" : ""
-                          }`}
+                          className={`w-full flex items-center gap-2 px-3 py-2 text-xs font-semibold uppercase tracking-wider text-foreground hover:bg-foreground hover:text-background transition-colors duration-150 text-left cursor-none clickable ${aesthetic === "hallmark" ? "bg-foreground/10" : ""
+                            }`}
                         >
                           <div className="w-4 h-4 flex items-center justify-center">
                             <LayoutGrid className="w-3.5 h-3.5" />
@@ -274,9 +272,8 @@ const Navbar = () => {
                             setAesthetic("broadsheet");
                             setDropdownOpen(false);
                           }}
-                          className={`w-full flex items-center gap-2 px-3 py-2 text-xs font-semibold uppercase tracking-wider text-foreground hover:bg-foreground hover:text-background transition-colors duration-150 text-left cursor-none clickable ${
-                            aesthetic === "broadsheet" ? "bg-foreground/10" : ""
-                          }`}
+                          className={`w-full flex items-center gap-2 px-3 py-2 text-xs font-semibold uppercase tracking-wider text-foreground hover:bg-foreground hover:text-background transition-colors duration-150 text-left cursor-none clickable ${aesthetic === "broadsheet" ? "bg-foreground/10" : ""
+                            }`}
                         >
                           <div className="w-4 h-4 flex items-center justify-center">
                             <Newspaper className="w-3.5 h-3.5" />

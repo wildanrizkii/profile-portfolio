@@ -221,12 +221,7 @@ const BroadsheetNavbar = () => {
             : "bg-transparent py-4"
           }`}
       >
-        <motion.div
-          initial={{ opacity: 0, y: -20 }}
-          animate={isTransitioning ? { opacity: 0, y: -20 } : { opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, ease: "easeOut", delay: 0.4 }}
-          className="max-w-6xl mx-auto px-6"
-        >
+        <div className="max-w-6xl mx-auto px-6">
           <div className="flex justify-between items-center">
             {/* Logo & Availability Status */}
             <div className="flex items-center gap-3 relative z-50">
@@ -333,7 +328,7 @@ const BroadsheetNavbar = () => {
               </button>
             </div>
           </div>
-        </motion.div>
+        </div>
       </nav>
       <motion.div
         initial={{ y: "-100%", opacity: 0 }}

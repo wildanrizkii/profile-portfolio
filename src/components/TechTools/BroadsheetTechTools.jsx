@@ -29,10 +29,8 @@ const BroadsheetTechTools = () => {
   const { isTransitioning } = useTransitionState();
 
   useEffect(() => {
-    setIsMounted(false);
-    const timer = setTimeout(() => setIsMounted(true), 100);
-    return () => clearTimeout(timer);
-  }, [pathname]);
+    setIsMounted(true);
+  }, []);
 
   const skillCategories = [
     {
