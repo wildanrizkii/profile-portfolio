@@ -4,7 +4,20 @@ import { useRouter, usePathname } from "next/navigation";
 import Navbar from "@/components/Navbar";
 import { motion } from "framer-motion";
 import { FiArrowLeft } from "react-icons/fi";
-import { Layers } from "lucide-react";
+import {
+  Pill,
+  Users,
+  ClipboardList,
+  BarChart3,
+  ShieldCheck,
+  Globe,
+  Building2,
+  Database,
+  Settings,
+  Bell,
+  Layers,
+  Zap,
+} from "lucide-react";
 import { useTransitionState } from "../../PageTransition";
 import { CropMarks, RisoText } from "../../BroadsheetHelpers";
 
@@ -18,42 +31,92 @@ const BroadsheetAdoraSaaSNew = () => {
   }, []);
 
   const meta = [
-    { label: "Role", value: "Lead SaaS Engineer" },
     { label: "Client", value: "PT Adora Medika" },
-    { label: "Timeline", value: "Nov - Dec 2026" },
-    { label: "Deliverable", value: "Multi-Tenant Platform" },
+    { label: "Project Type", value: "SaaS Platform" },
+    { label: "Role", value: "Full Stack Developer" },
+    { label: "Year", value: "2026" },
   ];
 
   const highlights = [
-    { num: "01", label: "Multi-Tenant Isolation" },
-    { num: "02", label: "Dynamic Auth Guards" },
-    { num: "03", label: "Reusable UI Templates" },
-    { num: "04", label: "High-Performance APIs" },
+    { num: "Multi", label: "Tenant SaaS" },
+    { num: "NestJS", label: "API Backend" },
+    { num: "RBAC", label: "Access Control" },
+    { num: "React 19", label: "Frontend" },
   ];
 
   const features = [
     {
       icon: <Layers className="w-5 h-5" />,
-      title: "Subdomain Routing",
-      desc: "Isolated URLs and custom database schemas for each tenant registration batch automatically.",
+      title: "Multi-Tenant SaaS Architecture",
+      desc: "Each pharmacy client operates in a fully isolated tenant environment with dedicated data scopes—true enterprise SaaS scalability built on NestJS.",
     },
     {
-      icon: <Layers className="w-5 h-5" />,
-      title: "Modern API Gates",
-      desc: "Fast controller routes built in NestJS with Passport logic and secure OpenAPI logging schemas.",
+      icon: <ClipboardList className="w-5 h-5" />,
+      title: "Prescription Management",
+      desc: "Digital prescription processing with doctor verification, patient records, and dispensing history logs—fully integrated into the cashier workflow.",
     },
     {
-      icon: <Layers className="w-5 h-5" />,
-      title: "Consolidated Billing",
-      desc: "Unified pricing tier validation hooks, subscription checks, and branch payment summaries.",
+      icon: <Pill className="w-5 h-5" />,
+      title: "Drug & Inventory Catalog",
+      desc: "Comprehensive pharmacy inventory with drug information, batch tracking, expiry management, and automated restock alerts.",
+    },
+    {
+      icon: <BarChart3 className="w-5 h-5" />,
+      title: "Sales & Revenue Analytics",
+      desc: "Interactive dashboards built with Recharts displaying daily revenue, top-selling products, and monthly growth trends per branch.",
+    },
+    {
+      icon: <ShieldCheck className="w-5 h-5" />,
+      title: "Role-Based Access Control",
+      desc: "Granular permission system for pharmacists, cashiers, managers, and super-admins with full audit trail—powered by Passport.js and JWT.",
+    },
+    {
+      icon: <Bell className="w-5 h-5" />,
+      title: "Low Stock & Expiry Alerts",
+      desc: "Automated notifications delivered via email (Nodemailer) when products hit minimum stock levels or approach expiration dates.",
+    },
+    {
+      icon: <Building2 className="w-5 h-5" />,
+      title: "Multi-Branch Management",
+      desc: "Centralized admin panel to manage all pharmacy branches, staff, inventory, and reports from one unified dashboard.",
+    },
+    {
+      icon: <Database className="w-5 h-5" />,
+      title: "Data Export & Reporting",
+      desc: "Generate financial summaries, inventory snapshots, and prescription logs exportable to Excel (xlsx) and PDF formats.",
+    },
+    {
+      icon: <Zap className="w-5 h-5" />,
+      title: "Optimistic UI & Fast UX",
+      desc: "Built with TanStack Query for server-state management, providing instant optimistic updates and background data synchronization.",
     },
   ];
 
   const techStack = [
-    { cat: "Front-End", items: ["React 19", "Next.js 16", "Tailwind CSS"] },
-    { cat: "Back-End", items: ["NestJS", "Prisma ORM", "PostgreSQL"] },
-    { cat: "DevOps", items: ["Docker Compose", "Nginx Rules", "Health Audits"] },
-    { cat: "Tools", items: ["OpenAPI Swagger", "Git logs", "Figma prototyping"] },
+    {
+      cat: "Front-End",
+      items: ["Next.js 16", "React 19", "TypeScript", "Tailwind CSS v4"],
+    },
+    {
+      cat: "UI & UX",
+      items: ["Shadcn UI", "Radix UI", "Framer Motion", "Lucide React"],
+    },
+    {
+      cat: "Back-End",
+      items: ["NestJS", "Node.js", "REST API", "Swagger"],
+    },
+    {
+      cat: "Data & Auth",
+      items: ["PostgreSQL", "Prisma ORM", "JWT", "Passport.js"],
+    },
+    {
+      cat: "State & Query",
+      items: ["TanStack Query", "Axios", "Zod", "Class Validator"],
+    },
+    {
+      cat: "DevOps & Tools",
+      items: ["Docker", "GitHub Actions", "Vercel", "Biome"],
+    },
   ];
 
   const fadeInUp = {
@@ -175,13 +238,40 @@ const BroadsheetAdoraSaaSNew = () => {
             {[
               { src: "/images/adora-saas/adora-5.webp", label: "Pharmacy Dashboard" },
               { src: "/images/adora-saas/adora-4.webp", label: "Super Admin Panel" },
-              { src: "/images/adora-saas/adora-3.webp", label: "Inventory Controller" },
-              { src: "/images/adora-saas/adora-6.webp", label: "Queue Manager" },
+              { src: "/images/adora-saas/adora-3.webp", label: "Login Page" },
+              { src: "/images/adora-saas/adora-6.webp", label: "Subscription Plans" },
             ].map((img, i) => (
               <motion.div
                 key={i}
                 variants={fadeInUp}
                 className="relative rounded-none overflow-hidden border-t border-r last:border-r-0 border-foreground/25 shadow-sm group cursor-none aspect-video"
+              >
+                <img
+                  src={img.src}
+                  alt={img.label}
+                  className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-[1.03]"
+                />
+                <div className="absolute inset-0 bg-linear-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-400" />
+                <div className="absolute bottom-3 left-3 opacity-0 group-hover:opacity-100 transition-all duration-400 translate-y-1 group-hover:translate-y-0">
+                  <span className="text-[9px] font-mono uppercase tracking-wider text-white bg-black border border-white/10 px-2.5 py-1 rounded-none">
+                    {img.label}
+                  </span>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+
+          {/* Grid: 3 more screenshots */}
+          <div className="grid grid-cols-1 md:grid-cols-3 border-b border-foreground/20">
+            {[
+              { src: "/images/adora-saas/adora-2.webp", label: "Customer-Facing Portal" },
+              { src: "/images/adora-saas/adora-7.webp", label: "AI Chatbot Management" },
+              { src: "/images/adora-saas/adora-8.webp", label: "Server Monitoring" },
+            ].map((img, i) => (
+              <motion.div
+                key={i}
+                variants={fadeInUp}
+                className="relative rounded-none overflow-hidden border-r last:border-r-0 border-foreground/25 shadow-sm group cursor-none aspect-video"
               >
                 <img
                   src={img.src}
@@ -223,9 +313,16 @@ const BroadsheetAdoraSaaSNew = () => {
             >
               <p>
                 Adora SaaS is the next evolution of the Adora Pharmacy Management
-                framework. We transitioned the single-instance database structure into a scalable
-                SaaS tenant model, allowing any newly registered pharmacy branch to instantiate
-                its dashboard portal under dynamic subdomains instantly.
+                System—rebuilt from the ground up as a fully cloud-native,
+                multi-tenant SaaS platform. The backend was migrated from Express.js
+                to NestJS for a modular, scalable architecture, while the frontend
+                was upgraded to Next.js 16 with React 19.
+              </p>
+              <p>
+                Each pharmacy client operates within a fully isolated tenant
+                environment, sharing infrastructure while maintaining strict data
+                boundaries—enabling true SaaS scalability for PT Adora Medika's
+                growing pharmacy network.
               </p>
             </motion.div>
             <motion.div
@@ -234,8 +331,15 @@ const BroadsheetAdoraSaaSNew = () => {
             >
               <p>
                 The API layer is built with NestJS, leveraging Passport.js for
-                dynamic auth guard validation. Front-end portals are built on Next.js 16
-                leveraging React 19 compilation rules to decrease load speeds across mobile pos networks.
+                authentication, JWT for stateless session management, and
+                class-validator with Zod for strict request validation—all
+                documented via Swagger.
+              </p>
+              <p>
+                The frontend leverages TanStack Query for performant server-state
+                management, Shadcn UI and Radix UI for accessible components, and
+                Recharts for rich analytics dashboards—delivering a polished,
+                enterprise-grade user experience.
               </p>
             </motion.div>
           </div>
@@ -318,7 +422,7 @@ const BroadsheetAdoraSaaSNew = () => {
             </h2>
           </motion.div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
             {techStack.map((group, i) => (
               <motion.div
                 key={i}

@@ -4,7 +4,18 @@ import { useRouter, usePathname } from "next/navigation";
 import Navbar from "@/components/Navbar";
 import { motion } from "framer-motion";
 import { FiArrowLeft } from "react-icons/fi";
-import { Pill } from "lucide-react";
+import {
+  Pill,
+  Users,
+  ClipboardList,
+  BarChart3,
+  ShieldCheck,
+  Globe,
+  Building2,
+  Database,
+  Settings,
+  Bell,
+} from "lucide-react";
 import { useTransitionState } from "../../PageTransition";
 import { CropMarks, RisoText } from "../../BroadsheetHelpers";
 
@@ -18,42 +29,72 @@ const BroadsheetAdoraSaaS = () => {
   }, []);
 
   const meta = [
-    { label: "Role", value: "Full Stack Engineer" },
     { label: "Client", value: "PT Adora Medika" },
-    { label: "Timeline", value: "Aug - Oct 2024" },
-    { label: "Deliverable", value: "Internal Web App" },
+    { label: "Project Type", value: "Pharmacy Management System" },
+    { label: "Role", value: "Full Stack Developer" },
+    { label: "Year", value: "2024" },
   ];
 
   const highlights = [
-    { num: "01", label: "Inventory Audit Trail" },
-    { num: "02", label: "Prescription Flow Validation" },
-    { num: "03", label: "Secure Multi-Auth Controls" },
-    { num: "04", label: "Clean Cashier POS Terminal" },
+    { num: "Multi", label: "Tenant SaaS" },
+    { num: "Multi", label: "Branch Support" },
+    { num: "RBAC", label: "Access Control" },
+    { num: "Cloud", label: "Native" },
   ];
 
   const features = [
     {
       icon: <Pill className="w-5 h-5" />,
-      title: "Drug Inventory Cataloging",
-      desc: "Instant search databases tracking batch number IDs, expiry dates, supplier logs, and drug categories.",
+      title: "Drug & Product Catalog",
+      desc: "Comprehensive pharmacy inventory with drug information, batch tracking, expiry management, and restock alerts.",
     },
     {
-      icon: <Pill className="w-5 h-5" />,
-      title: "POS Checkout Terminal",
-      desc: "Instant invoice printing, multiple payment pathways, direct receipt logs validation rules.",
+      icon: <ClipboardList className="w-5 h-5" />,
+      title: "Prescription Management",
+      desc: "Digital prescription processing with doctor verification, patient records, and dispensing history logs.",
     },
     {
-      icon: <Pill className="w-5 h-5" />,
-      title: "Role-Based Safeguards",
-      desc: "Granular access limits ensuring doctors write, pharmacists verify, and cashiers checkout prescriptions.",
+      icon: <Users className="w-5 h-5" />,
+      title: "Multi-Tenant Architecture",
+      desc: "Each pharmacy branch operates in an isolated tenant environment with shared infrastructure—true SaaS scalability.",
+    },
+    {
+      icon: <BarChart3 className="w-5 h-5" />,
+      title: "Sales & Revenue Analytics",
+      desc: "Interactive dashboards displaying daily revenue, top-selling products, and monthly growth trends per branch.",
+    },
+    {
+      icon: <ShieldCheck className="w-5 h-5" />,
+      title: "Role-Based Access Control",
+      desc: "Granular permission system for pharmacists, cashiers, managers, and super-admins with audit trail.",
+    },
+    {
+      icon: <Bell className="w-5 h-5" />,
+      title: "Low Stock & Expiry Alerts",
+      desc: "Automated notifications when products reach minimum stock levels or approach their expiration dates.",
+    },
+    {
+      icon: <Building2 className="w-5 h-5" />,
+      title: "Multi-Branch Management",
+      desc: "Centralized admin panel to manage all pharmacy branches, staff, inventory, and reports from one dashboard.",
+    },
+    {
+      icon: <Database className="w-5 h-5" />,
+      title: "Data Export & Reporting",
+      desc: "Generate financial summaries, inventory snapshots, and prescription logs exportable to Excel and PDF.",
+    },
+    {
+      icon: <Globe className="w-5 h-5" />,
+      title: "Cloud-Native & Scalable",
+      desc: "Fully cloud-hosted on Supabase and Vercel, auto-scaling to handle high transaction volumes without downtime.",
     },
   ];
 
   const techStack = [
-    { cat: "Front-End", items: ["React.js", "Tailwind CSS", "Framer Motion"] },
-    { cat: "Back-End", items: ["Supabase", "PostgreSQL", "GoTrue Auth"] },
-    { cat: "Architecture", items: ["REST Routes", "Query Caches", "Static optimization"] },
-    { cat: "Design", items: ["Figma Systems", "Crop grids", "Typography scale"] },
+    { cat: "Front-End", items: ["Next.js", "React", "Tailwind CSS", "Ant Design"] },
+    { cat: "Back-End", items: ["Node.js", "Express.js", "REST API"] },
+    { cat: "Database", items: ["PostgreSQL", "Prisma ORM", "Supabase"] },
+    { cat: "Tools", items: ["Git", "GitHub", "Figma", "Vercel"] },
   ];
 
   const fadeInUp = {
@@ -175,13 +216,40 @@ const BroadsheetAdoraSaaS = () => {
             {[
               { src: "/images/adora-saas/adora-5.webp", label: "Pharmacy Dashboard" },
               { src: "/images/adora-saas/adora-4.webp", label: "Super Admin Panel" },
-              { src: "/images/adora-saas/adora-3.webp", label: "Inventory Controller" },
-              { src: "/images/adora-saas/adora-6.webp", label: "Queue Manager" },
+              { src: "/images/adora-saas/adora-3.webp", label: "Login Page" },
+              { src: "/images/adora-saas/adora-6.webp", label: "Subscription Plans" },
             ].map((img, i) => (
               <motion.div
                 key={i}
                 variants={fadeInUp}
                 className="relative rounded-none overflow-hidden border-t border-r last:border-r-0 border-foreground/25 shadow-sm group cursor-none aspect-video"
+              >
+                <img
+                  src={img.src}
+                  alt={img.label}
+                  className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-[1.03]"
+                />
+                <div className="absolute inset-0 bg-linear-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-400" />
+                <div className="absolute bottom-3 left-3 opacity-0 group-hover:opacity-100 transition-all duration-400 translate-y-1 group-hover:translate-y-0">
+                  <span className="text-[9px] font-mono uppercase tracking-wider text-white bg-black border border-white/10 px-2.5 py-1 rounded-none">
+                    {img.label}
+                  </span>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+
+          {/* Grid: 3 more screenshots */}
+          <div className="grid grid-cols-1 md:grid-cols-3 border-b border-foreground/20">
+            {[
+              { src: "/images/adora-saas/adora-2.webp", label: "Customer-Facing Portal" },
+              { src: "/images/adora-saas/adora-7.webp", label: "AI Chatbot Management" },
+              { src: "/images/adora-saas/adora-8.webp", label: "Server Monitoring" },
+            ].map((img, i) => (
+              <motion.div
+                key={i}
+                variants={fadeInUp}
+                className="relative rounded-none overflow-hidden border-r last:border-r-0 border-foreground/25 shadow-sm group cursor-none aspect-video"
               >
                 <img
                   src={img.src}
@@ -223,9 +291,14 @@ const BroadsheetAdoraSaaS = () => {
             >
               <p>
                 Adora Pharmacy Management System is the foundational internal system
-                delivered to streamline drug catalog checkouts and validate script compliance.
-                Prior to this upgrade, managing supplier receipts, expiry batches, and roles
-                safeguards consumed significant staff coordination.
+                built for PT Adora Medika in 2024. Developed as a full-stack web
+                application using Next.js and Express.js, it serves as the digital
+                backbone for pharmacy operations across multiple branches.
+              </p>
+              <p>
+                The system handles the complete lifecycle of pharmacy operations—from
+                drug procurement and inventory management to prescription processing,
+                cashier transactions, and financial reporting.
               </p>
             </motion.div>
             <motion.div
@@ -233,9 +306,14 @@ const BroadsheetAdoraSaaS = () => {
               className="space-y-5 text-sm md:text-base text-muted-foreground font-serif leading-relaxed"
             >
               <p>
-                Role-based access control ensures that pharmacists, cashiers, branch managers,
-                and doctors work in isolated pipelines. The cashier terminal feeds invoices directly
-                into PostgreSQL relational logs to calculate stock updates instantly.
+                Role-based access control ensures that pharmacists, cashiers, branch
+                managers, and administrators each experience a tailored interface with
+                the relevant permissions and data scopes.
+              </p>
+              <p>
+                This system later served as the foundation and inspiration for the
+                evolution into a cloud-native, multi-tenant SaaS architecture—the
+                Adora SaaS platform launched in 2026.
               </p>
             </motion.div>
           </div>

@@ -384,7 +384,7 @@ const TechShowcase = () => {
               {group.skills.map((skill) => (
                 <span
                   key={skill}
-                  className="text-xs font-mono text-foreground bg-white/40 dark:bg-white/5 hover:bg-foreground hover:text-background px-2.5 py-1 border border-foreground/20 transition-all duration-200 rounded-none group-hover:border-white/30 group-hover:text-white"
+                  className="text-xs font-mono text-foreground bg-white/40 dark:bg-white/5 hover:bg-foreground hover:text-background dark:hover:text-foreground px-2.5 py-1 border border-foreground/20 transition-all duration-200 rounded-none group-hover:border-white/30 group-hover:text-white"
                 >
                   {skill}
                 </span>

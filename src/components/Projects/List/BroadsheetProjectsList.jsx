@@ -228,7 +228,7 @@ const BroadsheetProjectsList = () => {
                                    {(() => {
                                      const slug = project.href.split('/').pop();
                                      if (slug === 'adora-saas') return '2026';
-                                     if (slug === 'sparepart') return '2023';
+                                     if (slug === 'sparepart' || slug === 'cashflow') return '2025';
                                      return '2024';
                                    })()}
                                  </span>

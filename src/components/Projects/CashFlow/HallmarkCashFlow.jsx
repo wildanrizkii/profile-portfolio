@@ -213,97 +213,31 @@ const CashFlow = () => {
           </motion.div>
         </motion.section>
 
-        {/* ── HERO VISUAL / MOCKUP ── */}
+        {/* ── SCREENSHOT SHOWCASE ── */}
         <motion.section
           className="w-full max-w-5xl mx-auto px-6 pb-24"
           initial="hidden"
           whileInView={isTransitioning ? "hidden" : "visible"}
           viewport={{ once: true, amount: 0.1 }}
-          variants={fadeIn}
+          variants={staggerChildren}
         >
-          <div className="relative rounded-none overflow-hidden border border-neutral-300 dark:border-neutral-800 bg-neutral-950 dark:bg-neutral-900 min-h-90 md:min-h-120 p-8 flex flex-col justify-between">
-            {/* Grid bg */}
-            <div
-              className="absolute inset-0 opacity-[0.05]"
-              style={{
-                backgroundImage:
-                  "linear-gradient(rgba(255,255,255,.2) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.2) 1px, transparent 1px)",
-                backgroundSize: "36px 36px",
-              }}
+          {/* Featured Screenshot */}
+          <motion.div
+            variants={fadeInUp}
+            className="relative rounded-none overflow-hidden border border-neutral-300 dark:border-neutral-800 shadow-sm mb-4 group cursor-none"
+          >
+            <img
+              src="/images/Cashify.png"
+              alt="Cash Flow Tracker - Main Analytics Hub"
+              className="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-[1.01]"
             />
-
-            {/* Top: header row */}
-            <div className="relative z-10 flex items-start justify-between flex-wrap gap-4">
-              <div>
-                <p className="text-white/40 text-[10px] font-mono uppercase tracking-widest mb-1">Cash Flow Tracker</p>
-                <h2 className="text-2xl font-serif italic text-white">June 2025 Overview</h2>
-              </div>
-              <div className="flex gap-3 flex-wrap">
-                {["Income", "Expense", "Balance"].map((tag) => (
-                  <span
-                    key={tag}
-                    className="text-[9px] font-mono uppercase tracking-wider text-white/70 bg-white/5 border border-white/10 px-3 py-1.5 rounded-none"
-                  >
-                    {tag}
-                  </span>
-                ))}
-              </div>
+            <div className="absolute inset-0 bg-linear-to-t from-black/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+            <div className="absolute bottom-5 left-6 opacity-0 group-hover:opacity-100 transition-all duration-500 translate-y-2 group-hover:translate-y-0">
+              <span className="text-[10px] font-mono uppercase tracking-wider text-white bg-black border border-white/20 px-3 py-1.5 rounded-none">
+                Main Analytics Hub
+              </span>
             </div>
-
-            {/* Middle: stat cards */}
-            <div className="relative z-10 grid grid-cols-3 gap-px bg-white/10 my-6 border border-white/10">
-              {[
-                { label: "Total Income", value: "Rp 8.400.000", trend: "+12%", positive: true },
-                { label: "Total Expense", value: "Rp 4.800.000", trend: "-5%", positive: false },
-                { label: "Net Cash Flow", value: "Rp 3.600.000", trend: "+27%", positive: true },
-              ].map((card, i) => (
-                <div
-                  key={i}
-                  className="bg-neutral-950/80 p-4 md:p-5"
-                >
-                  <p className="text-white/40 text-[10px] font-mono uppercase mb-2">{card.label}</p>
-                  <p className="text-white text-base md:text-xl font-serif italic leading-tight">{card.value}</p>
-                  <p className={`text-[10px] font-mono mt-1 ${card.positive ? "text-emerald-400" : "text-rose-400"}`}>
-                    {card.trend}
-                  </p>
-                </div>
-              ))}
-            </div>
-
-            {/* Bottom: mini bar chart */}
-            <div className="relative z-10">
-              <p className="text-white/30 text-[9px] font-mono uppercase tracking-widest mb-3">
-                Monthly Trend
-              </p>
-              <div className="flex items-end gap-2 h-20">
-                {mockBars.map((bar, i) => (
-                  <div key={i} className="flex-1 flex flex-col items-center gap-1">
-                    <div className="w-full flex flex-col gap-0.5">
-                      <div
-                        className="w-full bg-emerald-400/50"
-                        style={{ height: `${(bar.income / 100) * 64}px` }}
-                      />
-                      <div
-                        className="w-full bg-rose-400/40"
-                        style={{ height: `${(bar.expense / 100) * 64}px` }}
-                      />
-                    </div>
-                    <span className="text-white/30 text-[9px] font-mono">{bar.month}</span>
-                  </div>
-                ))}
-              </div>
-              <div className="flex gap-4 mt-3">
-                <span className="flex items-center gap-1.5 text-[10px] font-mono text-white/50">
-                  <span className="w-2 h-2 bg-emerald-400/50" />
-                  Income
-                </span>
-                <span className="flex items-center gap-1.5 text-[10px] font-mono text-white/50">
-                  <span className="w-2 h-2 bg-rose-400/40" />
-                  Expense
-                </span>
-              </div>
-            </div>
-          </div>
+          </motion.div>
         </motion.section>
 
         {/* ── OVERVIEW ── */}

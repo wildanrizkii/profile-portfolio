@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 import React from "react";
 import { useRouter } from "next/navigation";
 import Navbar from "@/components/Navbar/";
@@ -214,97 +214,31 @@ const CashFlow = () => {
           </motion.div>
         </motion.section>
 
-        {/* ÔöÇÔöÇ HERO VISUAL / MOCKUP ÔöÇÔöÇ */}
+        {/* ── SCREENSHOT SHOWCASE ── */}
         <motion.section
           className="w-full max-w-6xl mx-auto px-4 md:px-8 pb-24"
           initial="hidden"
           whileInView={isTransitioning ? "hidden" : "visible"}
           viewport={{ once: true, amount: 0.1 }}
-          variants={fadeIn}
+          variants={staggerChildren}
         >
-          <div className="relative rounded-3xl overflow-hidden border-2 border-neutral-200 bg-linear-to-br from-slate-900 via-slate-800 to-slate-700 min-h-90 md:min-h-120 p-8 flex flex-col justify-between">
-            {/* Grid bg */}
-            <div
-              className="absolute inset-0 opacity-[0.07]"
-              style={{
-                backgroundImage:
-                  "linear-gradient(rgba(255,255,255,.25) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.25) 1px, transparent 1px)",
-                backgroundSize: "36px 36px",
-              }}
+          {/* Featured Screenshot */}
+          <motion.div
+            variants={fadeInUp}
+            className="relative rounded-3xl overflow-hidden border-2 border-neutral-200 shadow-2xl mb-4 group cursor-none"
+          >
+            <img
+              src="/images/Cashify.png"
+              alt="Cash Flow Tracker - Main Analytics Hub"
+              className="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-[1.02]"
             />
-
-            {/* Top: header row */}
-            <div className="relative z-10 flex items-start justify-between flex-wrap gap-4">
-              <div>
-                <p className="text-white/50 text-xs font-bold uppercase tracking-widest mb-1">Cash Flow Tracker</p>
-                <h2 className="text-2xl md:text-3xl font-black text-white">June 2025 Overview</h2>
-              </div>
-              <div className="flex gap-3 flex-wrap">
-                {["Income", "Expense", "Balance"].map((tag) => (
-                  <span
-                    key={tag}
-                    className="text-xs font-bold text-white/70 bg-white/10 border border-white/10 px-3 py-1.5 rounded-full"
-                  >
-                    {tag}
-                  </span>
-                ))}
-              </div>
+            <div className="absolute inset-0 bg-linear-to-t from-black/30 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+            <div className="absolute bottom-5 left-6 opacity-0 group-hover:opacity-100 transition-all duration-500 translate-y-2 group-hover:translate-y-0">
+              <span className="text-xs font-bold text-white bg-black/60 backdrop-blur-sm border border-white/20 px-3 py-1.5 rounded-full">
+                Main Analytics Hub
+              </span>
             </div>
-
-            {/* Middle: stat cards */}
-            <div className="relative z-10 grid grid-cols-3 gap-3 md:gap-5 my-6">
-              {[
-                { label: "Total Income", value: "Rp 8.400.000", trend: "+12%", positive: true },
-                { label: "Total Expense", value: "Rp 4.800.000", trend: "-5%", positive: false },
-                { label: "Net Cash Flow", value: "Rp 3.600.000", trend: "+27%", positive: true },
-              ].map((card, i) => (
-                <div
-                  key={i}
-                  className="rounded-2xl bg-white/10 border border-white/10 backdrop-blur-sm p-4 md:p-5"
-                >
-                  <p className="text-white/50 text-xs font-semibold mb-2">{card.label}</p>
-                  <p className="text-white text-base md:text-xl font-black leading-tight">{card.value}</p>
-                  <p className={`text-xs font-bold mt-1 ${card.positive ? "text-emerald-400" : "text-rose-400"}`}>
-                    {card.trend} vs last month
-                  </p>
-                </div>
-              ))}
-            </div>
-
-            {/* Bottom: mini bar chart */}
-            <div className="relative z-10">
-              <p className="text-white/40 text-xs font-bold uppercase tracking-widest mb-3">
-                Monthly Trend
-              </p>
-              <div className="flex items-end gap-2 h-20">
-                {mockBars.map((bar, i) => (
-                  <div key={i} className="flex-1 flex flex-col items-center gap-1">
-                    <div className="w-full flex flex-col gap-0.5">
-                      <div
-                        className="w-full rounded-t bg-emerald-400/70"
-                        style={{ height: `${(bar.income / 100) * 64}px` }}
-                      />
-                      <div
-                        className="w-full rounded-b bg-rose-400/60"
-                        style={{ height: `${(bar.expense / 100) * 64}px` }}
-                      />
-                    </div>
-                    <span className="text-white/30 text-[10px] font-semibold">{bar.month}</span>
-                  </div>
-                ))}
-              </div>
-              <div className="flex gap-4 mt-3">
-                <span className="flex items-center gap-1.5 text-xs text-white/50 font-semibold">
-                  <span className="w-2.5 h-2.5 rounded-sm bg-emerald-400/70" />
-                  Income
-                </span>
-                <span className="flex items-center gap-1.5 text-xs text-white/50 font-semibold">
-                  <span className="w-2.5 h-2.5 rounded-sm bg-rose-400/60" />
-                  Expense
-                </span>
-              </div>
-            </div>
-          </div>
+          </motion.div>
         </motion.section>
 
         {/* ÔöÇÔöÇ OVERVIEW ÔöÇÔöÇ */}

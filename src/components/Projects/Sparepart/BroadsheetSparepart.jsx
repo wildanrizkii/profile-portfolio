@@ -4,9 +4,18 @@ import { useRouter, usePathname } from "next/navigation";
 import Navbar from "@/components/Navbar";
 import { motion } from "framer-motion";
 import { FiArrowLeft } from "react-icons/fi";
-import { Wrench } from "lucide-react";
+import {
+  Wrench,
+  Search,
+  FileSpreadsheet,
+  PackageSearch,
+  Users,
+  Database,
+  ShieldCheck,
+} from "lucide-react";
 import { useTransitionState } from "../../PageTransition";
 import { CropMarks, RisoText } from "../../BroadsheetHelpers";
+import { GiAutoRepair } from "react-icons/gi";
 
 const BroadsheetSparepart = () => {
   const router = useRouter();
@@ -18,42 +27,57 @@ const BroadsheetSparepart = () => {
   }, []);
 
   const meta = [
-    { label: "Role", value: "Backend API Architect" },
-    { label: "Client", value: "Enterprise Logistics" },
-    { label: "Timeline", value: "Oct - Dec 2023" },
-    { label: "Deliverable", value: "REST API Database" },
+    { label: "Company", value: "PT XXX", note: "* Company requested anonymity" },
+    { label: "Project Type", value: "Sales Support System" },
+    { label: "Role", value: "Full Stack Developer" },
+    { label: "Year", value: "2025" },
   ];
 
   const highlights = [
-    { num: "01", label: "Relational DB Schema" },
-    { num: "02", label: "Inventory Transaction logs" },
-    { num: "03", label: "Optimized Search routes" },
-    { num: "04", label: "Detailed OpenAPI docs" },
+    { num: "500+", label: "Parts Catalogued" },
+    { num: "3", label: "User Roles" },
+    { num: "100%", label: "Web-Based" },
+    { num: "Excel", label: "Export Ready" },
   ];
 
   const features = [
     {
-      icon: <Wrench className="w-5 h-5" />,
-      title: "Logistics Audit Trail",
-      desc: "PostgreSQL transaction logs capturing stock check-ins, check-outs, item moves, and supplier catalogs.",
+      icon: <PackageSearch className="w-5 h-5" />,
+      title: "Part Hierarchy Explorer",
+      desc: "Visualize parent–child relationships between spare parts with intuitive nested tree navigation.",
     },
     {
-      icon: <Wrench className="w-5 h-5" />,
-      title: "Index Search Optimizations",
-      desc: "Highly optimized search routes filtering millions of rows by category, warehouse ID, and serial code labels.",
+      icon: <Search className="w-5 h-5" />,
+      title: "Advanced Search & Filter",
+      desc: "Find any spare part instantly using smart filters by serial number, material, supplier, or manufacturer.",
     },
     {
-      icon: <Wrench className="w-5 h-5" />,
-      title: "OpenAPI Swagger Specs",
-      desc: "Comprehensive REST API request schemas, code validation boundaries, and swagger logging interfaces.",
+      icon: <Database className="w-5 h-5" />,
+      title: "Comprehensive Part Database",
+      desc: "Centralized repository with complete specifications: material grade, dimensions, origin, and lifecycle data.",
+    },
+    {
+      icon: <FileSpreadsheet className="w-5 h-5" />,
+      title: "Excel Report Generator",
+      desc: "Generate structured Excel files of selected parts for streamlined ordering and documentation workflows.",
+    },
+    {
+      icon: <Users className="w-5 h-5" />,
+      title: "Client-Facing Presentation",
+      desc: "Clean, professional interface designed to impress clients and prospects during sales engagements.",
+    },
+    {
+      icon: <ShieldCheck className="w-5 h-5" />,
+      title: "Role-Based Access Control",
+      desc: "Granular permission levels for sales reps, admins, and managers to keep data secure and relevant.",
     },
   ];
 
   const techStack = [
-    { cat: "Back-End", items: ["ExpressJS", "NodeJS", "TypeScript"] },
+    { cat: "Front-End", items: ["Next.js", "React", "Tailwind CSS", "Framer Motion"] },
+    { cat: "Back-End", items: ["Node.js", "Express.js", "REST API"] },
     { cat: "Database", items: ["PostgreSQL", "Prisma ORM"] },
-    { cat: "Documentation", items: ["Swagger UI", "OpenAPI schemas"] },
-    { cat: "Testing", items: ["Jest API", "Supertest validation"] },
+    { cat: "Tools", items: ["Git", "GitHub", "Figma", "Vercel"] },
   ];
 
   const fadeInUp = {
@@ -139,61 +163,62 @@ const BroadsheetSparepart = () => {
                   {m.label}
                 </span>
                 <span className="text-base font-serif italic text-foreground font-semibold">{m.value}</span>
+                {m.note && (
+                  <span className="text-[10px] font-mono text-muted-foreground leading-tight">{m.note}</span>
+                )}
               </motion.div>
             ))}
           </motion.div>
         </motion.section>
 
-        {/* SCREENSHOT SHOWCASE */}
+        {/* ── HERO VISUAL BANNER ── */}
         <motion.section
           className="w-full max-w-5xl mx-auto px-6 pb-24"
           initial="hidden"
           whileInView={isTransitioning ? "hidden" : "visible"}
           viewport={{ once: true, amount: 0.1 }}
-          variants={staggerChildren}
+          variants={fadeInUp}
         >
-          {/* Featured Screenshot */}
-          <motion.div
-            variants={fadeInUp}
-            className="relative rounded-none overflow-hidden border border-foreground/30 shadow-sm mb-4 group cursor-none"
-          >
-            <img
-              src="/images/spareparts/spareparts-1.webp"
-              alt="Sparepart System - Swagger Documentation Hub"
-              className="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-[1.01]"
+          <div className="relative rounded-none overflow-hidden border border-foreground/30 bg-white/10 dark:bg-white/2 min-h-80 md:min-h-115 flex items-center justify-center">
+            {/* Decorative grid */}
+            <div
+              className="absolute inset-0 opacity-[0.05]"
+              style={{
+                backgroundImage:
+                  "linear-gradient(var(--foreground) 1px, transparent 1px), linear-gradient(90deg, var(--foreground) 1px, transparent 1px)",
+                backgroundSize: "40px 40px",
+              }}
             />
-            <div className="absolute inset-0 bg-linear-to-t from-black/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-            <div className="absolute bottom-5 left-6 opacity-0 group-hover:opacity-100 transition-all duration-500 translate-y-2 group-hover:translate-y-0">
-              <span className="text-[10px] font-mono uppercase tracking-wider text-white bg-black border border-white/20 px-3 py-1.5 rounded-none">
-                REST API Swagger Hub
-              </span>
-            </div>
-          </motion.div>
-
-          {/* Grid screenshots */}
-          <div className="grid grid-cols-2 border-b border-foreground/20">
-            {[
-              { src: "/images/spareparts/spareparts-2.webp", label: "Relational Postgres Schema" },
-              { src: "/images/spareparts/spareparts-3.webp", label: "Inventory Transaction Logs" },
-            ].map((img, i) => (
-              <motion.div
-                key={i}
-                variants={fadeInUp}
-                className="relative rounded-none overflow-hidden border-t border-r last:border-r-0 border-foreground/25 shadow-sm group cursor-none aspect-video"
-              >
-                <img
-                  src={img.src}
-                  alt={img.label}
-                  className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-[1.03]"
-                />
-                <div className="absolute inset-0 bg-linear-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-400" />
-                <div className="absolute bottom-3 left-3 opacity-0 group-hover:opacity-100 transition-all duration-400 translate-y-1 group-hover:translate-y-0">
-                  <span className="text-[9px] font-mono uppercase tracking-wider text-white bg-black border border-white/10 px-2.5 py-1 rounded-none">
-                    {img.label}
+            {/* Center icon cluster */}
+            <div className="relative z-10 flex flex-col items-center gap-6 text-foreground text-center px-6">
+              <div className="flex items-center justify-center w-24 h-24 border border-foreground/30 bg-transparent rounded-none">
+                <GiAutoRepair className="w-12 h-12 text-foreground" />
+              </div>
+              <div>
+                <h2 className="text-2xl md:text-3xl font-display font-black uppercase text-foreground">
+                  <RisoText className="text-2xl md:text-3xl font-display font-black uppercase">
+                    Spare Part Information System
+                  </RisoText>
+                </h2>
+                <p className="text-muted-foreground mt-2 text-[10px] font-mono uppercase tracking-wider">
+                  Sales Support · Web Application · 2025
+                </p>
+              </div>
+              <div className="flex flex-wrap justify-center gap-2 mt-2">
+                {["Next.js", "React", "PostgreSQL", "Tailwind CSS"].map((t) => (
+                  <span
+                    key={t}
+                    className="text-[9px] font-mono uppercase text-foreground bg-white/40 dark:bg-white/5 border border-foreground/20 px-3 py-1 rounded-none"
+                  >
+                    {t}
                   </span>
-                </div>
-              </motion.div>
-            ))}
+                ))}
+              </div>
+            </div>
+            {/* Corner decorative icon */}
+            <div className="absolute bottom-6 right-8 opacity-[0.02]">
+              <GiAutoRepair className="w-48 h-48 text-foreground" />
+            </div>
           </div>
         </motion.section>
 
@@ -210,7 +235,7 @@ const BroadsheetSparepart = () => {
               Overview
             </p>
             <h2 className="text-3xl md:text-5xl font-serif italic text-foreground max-w-3xl leading-snug">
-              Backend logistics API built for scale
+              Bringing spare part data to the sales floor
             </h2>
           </motion.div>
 
@@ -220,9 +245,16 @@ const BroadsheetSparepart = () => {
               className="space-y-5 text-sm md:text-base text-muted-foreground font-serif leading-relaxed"
             >
               <p>
-                Sparepart System is a backend REST API built to track warehouse inventories.
-                We designed database structures on PostgreSQL using Prisma ORM to prevent double-checkout
-                concurrency bugs during peak warehouse operations.
+                This Spare Part Information System was built to empower sales
+                representatives and employees with an intuitive, web-based platform
+                for showcasing and delivering comprehensive spare part information
+                to clients and prospective buyers.
+              </p>
+              <p>
+                Users can explore a rich catalog of spare parts, navigate the
+                parent–child hierarchy between components, and instantly access
+                detailed specs such as supplier information, material grades,
+                manufacturer details, and unique serial identifiers.
               </p>
             </motion.div>
             <motion.div
@@ -230,8 +262,15 @@ const BroadsheetSparepart = () => {
               className="space-y-5 text-sm md:text-base text-muted-foreground font-serif leading-relaxed"
             >
               <p>
-                All endpoint controllers are fully covered in Jest API unit tests, and documented inside
-                interactive Swagger OpenAPI spec sheets to allow seamless developer onboarding.
+                With a user-friendly interface and efficient search, the system
+                significantly enhances the effectiveness of the sales process,
+                ensuring customers always receive accurate, up-to-date information.
+              </p>
+              <p>
+                A robust reporting feature enables users to generate organized
+                Excel files containing lists of selected parts for ordering—
+                streamlining documentation and supporting more systematic spare
+                part management.
               </p>
             </motion.div>
           </div>

@@ -4,7 +4,18 @@ import { useRouter, usePathname } from "next/navigation";
 import Navbar from "@/components/Navbar";
 import { motion } from "framer-motion";
 import { FiArrowLeft } from "react-icons/fi";
-import { DollarSign } from "lucide-react";
+import {
+  TrendingUp,
+  PieChart,
+  CalendarRange,
+  Bell,
+  Download,
+  LayoutDashboard,
+  Wallet,
+  ArrowUpDown,
+  ShieldCheck,
+  Smartphone,
+} from "lucide-react";
 import { useTransitionState } from "../../PageTransition";
 import { CropMarks, RisoText } from "../../BroadsheetHelpers";
 
@@ -18,42 +29,72 @@ const BroadsheetCashFlow = () => {
   }, []);
 
   const meta = [
-    { label: "Role", value: "Solo Full Stack Web Developer" },
-    { label: "Client", value: "Personal Finance App" },
-    { label: "Timeline", value: "Jun - Jul 2024" },
-    { label: "Deliverable", value: "Web Portal Sandbox" },
+    { label: "Client", value: "Personal Project" },
+    { label: "Project Type", value: "Finance Tracker" },
+    { label: "Role", value: "Full Stack Developer" },
+    { label: "Year", value: "2025" },
   ];
 
   const highlights = [
-    { num: "01", label: "Realtime Auth Validation" },
-    { num: "02", label: "Dynamic Cash charts" },
-    { num: "03", label: "Transaction Filters" },
-    { num: "04", label: "Responsive Data Sheets" },
+    { num: "Multi", label: "Account Support" },
+    { num: "100%", label: "Responsive" },
+    { num: "Real-Time", label: "Dashboard" },
+    { num: "CSV/PDF", label: "Export" },
   ];
 
   const features = [
     {
-      icon: <DollarSign className="w-5 h-5" />,
-      title: "Category Analytics Map",
-      desc: "Recharts dashboards visualizing monthly budgets, category-wise breakdowns, and expense distributions.",
+      icon: <LayoutDashboard className="w-5 h-5" />,
+      title: "Real-Time Dashboard",
+      desc: "Bird's-eye view of your income, expenses, and net cash flow with live updating charts and balances.",
     },
     {
-      icon: <DollarSign className="w-5 h-5" />,
-      title: "Realtime Firebase Store",
-      desc: "Immediate document insertions, category filters validation, and ledger updates in real-time.",
+      icon: <ArrowUpDown className="w-5 h-5" />,
+      title: "Income & Expense Tracking",
+      desc: "Log every transaction with category tags, notes, and timestamps for complete financial transparency.",
     },
     {
-      icon: <DollarSign className="w-5 h-5" />,
-      title: "Clean Transaction Sheets",
-      desc: "Sort and filter transactional logs by date range, amount, or custom tag descriptions.",
+      icon: <PieChart className="w-5 h-5" />,
+      title: "Interactive Charts & Analytics",
+      desc: "Beautiful donut charts, bar graphs, and trend lines powered by Recharts to visualize spending habits.",
+    },
+    {
+      icon: <CalendarRange className="w-5 h-5" />,
+      title: "Period-Based Reporting",
+      desc: "Filter and compare cash flow by day, week, month, or custom date range for granular analysis.",
+    },
+    {
+      icon: <Bell className="w-5 h-5" />,
+      title: "Budget Alerts",
+      desc: "Set monthly spending limits per category and receive automatic alerts when approaching thresholds.",
+    },
+    {
+      icon: <Download className="w-5 h-5" />,
+      title: "Export to CSV / PDF",
+      desc: "Download your financial reports in structured formats ready for bookkeeping or auditing.",
+    },
+    {
+      icon: <Wallet className="w-5 h-5" />,
+      title: "Multi-Account Wallet",
+      desc: "Manage cash, bank, and e-wallet accounts in one place with unified balance tracking.",
+    },
+    {
+      icon: <ShieldCheck className="w-5 h-5" />,
+      title: "Secure Auth",
+      desc: "Email and OAuth sign-in with session management and role-based access powered by NextAuth.",
+    },
+    {
+      icon: <Smartphone className="w-5 h-5" />,
+      title: "Mobile Responsive",
+      desc: "Fully responsive design optimized for mobile-first usage—track finances anywhere, anytime.",
     },
   ];
 
   const techStack = [
-    { cat: "Front-End", items: ["React.js", "Tailwind CSS", "Recharts"] },
-    { cat: "Back-End", items: ["Firebase Firestore", "Firebase Auth"] },
-    { cat: "Deployment", items: ["Vercel hosting", "Security headers"] },
-    { cat: "Analytics", items: ["Budget limits", "Export CSV rules"] },
+    { cat: "Front-End", items: ["Next.js", "React", "Tailwind CSS", "Recharts"] },
+    { cat: "Back-End", items: ["Next.js API Routes", "Prisma ORM"] },
+    { cat: "Database", items: ["PostgreSQL", "Supabase"] },
+    { cat: "Tools", items: ["Git", "GitHub", "Figma", "Vercel"] },
   ];
 
   const fadeInUp = {
@@ -103,7 +144,7 @@ const BroadsheetCashFlow = () => {
           {/* Label pill */}
           <motion.div variants={fadeInUp} className="mb-6">
             <span className="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-widest text-muted-foreground bg-white/40 dark:bg-white/5 border border-foreground/20 px-3 py-1.5 rounded-none">
-              <DollarSign className="w-4 h-4" />
+              <TrendingUp className="w-4 h-4" />
               Project Case Study
             </span>
           </motion.div>
@@ -157,7 +198,7 @@ const BroadsheetCashFlow = () => {
             className="relative rounded-none overflow-hidden border border-foreground/30 shadow-sm mb-4 group cursor-none"
           >
             <img
-              src="/images/cashflow/cashflow-1.webp"
+              src="/images/Cashify.png"
               alt="Cash Flow Tracker - Main Analytics Hub"
               className="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-[1.01]"
             />
@@ -167,34 +208,7 @@ const BroadsheetCashFlow = () => {
                 Main Analytics Hub
               </span>
             </div>
-          </motion.div>
-
-          {/* Grid screenshots */}
-          <div className="grid grid-cols-2 border-b border-foreground/20">
-            {[
-              { src: "/images/cashflow/cashflow-2.webp", label: "Ledger Accounts" },
-              { src: "/images/cashflow/cashflow-3.webp", label: "Budget Planners" },
-            ].map((img, i) => (
-              <motion.div
-                key={i}
-                variants={fadeInUp}
-                className="relative rounded-none overflow-hidden border-t border-r last:border-r-0 border-foreground/25 shadow-sm group cursor-none aspect-video"
-              >
-                <img
-                  src={img.src}
-                  alt={img.label}
-                  className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-[1.03]"
-                />
-                <div className="absolute inset-0 bg-linear-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-400" />
-                <div className="absolute bottom-3 left-3 opacity-0 group-hover:opacity-100 transition-all duration-400 translate-y-1 group-hover:translate-y-0">
-                  <span className="text-[9px] font-mono uppercase tracking-wider text-white bg-black border border-white/10 px-2.5 py-1 rounded-none">
-                    {img.label}
-                  </span>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </motion.section>
+          </motion.div>        </motion.section>
 
         {/* OVERVIEW */}
         <motion.section
@@ -209,7 +223,7 @@ const BroadsheetCashFlow = () => {
               Overview
             </p>
             <h2 className="text-3xl md:text-5xl font-serif italic text-foreground max-w-3xl leading-snug">
-              Visualizing micro-budgets with low latency
+              Your money, fully in view
             </h2>
           </motion.div>
 
@@ -219,9 +233,15 @@ const BroadsheetCashFlow = () => {
               className="space-y-5 text-sm md:text-base text-muted-foreground font-serif leading-relaxed"
             >
               <p>
-                Cash Flow Tracker provides single-account ledger visualizations to calculate
-                monthly expenditures. Recharts components parse transaction structures into clean area
-                and radial budget graphs instantly, resolving visual load lags.
+                Cash Flow Tracker is a full-stack personal finance application built to
+                give users complete visibility over their financial health. It allows
+                users to log every income and expense, categorize transactions, and
+                monitor their cash position in real time.
+              </p>
+              <p>
+                The dashboard surfaces interactive charts and trend graphs that transform
+                raw transaction data into actionable insights—helping users understand
+                exactly where their money comes from and where it goes.
               </p>
             </motion.div>
             <motion.div
@@ -229,8 +249,14 @@ const BroadsheetCashFlow = () => {
               className="space-y-5 text-sm md:text-base text-muted-foreground font-serif leading-relaxed"
             >
               <p>
-                The database utilizes Firebase Firestore integrations, maintaining instant synchronization
-                hooks to write, read, and delete transaction blocks securely with zero hosting cost.
+                Multi-account support lets users track cash, bank accounts, and digital
+                wallets side by side. Budget alerts send timely notifications before
+                spending limits are breached, keeping finances disciplined.
+              </p>
+              <p>
+                Reports can be exported to CSV or PDF for bookkeeping and tax filing.
+                The fully responsive design ensures a seamless experience on both
+                desktop and mobile devices.
               </p>
             </motion.div>
           </div>

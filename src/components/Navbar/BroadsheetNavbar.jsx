@@ -149,8 +149,6 @@ const BroadsheetNavbar = () => {
                 scale: isHallmark ? 1.02 : 1.2,
                 y: isHallmark ? 0 : 0,
                 boxShadow: isHallmark ? "none" : "0px 10px 20px rgba(0,0,0,0.2)",
-                backgroundColor: isHallmark ? "var(--foreground)" : undefined,
-                color: isHallmark ? "var(--background)" : undefined,
               }}
               transition={{
                 type: "spring",
@@ -158,7 +156,7 @@ const BroadsheetNavbar = () => {
                 damping: isHallmark ? 20 : 10,
               }}
               className={isHallmark
-                ? "aspect-square flex flex-col items-center justify-center text-foreground border border-neutral-300 dark:border-neutral-800 bg-white/30 dark:bg-white/5 rounded-none cursor-none clickable"
+                ? "aspect-square flex flex-col items-center justify-center text-foreground border border-neutral-300 dark:border-neutral-800 bg-white/30 dark:bg-white/5 hover:bg-foreground hover:text-background transition-colors duration-200 rounded-none cursor-none clickable"
                 : `${link.bgColor} aspect-square flex flex-col items-center justify-center text-foreground border-2 border-foreground rounded-none`
               }
             >
