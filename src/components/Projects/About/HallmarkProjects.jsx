@@ -25,7 +25,7 @@ const projectList = [
   {
     title: "Adora Pharmacy Management System",
     category: "Healthcare · Management System",
-    description: "A full-featured pharmacy management system built for PT Adora Medika (2024) — managing prescriptions, drug inventory, staff roles, and financial reporting from a centralized dashboard.",
+    description: "A full-featured pharmacy management system built for PT Adora Cipta Medika (2024) — managing prescriptions, drug inventory, staff roles, and financial reporting from a centralized dashboard.",
     tech: ["Next.js", "Express.js", "Ant Design", "PostgreSQL"],
     img: "/images/Apotek.jpg",
     href: "/projects/adora",

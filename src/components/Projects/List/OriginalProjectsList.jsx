@@ -13,7 +13,7 @@ const projectList = [
   {
     title: "Adora SaaS",
     category: "SaaS ┬À Healthcare ERP",
-    description: "A cloud-native, multi-tenant SaaS pharmacy platform rebuilt with NestJS & Next.js 16 ÔÇö managing prescriptions, drug inventory, staff roles, and branch analytics across multiple tenants.",
+    description: "A cloud-native, multi-tenant SaaS pharmacy platform rebuilt with NestJS & Next.js 16 — managing prescriptions, drug inventory, staff roles, and branch analytics across multiple tenants.",
     tech: ["Next.js 16", "NestJS", "React 19", "Shadcn UI"],
     img: "/images/adora-saas/adora-1.webp",
     imgFit: "contain",
@@ -32,7 +32,7 @@ const projectList = [
   {
     title: "Adora Pharmacy Management System",
     category: "Healthcare ┬À Management System",
-    description: "A full-featured pharmacy management system built for PT Adora Medika (2024) ÔÇö managing prescriptions, drug inventory, staff roles, and financial reporting from a centralized dashboard.",
+    description: "A full-featured pharmacy management system built for PT Adora Cipta Medika (2024) — managing prescriptions, drug inventory, staff roles, and financial reporting from a centralized dashboard.",
     tech: ["Next.js", "Express.js", "Ant Design", "PostgreSQL"],
     img: "/images/Apotek.jpg",
     href: "/projects/adora",

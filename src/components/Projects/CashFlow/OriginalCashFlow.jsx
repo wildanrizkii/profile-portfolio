@@ -19,7 +19,7 @@ import {
   Smartphone,
 } from "lucide-react";
 
-/* ÔöÇÔöÇÔöÇ Animation Variants ÔöÇÔöÇÔöÇ */
+/* ─── Animation Variants ─── */
 const fadeInUp = {
   hidden: { opacity: 0, y: 50 },
   visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
@@ -44,7 +44,7 @@ const navbarFadeDown = {
   },
 };
 
-/* ÔöÇÔöÇÔöÇ Data ÔöÇÔöÇÔöÇ */
+/* ─── Data ─── */
 const meta = [
   { label: "Client", value: "Personal Project" },
   { label: "Project Type", value: "Finance Tracker" },
@@ -103,7 +103,7 @@ const features = [
   {
     icon: <Smartphone className="w-6 h-6" />,
     title: "Mobile Responsive",
-    desc: "Fully responsive design optimized for mobile-first usageÔÇötrack finances anywhere, anytime.",
+    desc: "Fully responsive design optimized for mobile-first usage—track finances anywhere, anytime.",
   },
 ];
 
@@ -114,7 +114,7 @@ const highlights = [
   { num: "CSV/PDF", label: "Export" },
 ];
 
-/* ÔöÇÔöÇÔöÇ Bar chart mock data ÔöÇÔöÇÔöÇ */
+/* ─── Bar chart mock data ─── */
 const mockBars = [
   { month: "Jan", income: 72, expense: 45 },
   { month: "Feb", income: 60, expense: 52 },
@@ -124,7 +124,7 @@ const mockBars = [
   { month: "Jun", income: 68, expense: 48 },
 ];
 
-/* ÔöÇÔöÇÔöÇ Component ÔöÇÔöÇÔöÇ */
+/* ─── Component ─── */
 const CashFlow = () => {
   const router = useRouter();
   const pathname = usePathname();
@@ -151,10 +151,10 @@ const CashFlow = () => {
       </div>
 
       <div className="relative z-10">
-        {/* ÔöÇÔöÇ Navbar ÔöÇÔöÇ */}
+        {/* ── Navbar ── */}
         <Navbar />
 
-        {/* ÔöÇÔöÇ HERO ÔöÇÔöÇ */}
+        {/* ── HERO ── */}
         <motion.section
           className="relative pt-36 sm:pt-44 md:pt-52 pb-20 px-4 md:px-8 max-w-6xl mx-auto"
           initial="hidden"
@@ -194,7 +194,7 @@ const CashFlow = () => {
             className="text-lg md:text-xl text-gray-600 font-medium max-w-2xl leading-relaxed mb-12"
           >
             A personal finance web application that gives you complete visibility
-            over your income and expensesÔÇöwith beautiful analytics, multi-account
+            over your income and expenses—with beautiful analytics, multi-account
             wallets, and smart budget alerts.
           </motion.p>
 
@@ -241,7 +241,7 @@ const CashFlow = () => {
           </motion.div>
         </motion.section>
 
-        {/* ÔöÇÔöÇ OVERVIEW ÔöÇÔöÇ */}
+        {/* ── OVERVIEW ── */}
         <motion.section
           className="w-full max-w-6xl mx-auto px-4 md:px-8 pb-24"
           initial="hidden"
@@ -271,7 +271,7 @@ const CashFlow = () => {
               </p>
               <p>
                 The dashboard surfaces interactive charts and trend graphs that transform
-                raw transaction data into actionable insightsÔÇöhelping users understand
+                raw transaction data into actionable insights—helping users understand
                 exactly where their money comes from and where it goes.
               </p>
             </motion.div>
@@ -293,7 +293,7 @@ const CashFlow = () => {
           </div>
         </motion.section>
 
-        {/* ÔöÇÔöÇ HIGHLIGHTS ÔöÇÔöÇ */}
+        {/* ── HIGHLIGHTS ── */}
         <motion.section
           className="w-full max-w-6xl mx-auto px-4 md:px-8 pb-24"
           initial="hidden"
@@ -318,7 +318,7 @@ const CashFlow = () => {
           </div>
         </motion.section>
 
-        {/* ÔöÇÔöÇ FEATURES ÔöÇÔöÇ */}
+        {/* ── FEATURES ── */}
         <motion.section
           className="w-full max-w-6xl mx-auto px-4 md:px-8 pb-24"
           initial="hidden"
@@ -355,7 +355,7 @@ const CashFlow = () => {
           </div>
         </motion.section>
 
-        {/* ÔöÇÔöÇ TECH STACK ÔöÇÔöÇ */}
+        {/* ── TECH STACK ── */}
         <motion.section
           className="w-full max-w-6xl mx-auto px-4 md:px-8 pb-24"
           initial="hidden"
@@ -397,7 +397,7 @@ const CashFlow = () => {
           </div>
         </motion.section>
 
-        {/* ÔöÇÔöÇ CTA ÔöÇÔöÇ */}
+        {/* ── CTA ── */}
         <motion.section
           className="w-full max-w-6xl mx-auto px-4 md:px-8 pb-20"
           initial="hidden"
@@ -437,7 +437,7 @@ const CashFlow = () => {
           </motion.div>
         </motion.section>
 
-        {/* ÔöÇÔöÇ Footer ÔöÇÔöÇ */}
+        {/* ── Footer ── */}
         <motion.footer
           className="w-full py-8 bg-transparent text-center text-gray-500 text-sm font-medium"
           initial="hidden"

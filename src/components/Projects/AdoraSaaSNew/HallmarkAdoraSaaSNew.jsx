@@ -48,7 +48,7 @@ const navbarFadeDown = {
 
 /* ─── Data ─── */
 const meta = [
-  { label: "Client", value: "PT Adora Medika" },
+  { label: "Client", value: "PT Adora Cipta Medika" },
   { label: "Project Type", value: "SaaS Platform" },
   { label: "Role", value: "Full Stack Developer" },
   { label: "Year", value: "2026" },
@@ -220,7 +220,7 @@ const AdoraSaaSNew = () => {
             className="text-lg md:text-xl text-muted-foreground font-normal max-w-2xl leading-relaxed mb-12"
           >
             A cloud-native, multi-tenant SaaS pharmacy platform—rebuilt from the
-            ground up using NestJS, Next.js 16, and React 19—enabling PT Adora Medika
+            ground up using NestJS, Next.js 16, and React 19—enabling PT Adora Cipta Medika
             to manage prescriptions, inventory, staff, and analytics across multiple
             branches from a single unified dashboard.
           </motion.p>
@@ -355,7 +355,7 @@ const AdoraSaaSNew = () => {
               <p>
                 Each pharmacy client operates within a fully isolated tenant
                 environment, sharing infrastructure while maintaining strict data
-                boundaries—enabling true SaaS scalability for PT Adora Medika's
+                boundaries—enabling true SaaS scalability for PT Adora Cipta Medika's
                 growing pharmacy network.
               </p>
             </motion.div>

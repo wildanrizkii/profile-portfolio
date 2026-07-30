@@ -19,7 +19,7 @@ import {
   Bell,
 } from "lucide-react";
 
-/* ÔöÇÔöÇÔöÇ Animation Variants ÔöÇÔöÇÔöÇ */
+/* ─── Animation Variants ─── */
 const fadeInUp = {
   hidden: { opacity: 0, y: 50 },
   visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
@@ -44,9 +44,9 @@ const navbarFadeDown = {
   },
 };
 
-/* ÔöÇÔöÇÔöÇ Data ÔöÇÔöÇÔöÇ */
+/* ─── Data ─── */
 const meta = [
-  { label: "Client", value: "PT Adora Medika" },
+  { label: "Client", value: "PT Adora Cipta Medika" },
   { label: "Project Type", value: "Pharmacy Management System" },
   { label: "Role", value: "Full Stack Developer" },
   { label: "Year", value: "2024" },
@@ -73,7 +73,7 @@ const features = [
   {
     icon: <Users className="w-6 h-6" />,
     title: "Multi-Tenant Architecture",
-    desc: "Each pharmacy branch operates in an isolated tenant environment with shared infrastructureÔÇötrue SaaS scalability.",
+    desc: "Each pharmacy branch operates in an isolated tenant environment with shared infrastructure—true SaaS scalability.",
   },
   {
     icon: <BarChart3 className="w-6 h-6" />,
@@ -114,7 +114,7 @@ const highlights = [
   { num: "Cloud", label: "Native" },
 ];
 
-/* ÔöÇÔöÇÔöÇ Component ÔöÇÔöÇÔöÇ */
+/* ─── Component ─── */
 const AdoraSaaS = () => {
   const router = useRouter();
   const pathname = usePathname();
@@ -141,10 +141,10 @@ const AdoraSaaS = () => {
       </div>
 
       <div className="relative z-10">
-        {/* ÔöÇÔöÇ Navbar ÔöÇÔöÇ */}
+        {/* ── Navbar ── */}
         <Navbar />
 
-        {/* ÔöÇÔöÇ HERO ÔöÇÔöÇ */}
+        {/* ── HERO ── */}
         <motion.section
           className="relative pt-36 sm:pt-44 md:pt-52 pb-20 px-4 md:px-8 max-w-6xl mx-auto"
           initial="hidden"
@@ -183,7 +183,7 @@ const AdoraSaaS = () => {
             variants={fadeInUp}
             className="text-lg md:text-xl text-gray-600 font-medium max-w-2xl leading-relaxed mb-12"
           >
-            A full-featured pharmacy management system built for PT Adora MedikaÔÇö
+            A full-featured pharmacy management system built for PT Adora Cipta Medika—
             enabling pharmacies to manage prescriptions, drug inventory, staff roles,
             and financial reporting from a single centralized dashboard.
           </motion.p>
@@ -204,7 +204,7 @@ const AdoraSaaS = () => {
           </motion.div>
         </motion.section>
 
-        {/* ÔöÇÔöÇ SCREENSHOT SHOWCASE ÔöÇÔöÇ */}
+        {/* ── SCREENSHOT SHOWCASE ── */}
         <motion.section
           className="w-full max-w-6xl mx-auto px-4 md:px-8 pb-24"
           initial="hidden"
@@ -286,7 +286,7 @@ const AdoraSaaS = () => {
           </div>
         </motion.section>
 
-        {/* ÔöÇÔöÇ OVERVIEW ÔöÇÔöÇ */}
+        {/* ── OVERVIEW ── */}
         <motion.section
           className="w-full max-w-6xl mx-auto px-4 md:px-8 pb-24"
           initial="hidden"
@@ -299,7 +299,7 @@ const AdoraSaaS = () => {
               Overview
             </p>
             <h2 className="text-3xl md:text-5xl font-bold text-zinc-900 max-w-3xl leading-snug">
-              Digitizing pharmacy operations for PT Adora Medika
+              Digitizing pharmacy operations for PT Adora Cipta Medika
             </h2>
           </motion.div>
 
@@ -310,12 +310,12 @@ const AdoraSaaS = () => {
             >
               <p>
                 Adora Pharmacy Management System is the foundational internal system
-                built for PT Adora Medika in 2024. Developed as a full-stack web
+                built for PT Adora Cipta Medika in 2024. Developed as a full-stack web
                 application using Next.js and Express.js, it serves as the centralized
                 digital backbone for pharmacy operations across multiple branches.
               </p>
               <p>
-                The system handles the complete lifecycle of pharmacy operationsÔÇöfrom
+                The system handles the complete lifecycle of pharmacy operations—from
                 drug procurement and inventory management to prescription processing,
                 cashier transactions, and financial reporting.
               </p>
@@ -331,14 +331,14 @@ const AdoraSaaS = () => {
               </p>
               <p>
                 This system later served as the foundation and inspiration for the
-                evolution into a cloud-native, multi-tenant SaaS architectureÔÇöthe
+                evolution into a cloud-native, multi-tenant SaaS architecture—the
                 Adora SaaS platform launched in 2026.
               </p>
             </motion.div>
           </div>
         </motion.section>
 
-        {/* ÔöÇÔöÇ HIGHLIGHTS ÔöÇÔöÇ */}
+        {/* ── HIGHLIGHTS ── */}
         <motion.section
           className="w-full max-w-6xl mx-auto px-4 md:px-8 pb-24"
           initial="hidden"
@@ -363,7 +363,7 @@ const AdoraSaaS = () => {
           </div>
         </motion.section>
 
-        {/* ÔöÇÔöÇ FEATURES ÔöÇÔöÇ */}
+        {/* ── FEATURES ── */}
         <motion.section
           className="w-full max-w-6xl mx-auto px-4 md:px-8 pb-24"
           initial="hidden"
@@ -400,7 +400,7 @@ const AdoraSaaS = () => {
           </div>
         </motion.section>
 
-        {/* ÔöÇÔöÇ TECH STACK ÔöÇÔöÇ */}
+        {/* ── TECH STACK ── */}
         <motion.section
           className="w-full max-w-6xl mx-auto px-4 md:px-8 pb-24"
           initial="hidden"
@@ -442,7 +442,7 @@ const AdoraSaaS = () => {
           </div>
         </motion.section>
 
-        {/* ÔöÇÔöÇ CTA ÔöÇÔöÇ */}
+        {/* ── CTA ── */}
         <motion.section
           className="w-full max-w-6xl mx-auto px-4 md:px-8 pb-20"
           initial="hidden"
@@ -482,7 +482,7 @@ const AdoraSaaS = () => {
           </motion.div>
         </motion.section>
 
-        {/* ÔöÇÔöÇ Footer ÔöÇÔöÇ */}
+        {/* ── Footer ── */}
         <motion.footer
           className="w-full py-8 bg-transparent text-center text-gray-500 text-sm font-medium"
           initial="hidden"

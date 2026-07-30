@@ -117,7 +117,7 @@ const SmoothScrollHero = () => {
               </div>
               <div className="pt-2.5 space-y-0.5">
                 <span className="text-[10px] sm:text-xs font-bold text-neutral-500 uppercase tracking-wide">
-                  {cert.issuer} ÔÇó {cert.year}
+                  {cert.issuer} • {cert.year}
                 </span>
                 <h4 className="text-xs sm:text-sm font-bold text-foreground leading-tight">
                   {cert.title}

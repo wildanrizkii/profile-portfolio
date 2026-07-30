@@ -21,7 +21,7 @@ import {
   Zap,
 } from "lucide-react";
 
-/* ÔöÇÔöÇÔöÇ Animation Variants ÔöÇÔöÇÔöÇ */
+/* ─── Animation Variants ─── */
 const fadeInUp = {
   hidden: { opacity: 0, y: 50 },
   visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
@@ -46,9 +46,9 @@ const navbarFadeDown = {
   },
 };
 
-/* ÔöÇÔöÇÔöÇ Data ÔöÇÔöÇÔöÇ */
+/* ─── Data ─── */
 const meta = [
-  { label: "Client", value: "PT Adora Medika" },
+  { label: "Client", value: "PT Adora Cipta Medika" },
   { label: "Project Type", value: "SaaS Platform" },
   { label: "Role", value: "Full Stack Developer" },
   { label: "Year", value: "2026" },
@@ -85,12 +85,12 @@ const features = [
   {
     icon: <Layers className="w-6 h-6" />,
     title: "Multi-Tenant SaaS Architecture",
-    desc: "Each pharmacy client operates in a fully isolated tenant environment with dedicated data scopesÔÇötrue enterprise SaaS scalability built on NestJS.",
+    desc: "Each pharmacy client operates in a fully isolated tenant environment with dedicated data scopes—true enterprise SaaS scalability built on NestJS.",
   },
   {
     icon: <ClipboardList className="w-6 h-6" />,
     title: "Prescription Management",
-    desc: "Digital prescription processing with doctor verification, patient records, and dispensing history logsÔÇöfully integrated into the cashier workflow.",
+    desc: "Digital prescription processing with doctor verification, patient records, and dispensing history logs—fully integrated into the cashier workflow.",
   },
   {
     icon: <Pill className="w-6 h-6" />,
@@ -105,7 +105,7 @@ const features = [
   {
     icon: <ShieldCheck className="w-6 h-6" />,
     title: "Role-Based Access Control",
-    desc: "Granular permission system for pharmacists, cashiers, managers, and super-admins with full audit trailÔÇöpowered by Passport.js and JWT.",
+    desc: "Granular permission system for pharmacists, cashiers, managers, and super-admins with full audit trail—powered by Passport.js and JWT.",
   },
   {
     icon: <Bell className="w-6 h-6" />,
@@ -136,7 +136,7 @@ const highlights = [
   { num: "React 19", label: "Frontend" },
 ];
 
-/* ÔöÇÔöÇÔöÇ Mock dashboard data ÔöÇÔöÇÔöÇ */
+/* ─── Mock dashboard data ─── */
 const mockStats = [
   { label: "Today's Revenue", value: "Rp 6.870.000", sub: "+14% vs yesterday" },
   { label: "Prescriptions", value: "83", sub: "Processed today" },
@@ -151,7 +151,7 @@ const mockPrescriptions = [
   { name: "Vitamin C 1000mg", qty: "1├ù1", status: "Dispensed", statusColor: "text-emerald-400" },
 ];
 
-/* ÔöÇÔöÇÔöÇ Component ÔöÇÔöÇÔöÇ */
+/* ─── Component ─── */
 const AdoraSaaSNew = () => {
   const router = useRouter();
   const pathname = usePathname();
@@ -178,10 +178,10 @@ const AdoraSaaSNew = () => {
       </div>
 
       <div className="relative z-10">
-        {/* ÔöÇÔöÇ Navbar ÔöÇÔöÇ */}
+        {/* ── Navbar ── */}
         <Navbar />
 
-        {/* ÔöÇÔöÇ HERO ÔöÇÔöÇ */}
+        {/* ── HERO ── */}
         <motion.section
           className="relative pt-36 sm:pt-44 md:pt-52 pb-20 px-4 md:px-8 max-w-6xl mx-auto"
           initial="hidden"
@@ -220,8 +220,8 @@ const AdoraSaaSNew = () => {
             variants={fadeInUp}
             className="text-lg md:text-xl text-gray-600 font-medium max-w-2xl leading-relaxed mb-12"
           >
-            A cloud-native, multi-tenant SaaS pharmacy platformÔÇörebuilt from the
-            ground up using NestJS, Next.js 16, and React 19ÔÇöenabling PT Adora Medika
+            A cloud-native, multi-tenant SaaS pharmacy platform—rebuilt from the
+            ground up using NestJS, Next.js 16, and React 19—enabling PT Adora Cipta Medika
             to manage prescriptions, inventory, staff, and analytics across multiple
             branches from a single unified dashboard.
           </motion.p>
@@ -242,7 +242,7 @@ const AdoraSaaSNew = () => {
           </motion.div>
         </motion.section>
 
-        {/* ÔöÇÔöÇ SCREENSHOT SHOWCASE ÔöÇÔöÇ */}
+        {/* ── SCREENSHOT SHOWCASE ── */}
         <motion.section
           className="w-full max-w-6xl mx-auto px-4 md:px-8 pb-24"
           initial="hidden"
@@ -324,7 +324,7 @@ const AdoraSaaSNew = () => {
           </div>
         </motion.section>
 
-        {/* ÔöÇÔöÇ OVERVIEW ÔöÇÔöÇ */}
+        {/* ── OVERVIEW ── */}
         <motion.section
           className="w-full max-w-6xl mx-auto px-4 md:px-8 pb-24"
           initial="hidden"
@@ -337,7 +337,7 @@ const AdoraSaaSNew = () => {
               Overview
             </p>
             <h2 className="text-3xl md:text-5xl font-bold text-zinc-900 max-w-3xl leading-snug">
-              A SaaS evolutionÔÇörebuilt with enterprise-grade architecture
+              A SaaS evolution—rebuilt with enterprise-grade architecture
             </h2>
           </motion.div>
 
@@ -348,7 +348,7 @@ const AdoraSaaSNew = () => {
             >
               <p>
                 Adora SaaS is the next evolution of the Adora Pharmacy Management
-                SystemÔÇörebuilt from the ground up as a fully cloud-native,
+                System—rebuilt from the ground up as a fully cloud-native,
                 multi-tenant SaaS platform. The backend was migrated from Express.js
                 to NestJS for a modular, scalable architecture, while the frontend
                 was upgraded to Next.js 16 with React 19.
@@ -356,7 +356,7 @@ const AdoraSaaSNew = () => {
               <p>
                 Each pharmacy client operates within a fully isolated tenant
                 environment, sharing infrastructure while maintaining strict data
-                boundariesÔÇöenabling true SaaS scalability for PT Adora Medika's
+                boundaries—enabling true SaaS scalability for PT Adora Cipta Medika's
                 growing pharmacy network.
               </p>
             </motion.div>
@@ -367,20 +367,20 @@ const AdoraSaaSNew = () => {
               <p>
                 The API layer is built with NestJS, leveraging Passport.js for
                 authentication, JWT for stateless session management, and
-                class-validator with Zod for strict request validationÔÇöall
+                class-validator with Zod for strict request validation—all
                 documented via Swagger.
               </p>
               <p>
                 The frontend leverages TanStack Query for performant server-state
                 management, Shadcn UI and Radix UI for accessible components, and
-                Recharts for rich analytics dashboardsÔÇödelivering a polished,
+                Recharts for rich analytics dashboards—delivering a polished,
                 enterprise-grade user experience.
               </p>
             </motion.div>
           </div>
         </motion.section>
 
-        {/* ÔöÇÔöÇ HIGHLIGHTS ÔöÇÔöÇ */}
+        {/* ── HIGHLIGHTS ── */}
         <motion.section
           className="w-full max-w-6xl mx-auto px-4 md:px-8 pb-24"
           initial="hidden"
@@ -405,7 +405,7 @@ const AdoraSaaSNew = () => {
           </div>
         </motion.section>
 
-        {/* ÔöÇÔöÇ FEATURES ÔöÇÔöÇ */}
+        {/* ── FEATURES ── */}
         <motion.section
           className="w-full max-w-6xl mx-auto px-4 md:px-8 pb-24"
           initial="hidden"
@@ -442,7 +442,7 @@ const AdoraSaaSNew = () => {
           </div>
         </motion.section>
 
-        {/* ÔöÇÔöÇ TECH STACK ÔöÇÔöÇ */}
+        {/* ── TECH STACK ── */}
         <motion.section
           className="w-full max-w-6xl mx-auto px-4 md:px-8 pb-24"
           initial="hidden"
@@ -484,7 +484,7 @@ const AdoraSaaSNew = () => {
           </div>
         </motion.section>
 
-        {/* ÔöÇÔöÇ CTA ÔöÇÔöÇ */}
+        {/* ── CTA ── */}
         <motion.section
           className="w-full max-w-6xl mx-auto px-4 md:px-8 pb-20"
           initial="hidden"
@@ -524,7 +524,7 @@ const AdoraSaaSNew = () => {
           </motion.div>
         </motion.section>
 
-        {/* ÔöÇÔöÇ Footer ÔöÇÔöÇ */}
+        {/* ── Footer ── */}
         <motion.footer
           className="w-full py-8 bg-transparent text-center text-gray-500 text-sm font-medium"
           initial="hidden"

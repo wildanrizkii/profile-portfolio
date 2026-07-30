@@ -19,7 +19,7 @@ import {
   LayoutDashboard,
 } from "lucide-react";
 
-/* ÔöÇÔöÇÔöÇ Animation Variants ÔöÇÔöÇÔöÇ */
+/* ─── Animation Variants ─── */
 const fadeInUp = {
   hidden: { opacity: 0, y: 50 },
   visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
@@ -40,7 +40,7 @@ const navbarFadeDown = {
   visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut", delay: 0.3 } },
 };
 
-/* ÔöÇÔöÇÔöÇ Data ÔöÇÔöÇÔöÇ */
+/* ─── Data ─── */
 const meta = [
   { label: "Company", value: "PT XXX", note: "* Company requested anonymity" },
   { label: "Project Type", value: "Sales Support System" },
@@ -59,7 +59,7 @@ const features = [
   {
     icon: <PackageSearch className="w-6 h-6" />,
     title: "Part Hierarchy Explorer",
-    desc: "Visualize parentÔÇôchild relationships between spare parts with intuitive nested tree navigation.",
+    desc: "Visualize parent–child relationships between spare parts with intuitive nested tree navigation.",
   },
   {
     icon: <Search className="w-6 h-6" />,
@@ -95,7 +95,7 @@ const highlights = [
   { num: "Excel", label: "Export Ready" },
 ];
 
-/* ÔöÇÔöÇÔöÇ Component ÔöÇÔöÇÔöÇ */
+/* ─── Component ─── */
 const Sparepart = () => {
   const router = useRouter();
   const pathname = usePathname();
@@ -122,10 +122,10 @@ const Sparepart = () => {
       </div>
 
       <div className="relative z-10">
-        {/* ÔöÇÔöÇ Navbar ÔöÇÔöÇ */}
+        {/* ── Navbar ── */}
         <Navbar />
 
-        {/* ÔöÇÔöÇ HERO ÔöÇÔöÇ */}
+        {/* ── HERO ── */}
         <motion.section
           className="relative pt-36 sm:pt-44 md:pt-52 pb-20 px-4 md:px-8 max-w-6xl mx-auto"
           initial="hidden"
@@ -165,7 +165,7 @@ const Sparepart = () => {
             className="text-lg md:text-xl text-gray-600 font-medium max-w-2xl leading-relaxed mb-12"
           >
             A web-based sales support platform that empowers representatives to
-            present comprehensive spare part catalogsÔÇöwith hierarchy exploration,
+            present comprehensive spare part catalogs—with hierarchy exploration,
             smart search, and one-click Excel export.
           </motion.p>
 
@@ -188,7 +188,7 @@ const Sparepart = () => {
           </motion.div>
         </motion.section>
 
-        {/* ÔöÇÔöÇ HERO VISUAL BANNER ÔöÇÔöÇ */}
+        {/* ── HERO VISUAL BANNER ── */}
         <motion.section
           className="w-full max-w-6xl mx-auto px-4 md:px-8 pb-24"
           initial="hidden"
@@ -237,7 +237,7 @@ const Sparepart = () => {
           </div>
         </motion.section>
 
-        {/* ÔöÇÔöÇ OVERVIEW ÔöÇÔöÇ */}
+        {/* ── OVERVIEW ── */}
         <motion.section
           className="w-full max-w-6xl mx-auto px-4 md:px-8 pb-24"
           initial="hidden"
@@ -264,7 +264,7 @@ const Sparepart = () => {
               </p>
               <p>
                 Users can explore a rich catalog of spare parts, navigate the
-                parentÔÇôchild hierarchy between components, and instantly access
+                parent–child hierarchy between components, and instantly access
                 detailed specs such as supplier information, material grades,
                 manufacturer details, and unique serial identifiers.
               </p>
@@ -278,7 +278,7 @@ const Sparepart = () => {
               </p>
               <p>
                 A robust reporting feature enables users to generate organized
-                Excel files containing lists of selected parts for orderingÔÇö
+                Excel files containing lists of selected parts for ordering—
                 streamlining documentation and supporting more systematic spare
                 part management.
               </p>
@@ -286,7 +286,7 @@ const Sparepart = () => {
           </div>
         </motion.section>
 
-        {/* ÔöÇÔöÇ HIGHLIGHTS ÔöÇÔöÇ */}
+        {/* ── HIGHLIGHTS ── */}
         <motion.section
           className="w-full max-w-6xl mx-auto px-4 md:px-8 pb-24"
           initial="hidden"
@@ -314,7 +314,7 @@ const Sparepart = () => {
           </motion.div>
         </motion.section>
 
-        {/* ÔöÇÔöÇ FEATURES ÔöÇÔöÇ */}
+        {/* ── FEATURES ── */}
         <motion.section
           className="w-full max-w-6xl mx-auto px-4 md:px-8 pb-24"
           initial="hidden"
@@ -351,7 +351,7 @@ const Sparepart = () => {
           </div>
         </motion.section>
 
-        {/* ÔöÇÔöÇ TECH STACK ÔöÇÔöÇ */}
+        {/* ── TECH STACK ── */}
         <motion.section
           className="w-full max-w-6xl mx-auto px-4 md:px-8 pb-24"
           initial="hidden"
@@ -393,7 +393,7 @@ const Sparepart = () => {
           </div>
         </motion.section>
 
-        {/* ÔöÇÔöÇ CTA ÔöÇÔöÇ */}
+        {/* ── CTA ── */}
         <motion.section
           className="w-full max-w-6xl mx-auto px-4 md:px-8 pb-20"
           initial="hidden"
@@ -436,7 +436,7 @@ const Sparepart = () => {
           </motion.div>
         </motion.section>
 
-        {/* ÔöÇÔöÇ Footer ÔöÇÔöÇ */}
+        {/* ── Footer ── */}
         <motion.footer
           className="w-full py-8 bg-transparent text-center text-gray-500 text-sm font-medium"
           initial="hidden"

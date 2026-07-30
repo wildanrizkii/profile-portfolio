@@ -46,7 +46,7 @@ const navbarFadeDown = {
 
 /* ─── Data ─── */
 const meta = [
-  { label: "Client", value: "PT Adora Medika" },
+  { label: "Client", value: "PT Adora Cipta Medika" },
   { label: "Project Type", value: "Pharmacy Management System" },
   { label: "Role", value: "Full Stack Developer" },
   { label: "Year", value: "2024" },
@@ -182,7 +182,7 @@ const AdoraSaaS = () => {
             variants={fadeInUp}
             className="text-lg md:text-xl text-muted-foreground font-normal max-w-2xl leading-relaxed mb-12"
           >
-            A full-featured pharmacy management system built for PT Adora Medika—
+            A full-featured pharmacy management system built for PT Adora Cipta Medika—
             enabling pharmacies to manage prescriptions, drug inventory, staff roles,
             and financial reporting from a single centralized dashboard.
           </motion.p>
@@ -298,7 +298,7 @@ const AdoraSaaS = () => {
               Overview
             </p>
             <h2 className="text-3xl md:text-5xl font-serif font-normal text-foreground max-w-3xl leading-snug">
-              Digitizing pharmacy operations for PT Adora Medika
+              Digitizing pharmacy operations for PT Adora Cipta Medika
             </h2>
           </motion.div>
 
@@ -309,7 +309,7 @@ const AdoraSaaS = () => {
             >
               <p>
                 Adora Pharmacy Management System is the foundational internal system
-                built for PT Adora Medika in 2024. Developed as a full-stack web
+                built for PT Adora Cipta Medika in 2024. Developed as a full-stack web
                 application using Next.js and Express.js, it serves as the centralized
                 digital backbone for pharmacy operations across multiple branches.
               </p>
